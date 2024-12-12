@@ -22,7 +22,7 @@
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form>
+            <form method="post" action="back/properties/create-property.php">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
