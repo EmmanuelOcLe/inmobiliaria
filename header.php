@@ -3,13 +3,13 @@
     <div class="nav-button">
 
         <nav class="navbar">
-            <a href="/">Inicio</a>
-            <a href="">Sobre Nosotros</a>
-            <a href="">Servicios</a>
-            <a href="" class="">Politicas</a>
+            <a href="index.php">Inicio</a>
+            <a href="about.php">Sobre Nosotros</a>
+            <a href="arrendamiento.php">Servicios</a>
+            <a href="politicas.php" class="">Politicas</a>
         </nav>
 
-        <button class="header-button" onclick="window.location.href='politicas.html'">Administración</button>
+        <button class="header-button" onclick="window.location.href='login.php'">Administración</button>
     </div>   
 </header>
     

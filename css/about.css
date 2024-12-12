@@ -3,7 +3,7 @@ body{
     font-family: 'Inter';
 }
 .section-we {
-    background-image: linear-gradient(rgba(151, 151, 151, 0.61), rgba(148, 145, 145, 0.534)), url('../assets/150751.jpg');
+    background-image: url('../assets/150751.jpg');
     background-size: cover;
     background-position: center;
     display: flex;

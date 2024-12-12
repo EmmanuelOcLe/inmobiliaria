@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
-    <!-- <link rel="stylesheet" href="css/about.css"> -->
-
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Para la fuente-->
     <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
@@ -19,7 +18,7 @@
         <main>
             <section class="section-we">
                 <h1>Nosotros</h1>
-                <p>Es una empresa dedicada a conectar a usuarios o compradores con hermosas casas en Colombia. Con un equipo apasionado por la hospitalidad y la experiencia de nuestros clientes, te damos la bienvenida a nuestro espacio para ofrecer experiencias inolvidables a nuestros clientes. Cada propiedad en nuestro catálogo ha sido cuidadosamente seleccionada para garantizar comodidad, seguridad y un entorno natural mejor según lo requiera el cliente. En IE tenemos el lugar perfecto para ti.</p>
+                <p>Somos empresa dedicada a conectar a usuarios o compradores con hermosas casas en Colombia. Con un equipo apasionado por la hospitalidad y la experiencia de nuestros clientes, te damos la bienvenida a nuestro espacio para ofrecer experiencias inolvidables a nuestros clientes. Cada propiedad en nuestro catálogo ha sido cuidadosamente seleccionada para garantizar comodidad, seguridad y un entorno natural mejor según lo requiera el cliente. En [nombre empresa] tenemos el lugar perfecto para ti.</p>
                 <p>¡Explora nuestras propiedades y descubre tu próximo destino de ensueño!</p>
             </section>
         
