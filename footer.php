@@ -11,15 +11,15 @@
         
         <ul class="nav__ul nav__ul--extra">
         <li>
-            <a href="#">Inicio</a>
+            <a href="index.php">Inicio</a>
         </li>
         
         <li>
-            <a href="#">Sobre Nosotros</a>
+            <a href="about.php">Sobre Nosotros</a>
         </li>
         
         <li>
-            <a href="#">Servicios</a>
+            <a href="arrendamiento.php">Servicios</a>
         </li>
         
         </ul>
