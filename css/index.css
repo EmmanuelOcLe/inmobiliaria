@@ -3,6 +3,7 @@ img{
   user-select: none;
   pointer-events: none;
 }
+
 .header-tag{
   position: relative;
   color: #fff;
@@ -22,6 +23,7 @@ img{
   padding: 1em 2em;
   background: linear-gradient(to right, #111, #00000055);
 }
+
 .header-logo{
   user-select: none;
   font-size: 2rem;
