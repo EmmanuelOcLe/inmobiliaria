@@ -1,0 +1,69 @@
+header{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--second-color);
+    color: white;
+    position: relative; 
+}
+body{
+    background-color: white;
+    background-color: var(--body-color);
+    
+}
+/*main{
+    height: 90vh;
+}*/
+.logo { 
+    font-size: 2.5em; 
+    font-family: 'Kelly Slab';
+    margin-left: 20px;
+}
+.navbar { 
+    gap: 30px; 
+}
+.nav-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter';
+}
+.navbar a { 
+    color: white; 
+    text-decoration: none; 
+    padding: 5px 25px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+.navbar a:hover { 
+    background-color: #555; 
+}
+.header-button { 
+    background-color: var(--color-tarjets); 
+    color: black; 
+    font-weight: bold;
+    padding: 10px 28px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 0.9em;
+    transition: background-color 0.3s ease; 
+}
+.header-button:hover { 
+    background-color: #dfdfdf; 
+}
+.header-button-red{
+    background-color: var(--color-tarjets); 
+    color: red; 
+    font-weight: bold;
+    padding: 10px 28px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 0.9em;
+    transition: background-color 0.3s ease; 
+}
+.header-button-red:hover { 
+    background-color: rgb(151, 3, 3); 
+}
