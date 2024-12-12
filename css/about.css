@@ -3,7 +3,8 @@ body{
     font-family: 'Inter';
 }
 .section-we {
-    background-image: url('../assets/150751.jpg');
+    background-image: linear-gradient(rgba(163, 162, 162, 0.5), rgba(87, 87, 87, 0.5)), url('../assets/150751.jpg'); /* Ajusta la ruta */
+    /* background-image: url('../assets/150751.jpg'); */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -25,7 +26,7 @@ body{
     max-width: 800px;
     line-height: 1.6;
     margin-bottom: 2rem;
-    color: #000;
+    color: #fff;
     font-weight: 600;
 }
 

@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/click-prop.css">
+    <link rel="stylesheet" href="css/click-prop.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>Propiedades</title>
 </head>
 <body>
     
     <div class="contenedor-todo">
-        <?php include('header.php'); ?>
+        <?php include('header2.php'); ?>
 
         <main class="main">
             <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>

@@ -1,5 +1,7 @@
 <header>
-    <div class="logo">IE</div>
+    <div class="logo">
+        <a href="index.php">IE</a>
+    </div>
     <div class="nav-button">
 
         <nav class="navbar">

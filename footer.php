@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer__addr">
-    <h1 ><a class="footer__logo" href="">IE</a></h1>
+    <h1 ><a class="footer__logo" href="index.php">IE</a></h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero fuga voluptatibus illum ea aperiam obcaecati excepturi quo nisi optio! Minus odit mollitia esse similique unde, voluptates impedit! Dolores, libero!</p>
     </div>
     
