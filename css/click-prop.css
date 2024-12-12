@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-logout {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 5rem;
+    padding: 2rem;
+    background: #f3f4f6;
+    min-height: calc(100vh - 5rem);
+}
+
+.welcome {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.welcome-name {
+    color: #1e40af;
+}
+
+.property-card {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-title {
+    font-size: 1.25rem;
+    color: #374151;
+}
+
+.property-price {
+    font-size: 1.5rem;
+    color: #10b981;
+    font-weight: bold;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icon-edit {
+    background: #3b82f6;
+    color: white;
+}
+
+.icon-edit::before {
+    content: "✎";
+}
+
+.icon-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.icon-delete::before {
+    content: "×";
+}
+
+.gallery {
+    position: relative;
+    height: 400px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.gallery-prev {
+    left: 1rem;
+}
+
+.gallery-next {
+    right: 1rem;
+}
+
+.property-details {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+}
+
+.detail-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 50%;
+}
+
+.icon-location::before { content: "📍"; }
+.icon-bed::before { content: "🛏"; }
+.icon-bath::before { content: "🚿"; }
+.icon-area::before { content: "📐"; }
+.icon-parking::before { content: "🅿"; }
