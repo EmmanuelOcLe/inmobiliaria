@@ -3,9 +3,9 @@
     <div class="nav-button">
 
         <nav class="navbar">
-            <a href="/">Inicio</a>
-            <a href="">Sobre Nosotros</a>
-            <a href="">Servicios</a>
+            <a href="index.php">Inicio</a>
+            <a href="about.php">Sobre Nosotros</a>
+            <a href="arrendamiento.php">Servicios</a>
             <a href="" class="">Politicas</a>
         </nav>
 

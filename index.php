@@ -27,10 +27,10 @@
           </a>
           <div class="header-options-container">
             <a href="/index.php" class="header-option">Inicio</a>
-            <a href="#" class="header-option">Sobre nosotros</a>
-            <a href="#" class="header-option">Servicios</a>
+            <a href="about.php" class="header-option">Sobre nosotros</a>
+            <a href="arrendamiento.php" class="header-option">Servicios</a>
             <a href="#" class="header-option">Politicas</a>
-            <a href="#" class="header-option">Administración</a>
+            <a href="login.php" class="header-option">Administración</a>
           </div>
         </nav>
         <div class="header-text">
@@ -147,5 +147,6 @@
     <?php include('footer.php'); ?>
 
   </div>
+  <script src="scripts/index.js"></script>
 </body>
 </html>
