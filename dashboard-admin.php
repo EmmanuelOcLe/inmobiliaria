@@ -20,7 +20,7 @@
               </div>
               <div class="report-buttons">
                 <button class="report-btn primary">Generar Reporte</button>
-                <button class="report-btn secondary">Crear Inmueble +</button>
+                <button onclick="window.location.href='crear_propiedad.html';"  class="report-btn secondary">Crear Inmueble +</button>
               </div>
             </header>
     
@@ -68,7 +68,7 @@
       // Inicializar la página
       document.addEventListener('DOMContentLoaded', () => {
           renderProperties();
-
+/*
           // Agregar event listeners para los botones
           document.querySelectorAll('.report-btn').forEach(btn => {
               btn.addEventListener('click', () => {
@@ -78,7 +78,7 @@
 
           document.querySelector('.logout-btn').addEventListener('click', () => {
               alert('Cerrando sesión...');
-          });
+          });*/
       });
     </script>
 
