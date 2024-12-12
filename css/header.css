@@ -20,6 +20,9 @@ body{
     font-family: 'Kelly Slab';
     margin-left: 20px;
 }
+.logo a{
+    color: #fff;
+}
 .navbar { 
     gap: 30px; 
 }
