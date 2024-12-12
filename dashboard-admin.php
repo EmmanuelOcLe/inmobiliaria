@@ -6,31 +6,35 @@
     <title>Inmobiliaria Emmanuel</title>
     <link rel="stylesheet" href="css/dashboard-admin.css" />
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="icon" href="assets/favicon.ico">
   </head>
   <body>
 
     <div class="contenedor-todo">
-        <?php include('header.php'); ?>
+        <?php include('header2.php'); ?>
 
         <main class="container">
           <div class="container-2">
-            <header class="welcome-section">
+            <div class="welcome-section">
               <div class="welcome-text">
                 <h1>Bienvenido <span class="name">Emmanuel</span></h1>
               </div>
               <div class="report-buttons">
                 <button class="report-btn primary">Generar Reporte</button>
-                <button onclick="window.location.href='crear_propiedad.html';"  class="report-btn secondary">Crear Inmueble +</button>
+                <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
               </div>
-            </header>
+            </div>
     
             <div class="properties-grid" id="propertiesGrid">
-              <!-- Las propiedades se insertarán aquí mediante JavaScript -->
+              
             </div>
           </div>
         </main>
 
         <?php include('footer.php'); ?>
+
     </div>
 
     <script>
