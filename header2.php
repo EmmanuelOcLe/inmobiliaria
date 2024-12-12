@@ -1,12 +1,12 @@
 <header>
     <div class="logo">
-        <a href="index.php">IE</a>
+        <a href="dashboard-admin.php">IE</a>
     </div>
     <div class="nav-button">
 
         <nav class="navbar">
-            <a href="">Inmuebles habilitados</a>
-            <a href="/">Inmuebles Inhabilitados</a>
+            <a href="dashboard-admin.php">Dashboard</a>
+            <a href="propiedades-deseable.php">Inmuebles Inhabilitados</a>
         </nav>
 
         <button class="header-button-red" onclick="window.location.href='index.php'">Salir</button>

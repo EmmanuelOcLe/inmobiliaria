@@ -22,7 +22,7 @@
               </div>
               <div class="report-buttons">
                 <button class="report-btn primary">Generar Reporte</button>
-                <button onclick="window.location.href='crear_propiedad.html';"  class="report-btn secondary">Crear Inmueble +</button>
+                <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
               </div>
             </div>
     

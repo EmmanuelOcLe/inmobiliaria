@@ -30,7 +30,7 @@
         
         <ul class="nav__ul">
         <li>
-            <a href="#">Politica de Privacidad</a>
+            <a href="politicas.php">Politica de Privacidad</a>
         </li>
         
         <li>
