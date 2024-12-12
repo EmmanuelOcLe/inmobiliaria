@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Políticas de Privacidad</title>
     <link rel="stylesheet" href="css/politicas.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <title>Políticas de Privacidad</title>
 </head>
 <body>
-    <?php include('header.php'); ?> 
+    <?php include('header.php') ?>
 
     <main>
         <div class="contenido-texto">
@@ -29,10 +30,10 @@
                 Puedes estar totalmente tranquilo por que esta informacion no se comparte con nadie y
                 solo esta alojada en la base de datos.
             </p>
-            <a href="#" class="volver-button">Volver al inicio</a>
+            <a href="index.php" class="volver-button">Volver al inicio</a>
         </div>
     </main>
-    <?php include('footer.php'); ?> 
 
+    <?php include('footer.php') ?>
 </body>
 </html>

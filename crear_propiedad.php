@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <?php include('header2.php');?>
