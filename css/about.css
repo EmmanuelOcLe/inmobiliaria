@@ -1,4 +1,7 @@
 
+body{
+    font-family: 'Inter';
+}
 .section-we {
     background-image: url('../assets/150751.jpg');
     background-size: cover;
@@ -15,12 +18,15 @@
 .section-we h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
+    color:#002B5B;
 }
 
 .section-we p {
     max-width: 800px;
     line-height: 1.6;
     margin-bottom: 2rem;
+    color: #000;
+    font-weight: 600;
 }
 
 .content {
@@ -61,7 +67,7 @@
 
 .section-content p {
     line-height: 1.6;
-    color: #666;
+    color: #000;
 }
 
 @media (max-width: 768px) {
