@@ -15,7 +15,7 @@
 
     <?php include('header2.php'); ?>
     <main>
-        <h1 class="text-h1">Propiedades Inabilitadas</h1>
+        <h1 class="text-h1">Inmuebles Inabilitados</h1>
         
         <div class="grid-contenedores">
             <!-- card 1 -->
