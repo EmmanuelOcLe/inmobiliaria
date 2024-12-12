@@ -57,9 +57,14 @@
 
 .property-card {
   background: white;
+  cursor: pointer;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 .property-card img {
