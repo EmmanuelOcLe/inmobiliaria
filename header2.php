@@ -7,6 +7,6 @@
             <a href="/">Inmuebles Inhabilitados</a>
         </nav>
 
-        <button class="header-button-red" onclick="window.location.href='.html'">Salir</button>
+        <button class="header-button-red" onclick="window.location.href='index.html'">Salir</button>
     </div>   
 </header>

@@ -6,7 +6,6 @@
             <a href="index.php">Inicio</a>
             <a href="about.php">Sobre Nosotros</a>
             <a href="arrendamiento.php">Servicios</a>
-            <a href="politicas.php" class="">Politicas</a>
         </nav>
 
         <button class="header-button" onclick="window.location.href='login.php'">Administración</button>
