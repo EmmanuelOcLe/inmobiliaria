@@ -9,6 +9,6 @@
             <a href="propiedades-deseable.php">Inmuebles Inhabilitados</a>
         </nav>
 
-        <button class="header-button-red" onclick="window.location.href='index.php'">Salir</button>
+        <button class="header-button-red" onclick="window.location.href='login.php'">Salir</button>
     </div>   
 </header>
