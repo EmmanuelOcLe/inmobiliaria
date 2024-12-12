@@ -1,6 +1,6 @@
 <header>
     <div class="logo">
-        <a href="index.php">IE</a>
+        <a href="index.php" class="logo-link">IE</a>
     </div>
     <div class="nav-button">
 

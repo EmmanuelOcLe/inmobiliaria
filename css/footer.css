@@ -27,6 +27,10 @@ font-weight: 400;
 font-size: 3rem;
 text-decoration: none;
 color: white;
+user-select: none;
+}
+.footer__logo:hover{
+    text-decoration: underline;
 }
 
 .footer__addr h2 {

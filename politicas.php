@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Políticas de Privacidad</title>
     <link rel="stylesheet" href="css/politicas.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Políticas de Privacidad</title>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo-politicas">IE</a>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Sobre nosotros</a>
-            <a href="#">Servicios</a>
-            <a href="#">Políticas</a>
-            <a href="#" class="admin-button-politicas">Administración</a>
-        </nav>
-    </header>
+    <?php include('header.php') ?>
 
     <main>
         <div class="contenido-texto">
@@ -34,8 +29,10 @@
                 Puedes estar totalmente tranquilo por que esta informacion no se comparte con nadie y
                 solo esta alojada en la base de datos.
             </p>
-            <a href="#" class="volver-button">Volver al inicio</a>
+            <a href="index.php" class="volver-button">Volver al inicio</a>
         </div>
     </main>
+
+    <?php include('footer.php') ?>
 </body>
 </html>
