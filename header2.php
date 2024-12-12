@@ -1,5 +1,7 @@
 <header>
-    <div class="logo">IE</div>
+    <div class="logo">
+        <a href="index.php">IE</a>
+    </div>
     <div class="nav-button">
 
         <nav class="navbar">
@@ -7,6 +9,6 @@
             <a href="/">Inmuebles Inhabilitados</a>
         </nav>
 
-        <button class="header-button-red" onclick="window.location.href='.html'">Salir</button>
+        <button class="header-button-red" onclick="window.location.href='index.php'">Salir</button>
     </div>   
 </header>
