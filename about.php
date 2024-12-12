@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Para la fuente-->
     <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>

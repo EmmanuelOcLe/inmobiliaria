@@ -1,6 +1,6 @@
 
 .section-we {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/150751.jpg');
+    background-image: url('../assets/150751.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
