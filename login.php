@@ -6,12 +6,15 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="assets/favicon.ico">
     <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
-    <?php 
+    <?php
+    if (isset($_GET['timeout']) && $_GET['timeout'] == 1) {
+        echo "<p style='color: red;'>Tu sesión ha expirado por inactividad. Por favor, inicia sesión de nuevo.</p>";
+    }
+
     include('header.php');
     ?>
 

@@ -1,3 +1,8 @@
+<?php
+// Incluir el archivo para verificar la sesión
+include('back/session_check.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -13,7 +18,11 @@
   </head>
   <body>
     <div class="contenedor-todo">
-      <?php include('header2.php'); ?>
+
+      <?php 
+      include('header2.php'); 
+      include('back/session_check.php');
+      ?>
 
       <main class="container">
         <div class="container-2">
