@@ -35,7 +35,7 @@
         </main>
 
         <?php include('footer.php'); ?>
-
+ 
     </div>
 
     <script>
@@ -84,6 +84,15 @@
           document.querySelector('.logout-btn').addEventListener('click', () => {
               alert('Cerrando sesión...');
           });*/
+
+          // evento de click para redirecciona a las actualizaciones
+          const cards =document.querySelectorAll('.property-card');
+
+          cards.forEach(card => {
+            card.addEventListener('click', () => {
+                window.location.href = 'http://localhost/inmobiliaria/click-prop.php'
+          });
+});
       });
     </script>
 
