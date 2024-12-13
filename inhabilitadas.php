@@ -49,18 +49,22 @@ $result = $con->query($sql);
         
         <div class="popup-overlay" id="popup-overlay" onclick="closePopup()"></div>
         <div id="popup" class="popup">
-            <form id="popup-form" action="back/habilitar.php" method="POST">
+            <form class="popup-form" id="popup-form" action="back/habilitar.php" method="POST">
+                <h3>Habilitacion de Inmueble</h3>
                 <input type="hidden" id="id_inmueble" name="id_inmueble">
-                <label for="motivo-select">Selecciona el motivo:</label>
+
+                <label for="motivo-select">Selecciona el motivo por el que desea habilitar el inmueble:</label>
                 <select id="motivo-select" name="motivo" onchange="toggleTextarea()">
-                    <option value="Solicitado por cliente">Solicitado por cliente</option>
-                    <option value="Corrección de error">Corrección de error</option>
+                    <option value="Disponible nuevamente">Disponible nuevamente</option>
+                    <option value="Reparaciones completadas">Reparaciones completadas</option>
+                    <option value="Solicitud directa del propietario">Solicitud directa del propietario</option>
                     <option value="Otra">Otra</option>
                 </select>
-                <textarea id="motivo-textarea" name="motivo_otro" placeholder="Escribe el motivo..." style="display: none;"></textarea>
+                <textarea id="motivo-textarea" name="motivo_otro" placeholder="Escribe el motivo..." style="display: none;" ></textarea>
                 <div class="popup-buttons">
-                    <button type="submit">Aceptar</button>
                     <button type="button" onclick="closePopup()">Cancelar</button>
+                    <button type="submit">Aceptar</button>
+                    
                 </div>
             </form>
         </div>
@@ -81,14 +85,17 @@ $result = $con->query($sql);
         }
 
         function toggleTextarea() {
-            const motivoSelect = document.getElementById('motivo-select');
-            const motivoTextarea = document.getElementById('motivo-textarea');
-            if (motivoSelect.value === 'Otra') {
-                motivoTextarea.style.display = 'block';
-            } else {
-                motivoTextarea.style.display = 'none';
-            }
+        const motivoSelect = document.getElementById('motivo-select');
+        const motivoTextarea = document.getElementById('motivo-textarea');
+        if (motivoSelect.value === 'Otra') {
+            motivoTextarea.style.display = 'block';
+            motivoTextarea.setAttribute('required', 'required');
+        } else {
+            motivoTextarea.style.display = 'none';
+            motivoTextarea.removeAttribute('required');
+            motivoTextarea.value = '';
         }
+    }
     </script>
 
 </body>
