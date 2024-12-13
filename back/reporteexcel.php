@@ -5,9 +5,14 @@ if ($con->connect_error) {
     die("Error en la conexión: " . $con->connect_error);
 }
 
-// Encabezados para la descarga del archivo Excel
-header("Content-Type: application/xls");
+// Forzar codificación UTF-8 para que Excel lo interprete correctamente
+header("Content-Type: application/vnd.ms-excel; charset=utf-8");
 header("Content-Disposition: attachment; filename=reporte.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+// Evitar problemas de codificación
+echo "\xEF\xBB\xBF"; // Añadir el BOM (Byte Order Mark) para que Excel reconozca UTF-8
 
 // Consulta a la base de datos
 $sql = "SELECT * FROM inmueble"; // Ajusta los nombres de columnas según tu tabla
@@ -19,6 +24,10 @@ if ($result === false) {
 }
 ?>
 
+<h1>Inmobiliaria Emmanuel</h1>
+<p>Ubicación: Dosquebradas</p>
+<p>Teléfono: +123 456 789</p>
+<p>Correo: emmanuel@inmobiliaria.com</p>
 <table border="1">
     <thead>
         <tr style="background-color: #f2f2f2; color: #333;">
@@ -29,7 +38,7 @@ if ($result === false) {
             <th style="padding: 8px; text-align: left;">BAÑOS</th>
             <th style="padding: 8px; text-align: left;">PARKING</th>
             <th style="padding: 8px; text-align: left;">ÁREA</th>
-            <th style="padding: 8px; text-align: left;">OFERTA</th>
+            <th style="padding: 8px; text-align: left;">DESCRIPCIÓN</th>
             <th style="padding: 8px; text-align: left;">PRECIO</th>
             <th style="padding: 8px; text-align: left;">ESTADO</th>
         </tr>

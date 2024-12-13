@@ -15,23 +15,42 @@
     <div class="contenedor-todo">
       <?php include('header2.php'); ?>
 
-        <main class="container">
-          <div class="container-2">
-            <div class="welcome-section">
-              <div class="welcome-text">
-                <h1>Bienvenido <span class="name">Emmanuel</span></h1>
-              </div>
-              <div class="report-buttons">
-                <button onclick="report()"  class="report-btn primary">Generar Reporte</button>
-                <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
-              </div>
+      <main class="container">
+        <div class="container-2">
+          <div class="welcome-section">
+            <div class="welcome-text">
+              <h1>Bienvenido <span class="name">Emmanuel</span></h1>
             </div>
-    
-            <div class="properties-grid" id="propertiesGrid">
-              
+            <div class="report-buttons">
+              <button onclick="report()";" class="report-btn primary">Generar Reporte</button>
+              <button onclick="window.location.href='crear_propiedad.php';" class="report-btn secondary">Crear Inmueble +</button>
             </div>
           </div>
-        </main>
+
+          <div class="properties-grid" id="propertiesGrid">
+            <?php
+              require_once('back/conection.php');
+              $sql = 'SELECT nombre_inmueble, precio_inmueble FROM inmueble;';
+              $res = mysqli_query($con, $sql);
+              $cantFilas = mysqli_num_rows($res);
+
+              if ($res && $cantFilas > 0) {
+                  while ($fila = mysqli_fetch_assoc($res)) {
+                      echo '<div class="property-card">';
+                      echo '<img src="assets/card-image.jpg" alt="Imagen" class="property-image">';
+                      echo '<div class="property-info">';
+                      echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
+                      echo '<div class="property-price">R$ ' . $fila['precio_inmueble'] . '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                  }
+              } else {
+                  echo '<p>No hay propiedades disponibles.</p>';
+              }
+            ?>
+          </div>
+        </div>
+      </main>
 
       <?php include('footer.php'); ?>
     </div>
@@ -49,7 +68,6 @@
       function report() {
         
         let res = prompt("Si desea descargar el reporte en pdf: 1 \n Si desea descargar el reporte en excel: 2 \n Si desea ambos: 3");
-
         if (res == 1) {
           window.open('back/fpdf/reporte.php')
         } else if (res == 2) {
@@ -57,9 +75,7 @@
         } else if (res == 3) {
           window.open('back/fpdf/reporte.php')
           window.location.href = 'back/reporteexcel.php';
-
         }
-
       }
     </script>
   </body>

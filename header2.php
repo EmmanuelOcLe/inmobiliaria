@@ -6,7 +6,7 @@
 
         <nav class="navbar">
             <a href="dashboard-admin.php">Dashboard</a>
-            <a href="propiedades-deseable.php">Inmuebles Inhabilitados</a>
+            <a href="inhabilitadas.php">Inmuebles Inhabilitados</a>
         </nav>
 
         <button class="header-button-red" onclick="window.location.href='login.php'">Salir</button>
