@@ -1,27 +1,3 @@
-<?php
-// require_once("conection.php")
-
-// $sql = "select id_inmueble from inmueble";
-
-// $respuesta = mysqli_query($conexion, $sql);
-
-// //Imprimir los datos
-// if ($respuesta  && mysqli_num_rows($respuesta) > 0){
-
-//   while($fila = mysqli_fetch_assoc($resespuesta)){
-//   }
-
-  
-  
-//   }
-
-?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -29,96 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inmobiliaria Emmanuel</title>
     <link rel="stylesheet" href="css/dashboard-admin.css" />
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-
     <div class="contenedor-todo">
-        <?php include('header2.php'); ?>
+      <?php include('header2.php'); ?>
 
-        <main class="container">
-          <div class="container-2">
-            <div class="welcome-section">
-              <div class="welcome-text">
-                <h1>Bienvenido <span class="name">Emmanuel</span></h1>
-              </div>
-              <div class="report-buttons">
-                <button onclick="window.open('back/fpdf/reporte.php')" targ class="report-btn primary">Generar Reporte</button>
-                <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
-              </div>
+      <main class="container">
+        <div class="container-2">
+          <div class="welcome-section">
+            <div class="welcome-text">
+              <h1>Bienvenido <span class="name">Emmanuel</span></h1>
             </div>
-    
-            <div class="properties-grid" id="propertiesGrid">
-              
+            <div class="report-buttons">
+              <button onclick="window.open('back/fpdf/reporte.php', '_blank');" class="report-btn primary">Generar Reporte</button>
+              <button onclick="window.location.href='crear_propiedad.php';" class="report-btn secondary">Crear Inmueble +</button>
             </div>
           </div>
-        </main>
 
-        <?php include('footer.php'); ?>
- 
+          <div class="properties-grid" id="propertiesGrid">
+            <?php
+              require_once('back/properties/conection.php');
+              $sql = 'SELECT nombre_inmueble, precio_inmueble FROM inmueble;';
+              $res = mysqli_query($con, $sql);
+              $cantFilas = mysqli_num_rows($res);
+
+              if ($res && $cantFilas > 0) {
+                  while ($fila = mysqli_fetch_assoc($res)) {
+                      echo '<div class="property-card">';
+                      echo '<img src="assets/card-image.jpg" alt="Imagen" class="property-image">';
+                      echo '<div class="property-info">';
+                      echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
+                      echo '<div class="property-price">R$ ' . $fila['precio_inmueble'] . '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                  }
+              } else {
+                  echo '<p>No hay propiedades disponibles.</p>';
+              }
+            ?>
+          </div>
+        </div>
+      </main>
+
+      <?php include('footer.php'); ?>
     </div>
 
     <script>
-      // Datos de muestra de las propiedades
-      const properties = Array(8).fill({
-          image: './assets/image-house.jpg',
-          title: 'Casa em Condominio',
-          price: 'R$ 1.050.000'
-      });
-
-      // Función para crear tarjetas de propiedad
-      function createPropertyCard(property) {
-          const card = document.createElement('div');
-          card.className = 'property-card';
-
-          card.innerHTML = `
-              <img src="${property.image}" alt="${property.title}">
-              <div class="property-info">
-                  <h3>${property.title}</h3>
-                  <div class="property-price">${property.price}</div>
-              </div>
-          `;
-
-          return card;
-      }
-
-      // Función para renderizar todas las propiedades
-      function renderProperties() {
-          const grid = document.getElementById('propertiesGrid');
-          properties.forEach(property => {
-              grid.appendChild(createPropertyCard(property));
-          });
-      }
-
-      // Inicializar la página
       document.addEventListener('DOMContentLoaded', () => {
-          renderProperties();
-/*
-          // Agregar event listeners para los botones
-          document.querySelectorAll('.report-btn').forEach(btn => {
-              btn.addEventListener('click', () => {
-                  alert('Generando reporte...');
-              });
+        const cards = document.querySelectorAll('.property-card');
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            window.location.href = 'http://localhost/inmobiliaria/click-prop.php';
           });
-
-          document.querySelector('.logout-btn').addEventListener('click', () => {
-              alert('Cerrando sesión...');
-          });*/
-
-          // evento de click para redirecciona a las actualizaciones
-          const cards =document.querySelectorAll('.property-card');
-
-          cards.forEach(card => {
-            card.addEventListener('click', () => {
-                window.location.href = 'http://localhost/inmobiliaria/click-prop.php'
-          });
-});
+        });
       });
     </script>
-
   </body>
 </html>

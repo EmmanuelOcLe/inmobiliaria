@@ -65,22 +65,22 @@
           </div>
           <div class="contact-form">
             <h2 class="form-title">Estoy Interezado!</h2>
-            <form id="contactForm">
+            <form id="contactForm" action="https://formsubmit.co/emanuellemus119@gmail.com" method="POST">
               <div class="form-group">
                 <label for="name">Nombre *</label>
-                <input type="text" id="name" required />
+                <input type="text"  name ="text" id="name" required />
               </div>
               <div class="form-group">
                 <label for="email">Correo Electrónico *</label>
-                <input type="email" id="email" required />
+                <input type="email" name="email" id="email" required />
               </div>
               <div class="form-group">
                 <label for="phone">Teléfono *</label>
-                <input type="tel" id="phone" required />
+                <input type="tel"  name="phone" id="phone" required />
               </div>
               <div class="form-group">
                 <label for="message">Mensaje *</label>
-                <textarea id="message" rows="4" required></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
               </div>
               <div class="form-buttons">
                 <button type="button" class="btn btn-cancel">Cancelar</button>
@@ -95,7 +95,7 @@
       <?php include('footer.php'); ?>
     </div>
 
-    <script>
+    <!-- <script>
       const images = [
           './assets/image-house-2.jpg',
           './assets/image-house-2.jpg',
@@ -114,7 +114,7 @@
           // Aquí iría la lógica para enviar el formulario
           alert('Formulario enviado con éxito!');
       });
-    </script>
+    </script> -->
 
   </body>
 </html>
