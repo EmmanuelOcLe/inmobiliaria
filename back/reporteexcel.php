@@ -38,7 +38,7 @@ if ($result === false) {
             <th style="padding: 8px; text-align: left;">BAÑOS</th>
             <th style="padding: 8px; text-align: left;">PARKING</th>
             <th style="padding: 8px; text-align: left;">ÁREA</th>
-            <th style="padding: 8px; text-align: left;">DESCRIPCIÓN</th>
+            <th style="padding: 8px; text-align: left;">TIPO OFERTA</th>
             <th style="padding: 8px; text-align: left;">PRECIO</th>
             <th style="padding: 8px; text-align: left;">ESTADO</th>
         </tr>
@@ -56,7 +56,7 @@ if ($result === false) {
             <td style="padding: 8px; text-align: left;"><?php echo $row['cantidad_baños']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['zona_parqueo']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['area']; ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo $row['Descripcion_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['tipo_oferta']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['precio_inmueble']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['estado_inmueble']; ?></td>
         </tr>
