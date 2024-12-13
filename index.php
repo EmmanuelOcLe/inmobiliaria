@@ -47,10 +47,12 @@
       <?php 
       require_once('back/conection.php');
 
-      $sql = 'select 
+      $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
       from inmueble;';
+
+
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);

@@ -60,6 +60,16 @@
                         <label for="area">Área en metros Cuadrados</label>
                         <input type="text" id="area" placeholder="Área en m2" name="areas_metros">
                     </div>
+
+                    <div class="form-group">
+                        <label for="oferta">Tipo de Oferta</label>
+                        <select name="oferta" id="oferta">
+                            <option value="selecciona">selecciona el tipo</option>
+                            <option value="venta">venta</option>
+                            <option value="arriendo">arriendo</option>
+                            <option value="venta_arriendo">venta y arriendo</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
