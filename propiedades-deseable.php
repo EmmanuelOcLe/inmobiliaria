@@ -14,6 +14,8 @@
 
     <?php include('header2.php'); ?>
     <main>
+
+    <div class="InmueblesInabi">
         <h1 class="text-h1">Inmuebles Inabilitados</h1>
         
         <div class="grid-contenedores">
@@ -78,12 +80,11 @@
                     <span class="propiedad-precio">R$ 1.050.000</span>
                 </div>
             </div>
-            <!-- botón para Habilitar Propiedad  -->
-            <div class="boton-habilitar">
-                <button class="btn" type="submit">Habilitar Propiedad</button>
-            </div>
 
         </div>
+    </div>
+
+        
     </main>
     <?php include('footer.php'); ?>
 
