@@ -1,7 +1,6 @@
 <?php 
-include_once('conection.php'); // Incluye la conexión a la base de datos
+include_once('conection.php'); 
 
-// Verifica si la conexión tiene errores
 if ($con->connect_error) {
     die("Error en la conexión: " . $con->connect_error);
 }
@@ -11,7 +10,7 @@ header("Content-Type: application/xls");
 header("Content-Disposition: attachment; filename=reporte.xls");
 
 // Consulta a la base de datos
-$sql = "SELECT id, nombre, apellido FROM inmueble"; // Ajusta los nombres de columnas según tu tabla
+$sql = "SELECT * FROM inmueble"; // Ajusta los nombres de columnas según tu tabla
 $result = $con->query($sql);
 
 // Verifica si la consulta fue exitosa
@@ -41,9 +40,16 @@ if ($result === false) {
         while ($row = $result->fetch_assoc()) { 
         ?>
         <tr>
-            <td style="padding: 8px; text-align: left;"><?php echo $row['id_']; ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo $row['nombre']; ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo $row['apellido']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['id_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['nombre_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['ubicacion_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['cantidad_habitaciones']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['cantidad_baños']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['zona_parqueo']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['area']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['Descripcion_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['precio_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['estado_inmueble']; ?></td>
         </tr>
         <?php 
         } 

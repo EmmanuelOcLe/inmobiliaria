@@ -45,7 +45,7 @@
     <main class="main-tag">
         
       <?php 
-      require_once('back/properties/conection.php');
+      require_once('back/conection.php');
 
       $sql = 'select 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
