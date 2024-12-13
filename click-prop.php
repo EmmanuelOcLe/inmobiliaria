@@ -1,4 +1,26 @@
+<?php
+require_once('back/conection.php');
+
+if (!$con) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    exit;
+} else {
+    echo "<script>alert('conexion realizada')</script>";
+}
+
+$sql = "SELECT * FROM inmueble LIMIT 1";
+$result = mysqli_query($con, $sql);
+
+if($result) {
+    $row = mysqli_fetch_assoc($result);
+
+    $id = $row['id_inmueble'];
+}
+
+?>
+
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,21 +39,21 @@
         <?php include('header2.php'); ?>
 
         <main class="main">
-            <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
+            <h1 class="welcome">Bienvenido <span class="welcome-name"><?php echo htmlspecialchars($nombre); ?></span></h1>
 
             <div class="property-card">
                 <div class="card-header">
-                    <h2 class="property-title">Parque Residente Dahmia III</h2>
+                    <h2 class="property-title"><?php echo htmlspecialchars($nameProperty) ?></h2>
                     <div class="card-actions">
                         <span id="edit-button" class="icon icon-edit"></span>
-                        <span class="icon icon-delete"></span>
+                        <span id="delete-button" class="icon icon-delete"></span>
                     </div>
                 </div>
 
-                <div class="property-price">$ 150.000.000.00</div>
+                <div class="property-price"><?php echo htmlspecialchars($price) ?></div>
 
                 <div class="gallery">
-                    <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
+                    <img src="<?php echo htmlspecialchars(string: $image) ?>" alt="Propiedad">
                     <button class="gallery-nav gallery-prev">←</button>
                     <button class="gallery-nav gallery-next">→</button>
                 </div>
@@ -39,23 +61,23 @@
                 <div class="property-details">
                     <div class="detail-item">
                         <span class="detail-icon icon-location"></span>
-                        <span>Aquí va la localización</span>
+                        <span><?php echo htmlspecialchars($location) ?></span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-bed"></span>
-                        <span>4 Habitaciones</span>
+                        <span><?php echo htmlspecialchars($rooms) ?> Habitaciones</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-bath"></span>
-                        <span>2 Baños</span>
+                        <span><?php echo htmlspecialchars($bathrooms) ?> Baños</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-area"></span>
-                        <span>15 metros cuadrados</span>
+                        <span><?php echo htmlspecialchars($area) ?> metros cuadrados</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-parking"></span>
-                        <span>2 Zonas de Parking</span>
+                        <span><?php echo htmlspecialchars($parking) ?> Zonas de Parking</span>
                     </div>
                 </div>
             </div>
@@ -67,10 +89,17 @@
 
 <script>
     const edit = document.getElementById('edit-button');
+    const suspend = document.getElementById('delete-button');
 
     edit.addEventListener('click', () => {
         window.location.href = 'http://localhost/inmobiliaria/modificar_propiedad.php';
-    })
+    });
+
+    suspend.addEventListener('click', () => {
+        <?php
+             include('popups/popup-delete.php');
+        ?>
+    });
 </script>
 </body>
 </html>

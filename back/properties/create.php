@@ -21,4 +21,6 @@ if ($res == 1)
 		alert('No Fue Ingresado, Intente Nuevamente');
 	</script>";
 }
+
+
 ?>
