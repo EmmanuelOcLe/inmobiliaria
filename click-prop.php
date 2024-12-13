@@ -1,13 +1,45 @@
 <?php
-include("back/conection.php");
-$consulta = "SELECT*FROM inmuebles";
-$resultado=mysqli_query($con,$consulta);
-
 session_start();
-if (isset($_SESSION['id'])) {
-    echo "El ID recibido es: " . $_SESSION['id'];
-} else {
-    echo "No se encontró el ID en la sesión.";
+include("back/conection.php");
+
+// Verificar conexión a la base de datos
+if (!$con) {
+    die("Error en la conexión: " . mysqli_connect_error());
+}
+
+// Verificar que el ID está definido y es válido
+if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+    die("El ID de la sesión no está definido o es inválido.");
+}
+
+// Construir y ejecutar la consulta
+$id_inmueble = intval($_SESSION['id']); // Sanitizar el ID
+$sql = "SELECT * FROM inmueble WHERE id_inmueble = $id_inmueble";
+$result = mysqli_query($con, $sql);
+
+// Verificar si la consulta fue exitosa
+if (!$result) {
+    die("Error en la consulta: " . mysqli_error($con));
+}
+
+// Procesar resultados
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "id_inmueble:". htmlspecialchars($row["id_inmueble"]) . "<br>";
+        echo "nombre_inmueble:". htmlspecialchars($row["nombre_inmueble"]) . "<br>";
+        echo "ubicacion_inmueble". htmlspecialchars($row["ubicacion_inmueble"]);
+        $cantidad_habitaciones = $row["cantidad_habitaciones"];
+        $cantidad_baños = $row["cantidad_baños"];
+        $zona_parqueo = $row["zona_parqueo"];
+        $area = $row["area"];
+        $descripcion_inmueble = $row["Descripcion_inmueble"];
+        $tipo_oferta = $row["tipo_oferta"];
+        $fotos_inmueble = $row["fotos_inmueble"];
+        $precio_inmueble = $row["precio_inmueble"];
+        $estado_inmueble = $row["estado_inmueble"];
+}
+    }else {
+    echo "No se encontraron resultados.";
 }
 ?>
 
