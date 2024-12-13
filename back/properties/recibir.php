@@ -29,7 +29,7 @@ $sql = "UPDATE inmueble SET
     estado_inmueble = '$estado_inmueble'
 WHERE id_inmueble = $id";
 
-if (mysqli_query($conexion, $sql)) {
+if (mysqli_query($con, $sql)) {
     echo "<script>
     alert('Cambios Realizados Correctamente'); 
     
