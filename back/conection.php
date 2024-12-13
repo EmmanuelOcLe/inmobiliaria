@@ -1,13 +1,12 @@
 <?php
-$con = mysqli_connect("localhost", "root", "123456", "bienesraices");
-$host = "localhost";
-$user = "root";
-$password = "123456";
-$dbname = "inmobiliaria"; 
+$host = 'localhost'; 
+$user = 'root'; 
+$password = ''; 
+$database = 'inmobiliaria';
 
-$conn = new mysqli($host, $user, $password, $dbname);
+$conn = new mysqli($host, $user, $password, $database);
 
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Error de conexión: " . $conn->connect_error);
 }
 ?>

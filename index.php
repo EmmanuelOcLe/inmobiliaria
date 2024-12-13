@@ -52,8 +52,6 @@
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
       from inmueble;';
 
-
-
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
 
