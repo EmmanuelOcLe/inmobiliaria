@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer__addr">
     <h1 ><a class="footer__logo" href="index.php">IE</a></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero fuga voluptatibus illum ea aperiam obcaecati excepturi quo nisi optio! Minus odit mollitia esse similique unde, voluptates impedit! Dolores, libero!</p>
+    <p>Equipo apasionado por la hospitalidad y la experiencia de nuestros clientes, te damos la bienvenida a nuestro espacio para ofrecer experiencias inolvidables a nuestros clientes.</p>
     </div>
     
     <ul class="footer__nav">
