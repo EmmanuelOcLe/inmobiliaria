@@ -22,7 +22,7 @@
               <h1>Bienvenido <span class="name">Emmanuel</span></h1>
             </div>
             <div class="report-buttons">
-              <button onclick="window.open('back/fpdf/reporte.php', '_blank');" class="report-btn primary">Generar Reporte</button>
+              <button onclick="report()";" class="report-btn primary">Generar Reporte</button>
               <button onclick="window.location.href='crear_propiedad.php';" class="report-btn secondary">Crear Inmueble +</button>
             </div>
           </div>
@@ -64,6 +64,19 @@
           });
         });
       });
+
+      function report() {
+        
+        let res = prompt("Si desea descargar el reporte en pdf: 1 \n Si desea descargar el reporte en excel: 2 \n Si desea ambos: 3");
+        if (res == 1) {
+          window.open('back/fpdf/reporte.php')
+        } else if (res == 2) {
+          window.location.href = 'back/reporteexcel.php';
+        } else if (res == 3) {
+          window.open('back/fpdf/reporte.php')
+          window.location.href = 'back/reporteexcel.php';
+        }
+      }
     </script>
   </body>
 </html>
