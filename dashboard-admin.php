@@ -47,7 +47,7 @@
                 <h1>Bienvenido <span class="name">Emmanuel</span></h1>
               </div>
               <div class="report-buttons">
-                <button class="report-btn primary">Generar Reporte</button>
+                <button onclick="window.open('back/fpdf/reporte.php')" targ class="report-btn primary">Generar Reporte</button>
                 <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
               </div>
             </div>
@@ -59,7 +59,7 @@
         </main>
 
         <?php include('footer.php'); ?>
-
+ 
     </div>
 
     <script>
@@ -108,6 +108,15 @@
           document.querySelector('.logout-btn').addEventListener('click', () => {
               alert('Cerrando sesión...');
           });*/
+
+          // evento de click para redirecciona a las actualizaciones
+          const cards =document.querySelectorAll('.property-card');
+
+          cards.forEach(card => {
+            card.addEventListener('click', () => {
+                window.location.href = 'http://localhost/inmobiliaria/click-prop.php'
+          });
+});
       });
     </script>
 
