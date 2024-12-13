@@ -1,3 +1,16 @@
+<?php
+include("back/conection.php");
+$consulta = "SELECT*FROM inmuebles";
+$resultado=mysqli_query($con,$consulta);
+
+session_start();
+if (isset($_SESSION['id'])) {
+    echo "El ID recibido es: " . $_SESSION['id'];
+} else {
+    echo "No se encontró el ID en la sesión.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
