@@ -1,3 +1,27 @@
+<?php
+// require_once("conection.php")
+
+// $sql = "select id_inmueble from inmueble";
+
+// $respuesta = mysqli_query($conexion, $sql);
+
+// //Imprimir los datos
+// if ($respuesta  && mysqli_num_rows($respuesta) > 0){
+
+//   while($fila = mysqli_fetch_assoc($resespuesta)){
+//   }
+
+  
+  
+//   }
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
