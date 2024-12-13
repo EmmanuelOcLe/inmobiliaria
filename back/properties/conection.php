@@ -1,13 +1,10 @@
 <?php
+$con = mysqli_connect("localhost", "root", "123456", "ie");
 
-//crear la conexion 
-$conexion = mysqli_connect("localhost" , "root" , "123456" , "bienesraices");
+if (!$con) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    exit;
+}
 
-// if(!$conexion){
-//   echo "Hola estoy conectado a la base de Datos";
-// }
-// else{
-//   echo "No";
-// }
 
 ?>
