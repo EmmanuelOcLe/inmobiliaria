@@ -24,6 +24,10 @@ if ($result === false) {
 }
 ?>
 
+<h1>Inmobiliaria Emmanuel</h1>
+<p>Ubicación: Dosquebradas</p>
+<p>Teléfono: +123 456 789</p>
+<p>Correo: emmanuel@inmobiliaria.com</p>
 <table border="1">
     <thead>
         <tr style="background-color: #f2f2f2; color: #333;">
@@ -34,7 +38,7 @@ if ($result === false) {
             <th style="padding: 8px; text-align: left;">BAÑOS</th>
             <th style="padding: 8px; text-align: left;">PARKING</th>
             <th style="padding: 8px; text-align: left;">ÁREA</th>
-            <th style="padding: 8px; text-align: left;">OFERTA</th>
+            <th style="padding: 8px; text-align: left;">TIPO OFERTA</th>
             <th style="padding: 8px; text-align: left;">PRECIO</th>
             <th style="padding: 8px; text-align: left;">ESTADO</th>
         </tr>
@@ -45,16 +49,16 @@ if ($result === false) {
         while ($row = $result->fetch_assoc()) { 
         ?>
         <tr>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['id_inmueble']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['nombre_inmueble']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['ubicacion_inmueble']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['cantidad_habitaciones']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['cantidad_baños']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['zona_parqueo']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['area']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['Descripcion_inmueble']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['precio_inmueble']); ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo utf8_encode($row['estado_inmueble']); ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['id_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['nombre_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['ubicacion_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['cantidad_habitaciones']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['cantidad_baños']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['zona_parqueo']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['area']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['tipo_oferta']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['precio_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['estado_inmueble']; ?></td>
         </tr>
         <?php 
         } 
