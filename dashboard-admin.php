@@ -23,7 +23,7 @@
                 <h1>Bienvenido <span class="name">Emmanuel</span></h1>
               </div>
               <div class="report-buttons">
-                <button class="report-btn primary">Generar Reporte</button>
+                <button onclick="window.open('back/fpdf/reporte.php')" targ class="report-btn primary">Generar Reporte</button>
                 <button onclick="window.location.href='crear_propiedad.php';"  class="report-btn secondary">Crear Inmueble +</button>
               </div>
             </div>
