@@ -12,17 +12,18 @@ $zona_parqueo = $_POST["zonas_parqueo"];
 $area_m = $_POST["areas_metros"];
 $descripcion = $_POST["descripcion"];
 $oferta = $_POST["oferta"];
+$habilitado = "habilitada";
 
 if(!$con){
     echo "No se ha podido conectar a la base de datos" . mysqli_connect_error();
 }else{
-    echo "tabla seleccionada";
+    echo '<script>"alert("Datos enviados")"</script>';
 }
 
 
 //Insertar datos de formulario
 $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, Descripcion_inmueble, tipo_oferta, precio_inmueble, estado_inmueble)
-VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', 'habilitado')";
+VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', '$valor', '$habilitado')";
 
 $resultado = mysqli_query($con, $sql);
 
