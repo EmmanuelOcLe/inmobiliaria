@@ -23,7 +23,7 @@
                 <div class="card-header">
                     <h2 class="property-title">Parque Residente Dahmia III</h2>
                     <div class="card-actions">
-                        <span id="edit-button" class="icon icon-edit"></span>
+                        <span class="icon icon-edit"></span>
                         <span class="icon icon-delete"></span>
                     </div>
                 </div>
@@ -65,12 +65,6 @@
 
     </div>
 
-<script>
-    const edit = document.getElementById('edit-button');
 
-    edit.addEventListener('click', () => {
-        window.location.href = 'http://localhost/inmobiliaria/modificar_propiedad.php';
-    })
-</script>
 </body>
 </html>

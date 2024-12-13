@@ -22,59 +22,69 @@
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form method="post" action="back/properties/create-property.php">
+            <form method="post" action="registro.php" method="post">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
-                        <input type="text" id="nombre" placeholder="Nombre de la propiedad">
+                        <input type="text" id="nombre" placeholder="Nombre de la propiedad" name="propiedad_nombre">
                     </div>
 
                     <div class="form-group">
                         <label for="ubicacion">Ubicación</label>
-                        <input type="text" id="ubicacion" placeholder="Ubicación de la propiedad">
+                        <input type="text" id="ubicacion" placeholder="Ubicación de la propiedad" name="ubicacion_propiedad">
                     </div>
 
                     <div class="form-group">
                         <label for="valor">Valor de la propiedad</label>
-                        <input type="text" id="valor" placeholder="Valor de la propiedad">
+                        <input type="text" id="valor" placeholder="Valor de la propiedad" name="valor_propiedad">
                     </div>
                 </div>
 
                 <div class="numbers-grid">
                     <div class="form-group">
                         <label for="habitaciones">Cantidad de Habitaciones</label>
-                        <input type="number" id="habitaciones" min="0">
+                        <input type="number" id="habitaciones" min="0" name="habitaciones_cantidad">
                     </div>
 
                     <div class="form-group">
                         <label for="banos">Cantidad de Baños</label>
-                        <input type="number" id="banos" min="0">
+                        <input type="number" id="banos" min="0" name="baños_cantidad">
                     </div>
 
                     <div class="form-group">
                         <label for="parqueo">Zonas de Parqueo</label>
-                        <input type="number" id="parqueo" min="0">
+                        <input type="number" id="parqueo" min="0" name="zonas_parqueo">
                     </div>
 
                     <div class="form-group">
                         <label for="area">Área en metros Cuadrados</label>
-                        <input type="text" id="area" placeholder="Área en m2">
+                        <input type="text" id="area" placeholder="Área en m2" name="areas_metros">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="oferta">Tipo de Oferta</label>
+                        <select name="oferta" id="oferta">
+                            <option value="selecciona">selecciona el tipo</option>
+                            <option value="venta">venta</option>
+                            <option value="arriendo">arriendo</option>
+                            <option value="venta_arriendo">venta y arriendo</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="imagenes">Imágenes de la propiedad</label>
-                    <input type="file" id="imagenes" accept="image/*" multiple>
+                    <input type="file" id="imagenes" accept="image/*" multiple name="imagen">
                 </div>
 
                 <div class="description-area">
                     <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion"></textarea>
+                    <textarea id="descripcion" name="descripcion"></textarea>
                 </div>
 
                 <div class="buttons">
                     <button type="button" class="btn btn-cancel">Cancelar</button>
-                    <button type="submit" class="btn btn-create">Crear Propiedad</button>
+                    <button type="submit" class="btn btn-create" name="crear">Crear Propiedad</button>
                 </div>
             </form>
         </div>

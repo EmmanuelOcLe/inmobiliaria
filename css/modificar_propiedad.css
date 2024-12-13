@@ -42,10 +42,36 @@
 
 .form-group label {
     font-weight: 500;
+    /* letter-spacing: 0.1px; */
 }
 
+
 .form-group input, 
-.form-group textarea {
+.form-group textarea{
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.form-group select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.form-group-estado {
+    margin-bottom: 15px; /* Espacio entre los campos */
+}
+
+.form-group-estado label {
+    display: block; /* Hace que el label ocupe toda una línea */
+    margin-bottom: 5px; /* Espacio entre el label y el select */
+    font-weight: 500; /* Opcional: para hacer que el label se vea más destacado */
+}
+
+.form-group-estado select {
     padding: 0.5rem;
     border: 1px solid #d1d5db;
     border-radius: 0.25rem;
@@ -55,7 +81,7 @@
 .numbers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+    gap: 0.8rem;
     margin-bottom: 1.5rem;
 }
 

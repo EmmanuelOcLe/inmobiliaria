@@ -1,4 +1,5 @@
 <?php
+$con = mysqli_connect("localhost", "root", "123456", "bienesraices");
 $host = "localhost";
 $user = "root";
 $password = "123456";
