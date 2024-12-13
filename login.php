@@ -11,11 +11,13 @@
     <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
-    <?php include('header.php');?>
+    <?php 
+    include('header.php');
+    ?>
 
     <main class="main-tag">
         <div class="container">
-            <form class="login-form">
+            <form class="login-form" action="back/validar.php" method="post">
                 <h2>LOGIN</h2>
                 <div class="input-group">
                     <label for="correo">Correo</label>
@@ -32,8 +34,5 @@
             </form>
         </div>
     </main>
-
-    </div>
-
 </body>
 </html>
