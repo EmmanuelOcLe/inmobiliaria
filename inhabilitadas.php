@@ -3,7 +3,7 @@ include 'back/conection.php';
 
 // Consulta para obtener las propiedades deshabilitadas
 $sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";
-$result = $conn->query($sql);
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
