@@ -1,6 +1,6 @@
 <?php
 
-require_once("conection.php");
+require_once("../conection.php");
 //Me Recibo los valores de cada input
 $nombre = $_POST['nombre'];
 $ubicacion = $_POST['ubicacion'];
@@ -37,20 +37,8 @@ if (mysqli_query($con, $sql)) {
     
     </script> ";
 } else {
-    echo "Error al actualizar el registro: " . mysqli_error($conexion);
+    echo "Error al actualizar el registro: " . mysqli_error($con);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
