@@ -4,8 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Tiempo máximo de inactividad en segundos (5 minutos = 300 segundos)
-$tiempo_maximo_inactividad = 5; // Cambiamos a segundos para consistencia
-$tiempo_advertencia = 6; // Tiempo de advertencia antes de cerrar la sesión (1 minuto)
+$tiempo_maximo_inactividad = 300; // Cambiamos a segundos para consistencia
+$tiempo_advertencia = 60; // Tiempo de advertencia antes de cerrar la sesión (1 minuto)
 
 // Si hay un usuario autenticado
 if (isset($_SESSION['usuario'])) {
@@ -16,7 +16,7 @@ if (isset($_SESSION['usuario'])) {
             // Mostrar alerta y cerrar sesión
             session_unset();
             session_destroy();
-            header("Location: http://localhost/INMOBILIARIA/inmobiliaria/login.php?timeout=1");
+            header("Location: http://localhost/Inmobiliaria/inmobiliaria/login.php?timeout=1");
             exit;
         } elseif ($tiempo_inactivo >= ($tiempo_maximo_inactividad - $tiempo_advertencia)) {
             // Mostrar mensaje de advertencia si faltan menos de 1 minuto
@@ -45,7 +45,7 @@ if (isset($_SESSION['usuario'])) {
     $_SESSION['ultimo_acceso'] = time();
 } else {
     // Si no hay usuario autenticado, redirigir al login
-    header("Location: http://localhost/INMOBILIARIA/inmobiliaria/login.php");
+    header("Location: http://localhost/Inmobiliaria/inmobiliaria/login.php");
     exit;
 }
 ?>
