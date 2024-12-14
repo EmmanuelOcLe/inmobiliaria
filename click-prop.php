@@ -3,7 +3,10 @@ include('back/session_check.php');
 ?>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 // Verificar si existe el ID en la sesión
 $id = intval($_GET["id"]);
