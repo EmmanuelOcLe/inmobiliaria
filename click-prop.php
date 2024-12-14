@@ -3,7 +3,10 @@ include('back/session_check.php');
 ?>
 
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 // Verificar si existe el ID en la sesión
 $id = intval($_GET["id"]);
@@ -31,6 +34,8 @@ if ($res && mysqli_num_rows($res) > 0) {
     $row = null;
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,6 +59,7 @@ if ($res && mysqli_num_rows($res) > 0) {
             <?php if ($row): ?>
                 <div class="property-card">
                     <h2 class="property-title"><?php echo htmlspecialchars($row['nombre_inmueble']); ?></h2>
+                    
                     <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
 
                     <div class="gallery">
