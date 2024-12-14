@@ -23,6 +23,7 @@
                 <div class="card-header">
                     <h2 class="property-title">Parque Residente Dahmia III</h2>
                     <div class="card-actions">
+                        <!--Botones-->
                         <a href="/Inmobiliaria/inmobiliaria/modificar_propiedad.php"><span class="icon icon-edit"></span></a>
                         <span class="icon icon-delete"></span>
                     </div>
