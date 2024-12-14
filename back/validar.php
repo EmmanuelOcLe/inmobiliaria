@@ -1,28 +1,31 @@
 <?php
-// Conexión a la base de datos
-include("conection.php");
-
-// Recibir datos del formulario
-$usuario = $_POST["correo"];
-$contraseña = $_POST["contrasena"];
-
-// Iniciar la sesión
 session_start();
+include 'conection.php'; // Archivo de conexión a la base de datos
 
-// Consulta para verificar las credenciales
-$consulta = "SELECT * FROM administrador WHERE email='$usuario' AND password='$contraseña'";
-$resultado = mysqli_query($con, $consulta);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contrasena'];
 
-// Verificar si las credenciales son válidas
-if (mysqli_num_rows($resultado) > 0) {
-    $_SESSION["correo"] = $usuario; // Crear la sesión con el correo del administrador
-    header("Location: ../dashboard-admin.php"); // Redirigir al panel de control
-    exit();
+    // Consulta para verificar credenciales
+    $sql = "SELECT * FROM administrador WHERE email = ? AND password = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ss", $correo, $contrasena);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        // Credenciales válidas
+        $_SESSION['usuario'] = $correo;
+        $_SESSION['ultimo_acceso'] = time(); // Registrar el tiempo de inicio de sesión
+        header("Location: ../dashboard-admin.php");
+        exit;
+    } else {
+        // Credenciales incorrectas
+        header("Location: ../login.php?error=1");
+        exit;
+    }
 } else {
-    echo "Datos incorrectos. Por favor, intenta de nuevo.";
-    echo "<a href='../login.php'>Volver al login</a>";
+    header("Location: ../login.php");
+    exit;
 }
-
-mysqli_free_result($resultado);
-mysqli_close($con);
 ?>

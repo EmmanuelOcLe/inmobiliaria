@@ -1,6 +1,5 @@
 <?php
-// Incluir el archivo para verificar la sesión
-include('back/session_check.php');
+include_once 'back/session_check.php';
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +68,7 @@ include('back/session_check.php');
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
           card.addEventListener('click', () => {
-            window.location.href = 'http://localhost/inmobiliaria/click-prop.php';
+            window.location.href = 'click-prop.php';
           });
         });
       });
