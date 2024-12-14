@@ -1,45 +1,32 @@
 <?php
+// Iniciar sesión
 session_start();
-include("back/conection.php");
 
-// Verificar conexión a la base de datos
-if (!$con) {
-    die("Error en la conexión: " . mysqli_connect_error());
-}
+// Verificar si existe el ID en la sesión
+if (isset($_SESSION['id'])) {
+    // Recuperar el ID desde la sesión
+    $id = $_SESSION['id'];
 
-// Verificar que el ID está definido y es válido
-if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
-    die("El ID de la sesión no está definido o es inválido.");
-}
+    // Incluir la conexión a la base de datos
+    include("back/conection.php");
 
-// Construir y ejecutar la consulta
-$id_inmueble = intval($_SESSION['id']); // Sanitizar el ID
-$sql = "SELECT * FROM inmueble WHERE id_inmueble = $id_inmueble";
-$result = mysqli_query($con, $sql);
+    // Consultar la base de datos para obtener información del ID
+    $sql = "SELECT * FROM inmueble WHERE id_inmueble = $id";
+    $result = mysqli_query($con, $sql);
 
-// Verificar si la consulta fue exitosa
-if (!$result) {
-    die("Error en la consulta: " . mysqli_error($con));
-}
+    // Verificar si se encontró el registro
+    if ($result && mysqli_num_rows($result) > 0) {
+        // Obtener los datos
+        $row = mysqli_fetch_assoc($result);
 
-// Procesar resultados
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "id_inmueble:". htmlspecialchars($row["id_inmueble"]) . "<br>";
-        echo "nombre_inmueble:". htmlspecialchars($row["nombre_inmueble"]) . "<br>";
-        echo "ubicacion_inmueble". htmlspecialchars($row["ubicacion_inmueble"]);
-        $cantidad_habitaciones = $row["cantidad_habitaciones"];
-        $cantidad_baños = $row["cantidad_baños"];
-        $zona_parqueo = $row["zona_parqueo"];
-        $area = $row["area"];
-        $descripcion_inmueble = $row["Descripcion_inmueble"];
-        $tipo_oferta = $row["tipo_oferta"];
-        $fotos_inmueble = $row["fotos_inmueble"];
-        $precio_inmueble = $row["precio_inmueble"];
-        $estado_inmueble = $row["estado_inmueble"];
-}
-    }else {
-    echo "No se encontraron resultados.";
+        // Mostrar la información de la propiedad
+        //echo "<p>fotos: $" . htmlspecialchars($row['fotos_inmueble']) . "</p>";
+        
+    } else {
+        echo "<p>No se encontró ninguna propiedad con el ID proporcionado.</p>";
+    }
+} else {
+    echo "<p>No se encontró el ID en la sesión. Por favor, regrese a la página anterior.</p>";
 }
 ?>
 
@@ -66,14 +53,14 @@ if (mysqli_num_rows($result) > 0) {
 
             <div class="property-card">
                 <div class="card-header">
-                    <h2 class="property-title">Parque Residente Dahmia III</h2>
+                    <h2 class="property-title"><?php echo " " . htmlspecialchars($row['nombre_inmueble']) . "";?></h2>
                     <div class="card-actions">
                         <span class="icon icon-edit"></span>
                         <span class="icon icon-delete"></span>
                     </div>
                 </div>
 
-                <div class="property-price">$ 150.000.000.00</div>
+                <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
 
                 <div class="gallery">
                     <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
@@ -84,24 +71,24 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="property-details">
                     <div class="detail-item">
                         <span class="detail-icon icon-location"></span>
-                        <span>Aquí va la localización</span>
+                        <span><?php echo "" . htmlspecialchars($row['ubicacion_inmueble']) . ""?> </span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-bed"></span>
-                        <span>4 Habitaciones</span>
+                        <span><?php echo "" . htmlspecialchars($row['cantidad_habitaciones']) . "";?> Habitaciones</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-bath"></span>
-                        <span>2 Baños</span>
+                        <span><?php echo "" . htmlspecialchars($row['cantidad_baños']) . ""?> Baños</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-icon icon-area"></span>
-                        <span>15 metros cuadrados</span>
+                        <span><?php echo "" . htmlspecialchars($row['area']) . " "?> metros cuadrados</span>
                     </div>
                     <div class="detail-item">
-                        <span class="detail-icon icon-parking"></span>
-                        <span>2 Zonas de Parking</span>
-                    </div>
+                            <span class="detail-icon icon-parking"></span>
+                            <span><?php  echo "" . htmlspecialchars($row['zona_parqueo']) . "  "?> Zonas de Parking</span>
+                        </div>
                 </div>
             </div>
         </main>
