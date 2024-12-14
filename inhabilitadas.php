@@ -23,6 +23,7 @@ $result = $con->query($sql);
         <?php include('header2.php');
          ?>
             <main>
+                <a href=""><span></span></a>
                 <div class="InmueblesInabi">
                     <h1 class="text-h1">Inmuebles Inhabilitados</h1>
                     <div class="grid-contenedores">

@@ -12,7 +12,7 @@ $descripcion=$_POST['descripcion'];
 $tipo_oferta = $_POST['oferta'];
 $imagenes = $_POST['imagenes']; //Trae el nombre de la foto
 $valor = $_POST['valor'];
-$estado_inmueble = $_POST['estado'];
+// $estado_inmueble = $_POST['estado'];
 $id = $_POST['id'];
 
 $sql = "UPDATE inmueble SET 
@@ -26,7 +26,6 @@ $sql = "UPDATE inmueble SET
     tipo_oferta = '$tipo_oferta', 
     fotos_inmueble = '$imagenes',
     precio_inmueble = $valor, 
-    estado_inmueble = '$estado_inmueble'
 WHERE id_inmueble = $id";
 
 if (mysqli_query($con, $sql)) {

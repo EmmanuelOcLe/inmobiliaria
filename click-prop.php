@@ -50,36 +50,13 @@ if (isset($_SESSION['id'])) {
         <main class="main">
             <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
 
-            <?php if ($row): ?>
-                <div class="property-card">
-                    <h2 class="property-title"><?php echo htmlspecialchars($row['nombre_inmueble']); ?></h2>
-                    <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
-
-                    <div class="gallery">
-                        <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
-                    </div>
-
-                    <div class="property-details">
-                        <div class="detail-item">
-                            <span>Ubicación:</span>
-                            <span><?php echo htmlspecialchars($row['ubicacion_inmueble']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Habitaciones:</span>
-                            <span><?php echo htmlspecialchars($row['cantidad_habitaciones']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Baños:</span>
-                            <span><?php echo htmlspecialchars($row['cantidad_baños']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Área:</span>
-                            <span><?php echo htmlspecialchars($row['area']); ?> m²</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Zonas de Parking:</span>
-                            <span><?php echo htmlspecialchars($row['zona_parqueo']); ?></span>
-                        </div>
+            <div class="property-card">
+                <div class="card-header">
+                    <h2 class="property-title">Parque Residente Dahmia III</h2>
+                    <div class="card-actions">
+                        <!--Botones-->
+                        <a href="/Inmobiliaria/inmobiliaria/modificar_propiedad.php"><span class="icon icon-edit"></span></a>
+                        <span class="icon icon-delete"></span>
                     </div>
                 <div class="property-details">
                     <div class="detail-item">
