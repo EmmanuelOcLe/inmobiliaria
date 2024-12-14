@@ -1,7 +1,7 @@
 <?php
 session_start();
-// Incluir el archivo para verificar la sesión
-include('back/session_check.php');
+$_SESSION['id'] = 7;
+echo "ID guardado en la sesión: " . $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ include('back/session_check.php');
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
           card.addEventListener('click', () => {
-            window.location.href = 'http://localhost/inmobiliaria/inmobiliaria/click-prop.php';
+            window.location.href = 'click-prop.php';
           });
         });
       });*/

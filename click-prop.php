@@ -1,5 +1,9 @@
 <?php
-session_start();
+include('back/session_check.php');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Verificar si existe el ID en la sesión
 $id = intval($_GET["id"]);
@@ -18,13 +22,13 @@ if (!$con) {
 }
 
 // Consultar la base de datos para obtener información del ID
-$sql = "SELECT * FROM inmueble WHERE id_inmueble = ". $id ."";
+$sql = "SELECT * FROM inmueble WHERE id_inmueble = " . $id;
 $res = mysqli_query($con, $sql);
+
 // Verificar si se encontró el registro
+$row = null;
 if ($res && mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
-} else {
-    $row = null;
 }
 ?>
 <!DOCTYPE html>
@@ -49,33 +53,12 @@ if ($res && mysqli_num_rows($res) > 0) {
 
             <?php if ($row): ?>
                 <div class="property-card">
-                    <h2 class="property-title"><?php echo htmlspecialchars($row['nombre_inmueble']); ?></h2>
-                    <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
-
-                    <div class="gallery">
-                        <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
-                    </div>
-
-                    <div class="property-details">
-                        <div class="detail-item">
-                            <span>Ubicación:</span>
-                            <span><?php echo htmlspecialchars($row['ubicacion_inmueble']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Habitaciones:</span>
-                            <span><?php echo htmlspecialchars($row['cantidad_habitaciones']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Baños:</span>
-                            <span><?php echo htmlspecialchars($row['cantidad_baños']); ?></span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Área:</span>
-                            <span><?php echo htmlspecialchars($row['area']); ?> m²</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>Zonas de Parking:</span>
-                            <span><?php echo htmlspecialchars($row['zona_parqueo']); ?></span>
+                    <div class="card-header">
+                        <h2 class="property-title"><?= htmlspecialchars($row['nombre_inmueble'] ?? 'Nombre no disponible') ?></h2>
+                        <div class="card-actions">
+                            <!--Botones-->
+                            <a href="/Inmobiliaria/inmobiliaria/modificar_propiedad.php"><span class="icon icon-edit"></span></a>
+                            <span class="icon icon-delete"></span>
                         </div>
                     </div>
                 </div>
