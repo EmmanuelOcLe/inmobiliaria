@@ -1,7 +1,6 @@
 <?php
 include 'back/conection.php';
-
-// Consulta para obtener las propiedades deshabilitadas
+include_once 'back/session_check.php';
 $sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";
 $result = $con->query($sql);
 ?>
@@ -21,7 +20,8 @@ $result = $con->query($sql);
 <body>
 
     <div class="contenedor-todo">
-        <?php include('header2.php'); ?>
+        <?php include('header2.php');
+         ?>
             <main>
                 <div class="InmueblesInabi">
                     <h1 class="text-h1">Inmuebles Inhabilitados</h1>

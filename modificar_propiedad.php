@@ -1,3 +1,8 @@
+<?php
+include('back/session_check.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,6 +108,8 @@
             </div>
 
         </main>
+
+        
 
         <?php include('footer.php'); ?>
     </div>

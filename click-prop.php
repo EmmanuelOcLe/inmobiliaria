@@ -44,30 +44,43 @@ if (isset($_SESSION['id'])) {
     <title>Propiedades</title>
 </head>
 <body>
-    
     <div class="contenedor-todo">
         <?php include('header2.php'); ?>
 
         <main class="main">
             <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
 
-            <div class="property-card">
-                <div class="card-header">
-                    <h2 class="property-title"><?php echo " " . htmlspecialchars($row['nombre_inmueble']) . "";?></h2>
-                    <div class="card-actions">
-                        <span class="icon icon-edit"></span>
-                        <span class="icon icon-delete"></span>
+            <?php if ($row): ?>
+                <div class="property-card">
+                    <h2 class="property-title"><?php echo htmlspecialchars($row['nombre_inmueble']); ?></h2>
+                    <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
+
+                    <div class="gallery">
+                        <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
                     </div>
-                </div>
 
-                <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
-
-                <div class="gallery">
-                    <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
-                    <button class="gallery-nav gallery-prev">←</button>
-                    <button class="gallery-nav gallery-next">→</button>
-                </div>
-
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span>Ubicación:</span>
+                            <span><?php echo htmlspecialchars($row['ubicacion_inmueble']); ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Habitaciones:</span>
+                            <span><?php echo htmlspecialchars($row['cantidad_habitaciones']); ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Baños:</span>
+                            <span><?php echo htmlspecialchars($row['cantidad_baños']); ?></span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Área:</span>
+                            <span><?php echo htmlspecialchars($row['area']); ?> m²</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Zonas de Parking:</span>
+                            <span><?php echo htmlspecialchars($row['zona_parqueo']); ?></span>
+                        </div>
+                    </div>
                 <div class="property-details">
                     <div class="detail-item">
                         <span class="detail-icon icon-location"></span>
@@ -94,9 +107,6 @@ if (isset($_SESSION['id'])) {
         </main>
 
         <?php include('footer.php'); ?>
-
     </div>
-
-
 </body>
 </html>

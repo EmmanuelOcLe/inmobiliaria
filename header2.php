@@ -9,6 +9,6 @@
             <a href="inhabilitadas.php">Inmuebles Inhabilitados</a>
         </nav>
 
-        <button class="header-button-red" onclick="window.location.href='login.php'">Salir</button>
+        <button class="header-button-red" onclick="window.location.href='back/logout.php'">Cerrar Sesion</button>
     </div>   
 </header>

@@ -1,21 +1,31 @@
 <?php
-$usuario = $_POST["correo"];
-$contraseña = $_POST["contrasena"];
-
 session_start();
-$_SESSION["correo"]=$usuario;
+include 'conection.php'; // Archivo de conexión a la base de datos
 
-include("conection.php");
-$consulta = "SELECT*FROM accesoadmin where mail='$usuario' and password='$contraseña'";
-$resultado=mysqli_query($con,$consulta);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contrasena'];
 
-$filas=mysqli_num_rows($resultado);
+    // Consulta para verificar credenciales
+    $sql = "SELECT * FROM administrador WHERE email = ? AND password = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ss", $correo, $contrasena);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if($filas){
-    header("location:../dashboard-admin.php");
-}else{
-    echo("Los datos no son correctos");    
+    if ($result->num_rows == 1) {
+        // Credenciales válidas
+        $_SESSION['usuario'] = $correo;
+        $_SESSION['ultimo_acceso'] = time(); // Registrar el tiempo de inicio de sesión
+        header("Location: ../dashboard-admin.php");
+        exit;
+    } else {
+        // Credenciales incorrectas
+        header("Location: ../login.php?error=1");
+        exit;
+    }
+} else {
+    header("Location: ../login.php");
+    exit;
 }
-mysqli_free_result($resultado);
-mysqli_close($con);
 ?>
