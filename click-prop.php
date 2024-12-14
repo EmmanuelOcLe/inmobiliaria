@@ -1,9 +1,9 @@
 <?php
 include('back/session_check.php');
-?>
 
-<?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Verificar si existe el ID en la sesión
 $id = intval($_GET["id"]);
@@ -22,13 +22,13 @@ if (!$con) {
 }
 
 // Consultar la base de datos para obtener información del ID
-$sql = "SELECT * FROM inmueble WHERE id_inmueble = ". $id ."";
+$sql = "SELECT * FROM inmueble WHERE id_inmueble = " . $id;
 $res = mysqli_query($con, $sql);
+
 // Verificar si se encontró el registro
+$row = null;
 if ($res && mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
-} else {
-    $row = null;
 }
 ?>
 <!DOCTYPE html>
@@ -51,13 +51,15 @@ if ($res && mysqli_num_rows($res) > 0) {
         <main class="main">
             <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
 
-            <div class="property-card">
-                <div class="card-header">
-                    <h2 class="property-title">Parque Residente Dahmia III</h2>
-                    <div class="card-actions">
-                        <!--Botones-->
-                        <a href="/Inmobiliaria/inmobiliaria/modificar_propiedad.php"><span class="icon icon-edit"></span></a>
-                        <span class="icon icon-delete"></span>
+            <?php if ($row): ?>
+                <div class="property-card">
+                    <div class="card-header">
+                        <h2 class="property-title"><?= htmlspecialchars($row['nombre_inmueble'] ?? 'Nombre no disponible') ?></h2>
+                        <div class="card-actions">
+                            <!--Botones-->
+                            <a href="/Inmobiliaria/inmobiliaria/modificar_propiedad.php"><span class="icon icon-edit"></span></a>
+                            <span class="icon icon-delete"></span>
+                        </div>
                     </div>
                 </div>
             <?php else: ?>
