@@ -73,19 +73,19 @@ include('back/session_check.php');
                                 <label for="tipo_oferta">tipo oferta</label>
                                 <select name="oferta" id="tipo_oferta">
                                     <option value="venta">Venta</option>
-                                    <option value="aquiler">Alquiler</options>
+                                    <option value="arriendo">Arriendo</options>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group-estado">
-                            <label for="tipo_oferta">estado precio_inmueble</label>
-                            <select  name="estado" id="estado_inmueble">
-                                <option value="Disponible">Disponible</option>
-                                <option value="vendida">Vendida</options>
-                            </select>
+                            <label for="tipo_oferta">estado  inmueble</label>
+                            <!-- <select  name="estado" id="estado_inmueble">
+                                <option value="Habilitadas">Habilitada</option>
+                                <option value="Deshabilitadas">Desahabilitad</options>
+                            </select> -->
                         </div>
                         <div class="form-group">
-                            <label for="tipo_oferta">ID</label>
+                            <label for="id">ID</label>
                             <input name="id"  type="number" id="parqueo" value="5">
                         </div>
         
@@ -109,14 +109,9 @@ include('back/session_check.php');
 
         </main>
 
-        
+
 
         <?php include('footer.php'); ?>
     </div>
-
-
-    
-
-
 </body>
 </html>
