@@ -1,8 +1,4 @@
-<?php
-session_start();
-$_SESSION['id'] = 7;
-echo "ID guardado en la sesión: " . $_SESSION['id'];
-?>
+
 
 <!DOCTYPE html>
 <html lang="es">
