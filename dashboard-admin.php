@@ -30,13 +30,14 @@
           <div class="properties-grid" id="propertiesGrid">
             <?php
               require_once('back/conection.php');
-              $sql = 'SELECT nombre_inmueble, precio_inmueble FROM inmueble;';
+              $sql = 'SELECT nombre_inmueble, precio_inmueble  , fotos_inmueble FROM inmueble;';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
 
               if ($res && $cantFilas > 0) {
                   while ($fila = mysqli_fetch_assoc($res)) {
                       echo '<div class="property-card">';
+                      // echo '<img src="' . $fila['fotos_inmueble'] . '" alt="Imagen de ' . $fila['fotos_inmueble'] . '" class="property-image">'; solo Trae las rutas
                       echo '<img src="assets/card-image.jpg" alt="Imagen" class="property-image">';
                       echo '<div class="property-info">';
                       echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
@@ -60,7 +61,7 @@
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
           card.addEventListener('click', () => {
-            window.location.href = 'http://localhost/inmobiliaria/click-prop.php';
+            window.location.href = 'http://localhost/inmobiliaria/inmobiliaria/click-prop.php';
           });
         });
       });

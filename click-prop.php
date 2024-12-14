@@ -31,7 +31,7 @@
                 <div class="property-price">$ 150.000.000.00</div>
 
                 <div class="gallery">
-                    <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
+                    <img src="assets/2151302622.jpg" alt="Propiedad">
                     <button class="gallery-nav gallery-prev">←</button>
                     <button class="gallery-nav gallery-next">→</button>
                 </div>
