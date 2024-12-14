@@ -86,7 +86,6 @@
     font-size: 1.5rem;
     color: #10b981;
     font-weight: bold;
-    margin: 0 0 1rem 1rem;
 }
 
 .card-actions {
@@ -159,9 +158,10 @@
 
 .property-details {
     padding: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: space-around;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .detail-item {
@@ -182,7 +182,7 @@
 }
 
 .icon-location::before { content: "📍"; }
-.icon-bed::before { content: "🛏"; }
-.icon-bath::before { content: "🚿"; }
-.icon-area::before { content: "📐"; }
-.icon-parking::before { content: "🅿"; }
+.icon-bed::before { content: " 🛏 "; }
+.icon-bath::before { content: " 🚿 "; }
+.icon-area::before { content: " 📐 "; }
+.icon-parking::before { content: " 🅿 "; }

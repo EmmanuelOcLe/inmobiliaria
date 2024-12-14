@@ -56,8 +56,22 @@ if ($res && mysqli_num_rows($res) > 0) {
 
             <?php if ($row): ?>
                 <div class="property-card">
-                    <h2 class="property-title"><?php echo htmlspecialchars($row['nombre_inmueble']); ?></h2>
-                    <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
+                    <div class="card-header">
+                        <div class="prop-info-container">
+                            <h2 class="property-title"><?= htmlspecialchars($row['nombre_inmueble'] ?? 'Nombre no disponible') ?></h2>
+                            <div class="property-price">Precio: $<?php echo htmlspecialchars($row['precio_inmueble']); ?></div>
+                        </div>
+                        <div class="card-actions">
+                            <!--Botones-->
+                            <a href="modificar_propiedad.php"><span class="icon icon-edit"></span></a>
+                            <span class="icon icon-delete"></span>
+                        </div>
+                    </div>
+
+
+
+
+
 
                     <div class="gallery">
                         <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
@@ -65,23 +79,23 @@ if ($res && mysqli_num_rows($res) > 0) {
 
                     <div class="property-details">
                         <div class="detail-item">
-                            <span>Ubicación:</span>
+                            <span class="icon-location">Ubicación:</span>
                             <span><?php echo htmlspecialchars($row['ubicacion_inmueble']); ?></span>
                         </div>
                         <div class="detail-item">
-                            <span>Habitaciones:</span>
+                            <span class="icon-bed">Habitaciones:</span>
                             <span><?php echo htmlspecialchars($row['cantidad_habitaciones']); ?></span>
                         </div>
                         <div class="detail-item">
-                            <span>Baños:</span>
+                            <span class="icon-bath">Baños:</span>
                             <span><?php echo htmlspecialchars($row['cantidad_baños']); ?></span>
                         </div>
                         <div class="detail-item">
-                            <span>Área:</span>
+                            <span class="icon-area">Área:</span>
                             <span><?php echo htmlspecialchars($row['area']); ?> m²</span>
                         </div>
                         <div class="detail-item">
-                            <span>Zonas de Parking:</span>
+                            <span class="icon-parking">Zonas de Parking:</span>
                             <span><?php echo htmlspecialchars($row['zona_parqueo']); ?></span>
                         </div>
                     </div>

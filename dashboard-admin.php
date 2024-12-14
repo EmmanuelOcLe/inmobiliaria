@@ -87,7 +87,7 @@ include_once 'back/session_check.php';
         }
       }
       function redirectToDetails(id) {
-      window.location.href = click-prop.php?id=${id};
+      window.location.href = 'click-prop.php?id=' + id;
       }
     </script>
   </body>
