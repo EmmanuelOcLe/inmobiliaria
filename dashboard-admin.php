@@ -1,5 +1,7 @@
 <?php
 session_start();
+// Incluir el archivo para verificar la sesión
+include('back/session_check.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,11 @@ session_start();
   </head>
   <body>
     <div class="contenedor-todo">
-      <?php include('header2.php'); ?>
+
+      <?php 
+      include('header2.php'); 
+      include('back/session_check.php');
+      ?>
 
       <main class="container">
         <div class="container-2">
@@ -64,7 +70,7 @@ session_start();
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
           card.addEventListener('click', () => {
-            window.location.href = 'http://localhost/inmobiliaria/click-prop.php';
+            window.location.href = 'http://localhost/inmobiliaria/inmobiliaria/click-prop.php';
           });
         });
       });*/

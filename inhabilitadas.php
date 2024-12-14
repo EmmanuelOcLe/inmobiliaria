@@ -1,5 +1,7 @@
 <?php
 include 'back/conection.php';
+include('back/session_check.php');
+
 
 // Consulta para obtener las propiedades deshabilitadas
 $sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";

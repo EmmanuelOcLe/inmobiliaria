@@ -4,47 +4,49 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'inter';
+  height: 100vh;
+  width: 100%;
 }
-img{
-  max-width: 100%;
-}
+
 a{
   text-decoration: none;
 }
 .main-tag{
-  height: initial;
-  padding: 15% 0;
   background: url('../assets/picina-fondo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: scroll;
+  height: 100vh;
+
 }
 .container {
-  /* height: 100%; */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login-form {
   background-color:#000A16;
-  padding: 34px;
-  /* border-radius: 8px; */
-  width: 280px;
-  height: 300px;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
 }
 h2 {
   color: white;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 1.8em;
 }
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 label {
   display: block;
   color: white;
   margin-bottom: 5px;
+  font-size: 1.2em;
 }
 input {
   width: 100%;
@@ -53,31 +55,32 @@ input {
   background-color: #002B5B;
   color: white;
   border-radius: 4px;
+  height: 35px;
 }
 .button-group {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .btn-submit{
   width: 50%;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1.4em;
 }
 .btn-cancel{
   width: 50%;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   background: none;
   color: white;
-  font-size: 16px;
+  font-size: 1.4em;
 }
 .btn-cancel:hover{
   color:  #aaa;
