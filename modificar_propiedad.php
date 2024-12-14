@@ -109,6 +109,8 @@ include('back/session_check.php');
 
         </main>
 
+        
+
         <?php include('footer.php'); ?>
     </div>
 
