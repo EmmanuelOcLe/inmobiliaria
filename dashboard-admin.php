@@ -1,6 +1,5 @@
 <?php
-// Incluir el archivo para verificar la sesión
-include('back/session_check.php');
+include_once 'back/session_check.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +30,7 @@ include('back/session_check.php');
               <h1>Bienvenido <span class="name">Emmanuel</span></h1>
             </div>
             <div class="report-buttons">
-              <button onclick="report()";" class="report-btn primary">Generar Reporte</button>
+              <button onclick="report()"; class="report-btn primary">Generar Reporte</button>
               <button onclick="window.location.href='crear_propiedad.php';" class="report-btn secondary">Crear Inmueble +</button>
             </div>
           </div>
@@ -39,14 +38,13 @@ include('back/session_check.php');
           <div class="properties-grid" id="propertiesGrid">
             <?php
               require_once('back/conection.php');
-              $sql = 'SELECT nombre_inmueble, precio_inmueble  , fotos_inmueble FROM inmueble;';
+              $sql = 'SELECT * FROM inmueble;';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
 
               if ($res && $cantFilas > 0) {
                   while ($fila = mysqli_fetch_assoc($res)) {
-                      echo '<div class="property-card">';
-                      // echo '<img src="' . $fila['fotos_inmueble'] . '" alt="Imagen de ' . $fila['fotos_inmueble'] . '" class="property-image">'; solo Trae las rutas
+                      echo '<div class="property-card" onclick = "redirectToDetails('.$fila['id_inmueble'].')">';
                       echo '<img src="assets/card-image.jpg" alt="Imagen" class="property-image">';
                       echo '<div class="property-info">';
                       echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
@@ -66,14 +64,14 @@ include('back/session_check.php');
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      /*document.addEventListener('DOMContentLoaded', () => {
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
           card.addEventListener('click', () => {
-            window.location.href = 'http://localhost/inmobiliaria/inmobiliaria/click-prop.php';
+            window.location.href = 'click-prop.php';
           });
         });
-      });
+      });*/
 
       function report() {
         
@@ -86,6 +84,9 @@ include('back/session_check.php');
           window.open('back/fpdf/reporte.php')
           window.location.href = 'back/reporteexcel.php';
         }
+      }
+      function redirectToDetails(id) {
+      window.location.href = `click-prop.php?id=${id}`;
       }
     </script>
   </body>
