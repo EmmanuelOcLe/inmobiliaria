@@ -1,7 +1,6 @@
 <?php
-session_start();
-$_SESSION['id'] = 7;
-echo "ID guardado en la sesión: " . $_SESSION['id'];
+include_once 'back/session_check.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +87,7 @@ echo "ID guardado en la sesión: " . $_SESSION['id'];
         }
       }
       function redirectToDetails(id) {
-      window.location.href = `click-prop.php?id=${id}`;
+      window.location.href = click-prop.php?id=${id};
       }
     </script>
   </body>
