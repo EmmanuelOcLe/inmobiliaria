@@ -73,7 +73,7 @@ include('back/session_check.php');
                                 <label for="tipo_oferta">tipo oferta</label>
                                 <select name="oferta" id="tipo_oferta">
                                     <option value="venta">Venta</option>
-                                    <option value="arriendo">Arriendo</options>
+                                    <option value="arriendo">Arriendo</option>
                                 </select>
                             </div>
                         </div>

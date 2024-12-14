@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contrasena = $_POST['contrasena'];
 
     // Consulta para verificar credenciales
-    $sql = "SELECT * FROM administrador WHERE email = ? AND password = ?";
+    $sql = "SELECT * FROM accesoadmin WHERE mail = ? AND password = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("ss", $correo, $contrasena);
     $stmt->execute();
