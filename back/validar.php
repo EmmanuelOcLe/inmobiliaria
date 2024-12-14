@@ -10,7 +10,7 @@ $contraseña = $_POST["contrasena"];
 session_start();
 
 // Consulta para verificar las credenciales
-$consulta = "SELECT * FROM administrador WHERE email='$usuario' AND password='$contraseña'";
+$consulta = "SELECT * FROM accesoadmin WHERE mail='$usuario' AND password='$contraseña'";
 $resultado = mysqli_query($con, $consulta);
 
 // Verificar si las credenciales son válidas
