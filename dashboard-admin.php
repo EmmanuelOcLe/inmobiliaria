@@ -39,7 +39,7 @@ include_once 'back/session_check.php';
           <div class="properties-grid" id="propertiesGrid">
             <?php
               require_once('back/conection.php');
-              $sql = 'SELECT * FROM inmueble;';
+              $sql = 'SELECT * FROM inmueble where estado = "habilitado";';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
 

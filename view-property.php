@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
 
@@ -19,7 +20,12 @@
       <main>
         <div class="container">
           <div class="container-property">
-            <div class="badge">Arrendo</div>
+          <div class="back-button-container">
+            <a href="index.php"> 
+            <i class='bx bx-arrow-back'></i>
+               Volver
+              </a>
+          </div>
             <div class="header-info">
               <div class="header-title">
                 <h1 class="property-title">Casa en Condominió</h1>
