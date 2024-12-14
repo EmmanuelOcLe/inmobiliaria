@@ -4,8 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Tiempo máximo de inactividad en segundos (5 minutos = 300 segundos)
-$tiempo_maximo_inactividad = 10000000; // Cambiamos a segundos para consistencia
-$tiempo_advertencia = 6; // Tiempo de advertencia antes de cerrar la sesión (1 minuto)
+$tiempo_maximo_inactividad = 300; // Cambiamos a segundos para consistencia
+$tiempo_advertencia = 60; // Tiempo de advertencia antes de cerrar la sesión (1 minuto)
 
 // Si hay un usuario autenticado
 if (isset($_SESSION['usuario'])) {
