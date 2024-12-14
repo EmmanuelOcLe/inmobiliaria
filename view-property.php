@@ -83,7 +83,7 @@
                 <textarea id="message" name="message" rows="4" required></textarea>
               </div>
               <div class="form-buttons">
-                <button type="button" class="btn btn-cancel">Cancelar</button>
+                <button type="button" class="btn btn-cancel" id="cancelar">Cancelar</button>
                 <button type="submit" class="btn btn-submit">Enviar</button>
               </div>
             </form>
@@ -95,26 +95,33 @@
       <?php include('footer.php'); ?>
     </div>
 
-    <!-- <script>
+    <script>
+
+      // Arreglo con las rutas de las imágenes
       const images = [
-          './assets/image-house-2.jpg',
-          './assets/image-house-2.jpg',
-          './assets/image-house.jpg'
+        './assets/image-house.jpg',
+        './assets/image-house-2.jpg',
+        './assets/image-house-3.jpg'
       ];
+
+      // Índice para llevar el control de la imagen actual
       let currentImageIndex = 0;
+
+      // Elemento de la imagen en el HTML
       const imageElement = document.getElementById('propertyImage');
 
+      // Función para cambiar la imagen
       function changeImage(direction) {
-          currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-          imageElement.src = images[currentImageIndex];
+        // Cambiar el índice según la dirección
+        currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+        
+        // Cambiar la fuente y el texto alternativo de la imagen
+        imageElement.src = images[currentImageIndex];
+        imageElement.alt = `Imagen ${currentImageIndex + 1} de la propiedad`;
       }
 
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          // Aquí iría la lógica para enviar el formulario
-          alert('Formulario enviado con éxito!');
-      });
-    </script> -->
+      
+    </script>
 
   </body>
 </html>
