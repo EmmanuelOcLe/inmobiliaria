@@ -23,7 +23,7 @@
       </div>
       <div class="header-background">
         <nav class="navbar">
-          <a href="index.html" class="header-logo-link">
+          <a href="index.php" class="header-logo-link">
             <h1 class="header-logo">IE</h1>
           </a>
           <div class="header-options-container">

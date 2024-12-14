@@ -49,12 +49,21 @@
                     <input type="password" id="contrasena" name="contrasena" required>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn-cancel" onclick="window.location.href='index.php'">Cancelar</button>
+                    <button type="button" class="btn-cancel" id="btnCancel">Cancelar</button>
                     <button type="submit" class="btn-submit">Ingresar</button>
                 </div>
             </form>
         </div>
     </main>
+
+    <!-- Script para volver al index en caso de cancelar el form-->
+    <script>
+        let button = document.getElementById('btnCancel');
+        
+        button.addEventListener('click', ()=>{
+            window.location.href = 'index.php';
+        });
+    </script>
 
     <!-- Popup Modal -->
     <?php if ($mensaje): ?>

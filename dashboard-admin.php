@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -84,7 +83,7 @@
         }
       }
       function redirectToDetails(id) {
-      window.location.href = `click-prop.php?id=${id}`;
+      window.location.href = 'click-prop.php?id=' + id;
       }
     </script>
   </body>
