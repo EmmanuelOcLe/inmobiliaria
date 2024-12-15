@@ -50,22 +50,19 @@
       $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble WHERE tipo_oferta = "arriendo"';
+      from inmueble WHERE tipo_oferta = "arriendo" and estado = "habilitada"';
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
 
       if ($res && mysqli_num_rows($res) > 0){
 
-        $whileIteration = 0;  
 
         while($fila = mysqli_fetch_assoc($res)){
           
-          $whileIteration ++;
           
-          if ($whileIteration == 1){
-            echo "<div class='card-container'>";
-          }
+
+         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
@@ -77,14 +74,7 @@
               echo '</div>';
             echo '</div>';
 
-          if ($whileIteration % 4 == 0){
-            echo '</div>';
-            echo '<div class="card-container">';
-          }
-
-          if ($whileIteration == $cantFilas){
-            echo '</div>';
-          }
+          
         }
       }
       ?>
