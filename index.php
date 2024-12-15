@@ -15,6 +15,12 @@
   <div class="contenedor-todo">
 
     <header class="header-tag">
+      <div class="header-bg-img-container">
+        <img src="assets/header-image-1.jpg" alt="" class="header-bg-img">
+        <img src="assets/header-image-2.jpg" alt="" class="header-bg-img">
+        <img src="assets/header-image-3.jpg" alt="" class="header-bg-img">
+        <img src="assets/header-image-4.jpg" alt="" class="header-bg-img">
+      </div>
       <div class="header-background">
         <nav class="navbar">
           <a href="index.php" class="header-logo-link">
