@@ -52,7 +52,7 @@
       $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble where estado = "habilitado";';
+      from inmueble where estado = "habilitada";';
 
       $res = mysqli_query($con, $sql);
 

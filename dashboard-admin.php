@@ -97,6 +97,9 @@
         window.location.href = 'back/reporteexcel.php';
         hideReportModal();
       }
+      function redirectToDetails(id) {
+      window.location.href = 'click-prop.php?id=' + id;
+      }
     </script>
   </body>
 </html>
