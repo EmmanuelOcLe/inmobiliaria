@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $fotos_inmueble = ""; 
-    $stmt->bind_param("ssiiiisssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
+    $stmt->bind_param("ssiiissssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
  
     if ($stmt->execute()) {
         $idPropiedad = $con->insert_id;
