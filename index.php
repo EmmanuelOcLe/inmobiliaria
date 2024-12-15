@@ -50,7 +50,7 @@
       require_once('back/conection.php');
 
       $sql = 'select id_inmueble, 
-      nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
+      nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") as "x"
       from inmueble where estado = "habilitada";';
 
@@ -66,7 +66,7 @@
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                 echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span>';
+                echo '<span class="card-info"> '.$fila['x'].' </span><span id="oferta">'.$fila['tipo_oferta'].'</span>';
               echo '</div>';
           echo '</div>';
 
