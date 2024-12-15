@@ -45,13 +45,19 @@ if ($res && mysqli_num_rows($res) > 0) {
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="assets/favicon.ico">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Propiedades</title>
 </head>
-<body>
+<body> 
     <div class="contenedor-todo">
         <?php include('header2.php'); ?>
 
         <main class="main">
+        <a href="dashboard-admin.php"> 
+            <i class='bx bx-arrow-back'></i>
+               Volver
+              </a>
             <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
 
             <?php if ($row): ?>
@@ -67,12 +73,7 @@ if ($res && mysqli_num_rows($res) > 0) {
                             <span class="icon icon-delete"></span>
                         </div>
                     </div>
-
-
-
-
-
-
+                    
                     <div class="gallery">
                         <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
                     </div>

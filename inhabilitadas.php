@@ -15,6 +15,7 @@ $result = $con->query($sql);
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Propiedades Inhabilitadas</title>
 </head>
 <body>
@@ -25,6 +26,10 @@ $result = $con->query($sql);
             <main>
                 <a href=""><span></span></a>
                 <div class="InmueblesInabi">
+                    <a href="dashboard-admin.php"> 
+                        <i class='bx bx-arrow-back'></i>
+                        Volver
+                    </a>
                     <h1 class="text-h1">Inmuebles Inhabilitados</h1>
                     <div class="grid-contenedores">
                         <?php if ($result->num_rows > 0): ?>
