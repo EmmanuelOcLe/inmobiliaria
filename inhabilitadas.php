@@ -2,6 +2,7 @@
 include 'back/conection.php';
 include_once 'back/session_check.php';
 $sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble, motivo, fecha_actualizacion FROM inmueble WHERE estado = 'deshabilitada'";
+$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";
 $result = $con->query($sql);
 ?>
 
@@ -15,6 +16,7 @@ $result = $con->query($sql);
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
+    <link rel="icon" href="assets/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Inmuebles Emmanuel</title>
 </head>
@@ -69,6 +71,7 @@ $result = $con->query($sql);
 
         
         <div class="popup-overlay" id="popup-overlay" onclick="closePopup()"></div>
+        
         <div id="popup" class="popup">
             <form class="popup-form" id="popup-form" action="back/habilitar.php" method="POST">
                 <h3>Habilitacion de Inmueble</h3>
