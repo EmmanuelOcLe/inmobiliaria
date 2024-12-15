@@ -37,11 +37,22 @@
               $sql = 'SELECT * FROM inmueble where estado = "habilitada";';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
-
+ 
               if ($res && $cantFilas > 0) {
                   while ($fila = mysqli_fetch_assoc($res)) {
+                    $carpetaImagenes = 'images/properties/' . $fila['id_inmueble'];
+                    $imagenSrc = 'assets/image.png';
+                    if (is_dir($carpetaImagenes)) {
+                      $archivos = scandir($carpetaImagenes);
+                      foreach ($archivos as $archivo) {
+                        if ($archivo !== '.' && $archivo !== '..') {
+                          $imagenSrc = $carpetaImagenes . '/' . $archivo;
+                          break;
+                        }
+                      }
+                    }
                       echo '<div class="property-card" onclick = "redirectToDetails('.$fila['id_inmueble'].')">';
-                      echo '<img src="assets/card-image.jpg" alt="Imagen" class="property-image">';
+                      echo '<img src="' . $imagenSrc . '" alt="Imagen" class="property-image">';
                       echo '<div class="property-info">';
                       echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
                       echo '<div class="property-price">R$ ' . $fila['precio_inmueble'] . '</div>';
