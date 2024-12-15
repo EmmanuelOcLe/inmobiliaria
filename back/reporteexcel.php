@@ -58,7 +58,7 @@ if ($result === false) {
             <td style="padding: 8px; text-align: left;"><?php echo $row['area']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['tipo_oferta']; ?></td>
             <td style="padding: 8px; text-align: left;"><?php echo $row['precio_inmueble']; ?></td>
-            <td style="padding: 8px; text-align: left;"><?php echo $row['estado_inmueble']; ?></td>
+            <td style="padding: 8px; text-align: left;"><?php echo $row['estado']; ?></td>
         </tr>
         <?php 
         } 

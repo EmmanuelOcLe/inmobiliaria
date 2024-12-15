@@ -99,7 +99,7 @@ if ($result->num_rows > 0) {
       $area = $row['area'];
       $ofert = ajustarTexto($pdf, $row['tipo_oferta'], 25);
       $price = "$" . number_format($row['precio_inmueble'], 2);
-      $status = ajustarTexto($pdf, $row['estado_inmueble'], 25);
+      $status = ajustarTexto($pdf, $row['estado'], 25);
 
       $pdf->Cell(10, 8, $id, 1, 0, 'C', 0);
       $pdf->Cell(45, 8, utf8_decode($name), 1, 0, 'C', 0);
