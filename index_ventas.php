@@ -28,6 +28,7 @@
           </a>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
+            <a href="about.php#contactSection" class="header-option">Contacto</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
             <a href="arrendamiento.php" class="header-option">Servicios</a>
             <a href="login.php" class="header-option">Administración</a>
