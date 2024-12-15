@@ -22,6 +22,7 @@ $habilitado = "habilitada";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Propiedad</title>
     <link rel="stylesheet" href="css/modal-create.css">
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="modal" id="successModal">
