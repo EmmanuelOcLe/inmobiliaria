@@ -108,10 +108,10 @@ if ($res && mysqli_num_rows($res) > 0) {
         <?php include('footer.php'); ?>
     </div>
 
-    <!-- Popup para habilitar inmueble -->
+    <!-- Popup para deshabilitar el  inmueble -->
     <div class="popup-overlay" id="popup-overlay" onclick="closePopup()"></div>
     <div id="popup" class="popup">
-        <form class="popup-form" id="popup-form" action="back/habilitar.php" method="POST">
+        <form class="popup-form" id="popup-form" action="back/deshabilitar.php" method="POST">
             <h3>Deshabilitar el Inmueble</h3>
             <input type="hidden" id="id_inmueble" name="id_inmueble">
     
