@@ -77,10 +77,9 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="imagenes">Imágenes de la propiedad</label>
-                    <input type="file" id="imagenes" accept="image/*" multiple name="imagen">
+                    <input type="file" name="fotos[]" id="fotos" multiple required>
                 </div>
 
                 <div class="description-area">
