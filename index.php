@@ -21,6 +21,7 @@
         <img src="assets/header-image-3.jpg" alt="" class="header-bg-img">
         <img src="assets/header-image-4.jpg" alt="" class="header-bg-img">
       </div>
+
       <div class="header-background">
         <nav class="navbar">
           <a href="index.php" class="header-logo-link">
@@ -33,6 +34,7 @@
             <a href="login.php" class="header-option">Administración</a>
           </div>
         </nav>
+        
         <div class="header-text">
           <h2 class="header-text-title">Mais de 7 anos atuando <br/> no mercado imobiliário</h2>
           <p class="header-text-p">
@@ -50,7 +52,7 @@
       $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble where estado = "habilitado";';
+      from inmueble where estado = "habilitada";';
 
       $res = mysqli_query($con, $sql);
 
