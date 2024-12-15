@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -35,7 +34,7 @@
           <div class="properties-grid" id="propertiesGrid">
             <?php
               require_once('back/conection.php');
-              $sql = 'SELECT * FROM inmueble where estado_inmueble = "habilitado";';
+              $sql = 'SELECT * FROM inmueble where estado = "habilitada";';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
 
@@ -61,14 +60,6 @@
     </div>
 
     <script>
-      /*document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.property-card');
-        cards.forEach(card => {
-          card.addEventListener('click', () => {
-            window.location.href = 'click-prop.php';
-          });
-        });
-      });*/
 
       function report() {
         
@@ -82,6 +73,7 @@
           window.location.href = 'back/reporteexcel.php';
         }
       }
+
       function redirectToDetails(id) {
       window.location.href = 'click-prop.php?id=' + id;
       }
