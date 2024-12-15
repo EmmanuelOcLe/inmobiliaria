@@ -1,3 +1,7 @@
+<?php
+include_once 'back/session_check.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -64,7 +68,7 @@
 
                     <div class="form-group">
                         <label for="area">Área en metros Cuadrados</label>
-                        <input type="text" id="area" placeholder="Área en m2" name="areas_metros">
+                        <input type="text" id="area" placeholder="" name="areas_metros">
                     </div>
 
                     <div class="form-group">
@@ -84,7 +88,7 @@
 
                 <div class="description-area">
                     <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" name="descripcion"></textarea>
+                    <textarea id="descripcion" placeholder="Descripcion del Inmueble" name="descripcion"></textarea>
                 </div>
 
                 <div class="buttons">

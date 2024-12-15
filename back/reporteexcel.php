@@ -11,14 +11,11 @@ header("Content-Disposition: attachment; filename=reporte.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
 
-// Evitar problemas de codificación
-echo "\xEF\xBB\xBF"; // Añadir el BOM (Byte Order Mark) para que Excel reconozca UTF-8
+echo "\xEF\xBB\xBF"; 
 
-// Consulta a la base de datos
-$sql = "SELECT * FROM inmueble"; // Ajusta los nombres de columnas según tu tabla
+$sql = "SELECT * FROM inmueble"; 
 $result = $con->query($sql);
 
-// Verifica si la consulta fue exitosa
 if ($result === false) {
     die("Error en la consulta: " . $con->error);
 }
