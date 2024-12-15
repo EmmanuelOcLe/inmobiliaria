@@ -67,12 +67,7 @@ if ($res && mysqli_num_rows($res) > 0) {
                             <span class="icon icon-delete"></span>
                         </div>
                     </div>
-
-
-
-
-
-
+                    
                     <div class="gallery">
                         <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
                     </div>
