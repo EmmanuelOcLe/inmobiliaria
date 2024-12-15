@@ -1,3 +1,7 @@
+<?php
+include_once 'back/session_check.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

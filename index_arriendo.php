@@ -55,8 +55,7 @@
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
 
-      if ($res && mysqli_num_rows($res) > 0){ // Verifica si la variable $res contiene un valor válido. Luego verifica si tiene almenos una fila
-
+      if ($res && mysqli_num_rows($res) > 0){
 
         $whileIteration = 0;  
 
@@ -64,7 +63,6 @@
           
           $whileIteration ++;
           
-
           if ($whileIteration == 1){
             echo "<div class='card-container'>";
           }
