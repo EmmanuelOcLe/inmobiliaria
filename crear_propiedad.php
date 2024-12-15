@@ -28,7 +28,7 @@
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form method="post" action="registro.php" method="post">
+            <form method="post" action="registro.php" method="post" enctype="multipart/form-data">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="imagenes">Imágenes de la propiedad</label>
+                    <label for="fotos">Imágenes de la propiedad</label>
                     <input type="file" name="fotos[]" id="fotos" multiple required>
                 </div>
 
