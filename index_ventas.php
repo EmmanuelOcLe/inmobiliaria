@@ -28,6 +28,7 @@
           </a>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
+            <a href="about.php#contactSection" class="header-option">Contacto</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
             <a href="arrendamiento.php" class="header-option">Servicios</a>
             <a href="login.php" class="header-option">Administración</a>
@@ -50,7 +51,7 @@
       $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
       concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble WHERE tipo_oferta = "venta"';
+      from inmueble WHERE tipo_oferta = "venta" and estado = "habilitada" ';
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
@@ -58,16 +59,14 @@
       if ($res && mysqli_num_rows($res) > 0){ // Verifica si la variable $res contiene un valor válido. Luego verifica si tiene almenos una fila
 
 
-        $whileIteration = 0;  
+       
 
         while($fila = mysqli_fetch_assoc($res)){
           
-          $whileIteration ++;
+          
           
 
-          if ($whileIteration == 1){
-            echo "<div class='card-container'>";
-          }
+         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
@@ -79,14 +78,7 @@
               echo '</div>';
             echo '</div>';
 
-          if ($whileIteration % 4 == 0){
-            echo '</div>';
-            echo '<div class="card-container">';
-          }
-
-          if ($whileIteration == $cantFilas){
-            echo '</div>';
-          }
+          
         }
       }
       ?>

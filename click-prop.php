@@ -31,6 +31,8 @@ if ($res && mysqli_num_rows($res) > 0) {
 } else {
     $row = null;
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,9 +58,9 @@ if ($res && mysqli_num_rows($res) > 0) {
                 <i class='bx bx-arrow-back'></i>
                 Volver
             </a>
-            <h1 class="welcome">Bienvenido <span class="welcome-name">Emmanuel</span></h1>
-
+ 
             <?php if ($row): ?>
+                
                 <div class="property-card">
                     <div class="card-header">
                         <div class="prop-info-container">
@@ -74,7 +76,7 @@ if ($res && mysqli_num_rows($res) > 0) {
                     </div>
                     
                     <div class="gallery">
-                        <img src="/inmobiliaria/assets/2151302622.jpg" alt="Propiedad">
+                        <img src="images/properties/<?php echo $row['id_inmueble'] . '/' . '.jpg'; ?>" alt="Propiedad">
                     </div>
 
                     <div class="property-details">

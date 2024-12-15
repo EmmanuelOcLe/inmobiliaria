@@ -62,7 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $updateStmt->bind_param("si", $fotosInmueble, $idPropiedad);
         
         if ($updateStmt->execute()) {
-            echo "";
+            echo '<script>
+                window.onload = function() {
+                    document.getElementById("successModal").style.display = "block";
+                }
+                </script>';
         } else {
             echo "Error al actualizar las fotos: " . $updateStmt->error;
         }
@@ -113,12 +117,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             echo "Error al insertar los datos: " . mysqli_error($con);
         }
 
-        mysqli_close($con);
+        
     }
     ?>
 
     <script>
-        const modal = document.getElementById("successModal");
+        // Funcionalidad de botones
         const btnSeguirCreando = document.getElementById("seguirCreando");
         const btnVolverDashboard = document.getElementById("volverDashboard");
 
