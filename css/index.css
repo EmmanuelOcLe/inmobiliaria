@@ -94,13 +94,17 @@ img {
 }
 .card-info-container {
   padding: 1em;
+  position: relative;
 }
 .card-info-container #oferta {
   padding: 5px;
   border-radius: 5px;
+  position: absolute;
   margin-left: 1.5em;
-  background-color: #0dc578;
+  background-color: rgb(36, 68, 247);
   color: #fff;
+  top: 1em;
+  right: 1em;
 }
 
 .card-info {
@@ -112,4 +116,58 @@ img {
 .card-price {
   color: #7ca896;
   margin: 5px auto;
+}
+/* Estilos para el filtro */
+form {
+  justify-content: center;
+  margin: 20px 2em;
+}
+
+select#filter {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+select#filter:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 16px;
+}
+
+option:hover {
+  background-color: #f1f1f1;
+}
+
+select#filter:hover {
+  border-color: #0056b3;
+}
+
+select#filter {
+  width: 200px;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Estilos de transición para una experiencia más fluida */
+select#filter {
+  transition: all 0.3s ease;
+}
+
+select#filter:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
