@@ -37,6 +37,11 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+.span-oferta {
+  color: rgb(36, 68, 247); /* Color predeterminado */
+  font-weight: normal;
+}
+
 .header-options-container {
   display: flex;
   /* gap: 10px; */

@@ -32,7 +32,7 @@ $sql = "UPDATE inmueble SET
     cantidad_baños = $banos, 
     zona_parqueo = '$parqueo', 
     area = $area, 
-    Descripcion_inmueble = '$descripcion', 
+    descripcion_inmueble = '$descripcion', 
     tipo_oferta = '$tipo_oferta', 
     fotos_inmueble = '$imagenes',
     precio_inmueble = $valor
@@ -46,8 +46,6 @@ if (mysqli_query($con, $sql)) {
 } else {
     echo "Error al actualizar el registro: " . mysqli_error($con);
 }
-
-
 
 
 
