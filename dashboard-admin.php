@@ -23,7 +23,7 @@
         <div class="container-2">
           <div class="welcome-section">
             <div class="welcome-text">
-              <h1>Bienvenido <span class="name">Emmanuel</span></h1>
+              <h1>Propiedades <span class="name">Habilitadas</span></h1>
             </div>
             <div class="report-buttons">
               <button onclick="showReportModal()" class="report-btn primary">Generar Reporte</button>
