@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $fotos_inmueble = ""; 
-    $stmt->bind_param("ssiiiisssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
+    $stmt->bind_param("ssiiissssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
  
     if ($stmt->execute()) {
         $idPropiedad = $con->insert_id;
@@ -103,6 +103,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
         </div>
     </div>
+
+    <?php
+    if (!$con) {
+        echo "No se ha podido conectar a la base de datos: " . mysqli_connect_error();
+    } else {
+        $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, descripcion_inmueble, tipo_oferta, precio_inmueble, estado)
+        VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', '$valor', '$habilitado')";
+
+        $resultado = mysqli_query($con, $sql);
+
+        if ($resultado) {
+            echo '<script>document.getElementById("successModal").style.display = "block";</script>';
+        } else {
+            echo "Error al insertar los datos: " . mysqli_error($con);
+        }
+
+        
+    }
+    ?>
 
     <script>
         // Funcionalidad de botones

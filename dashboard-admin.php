@@ -1,3 +1,8 @@
+<?php
+include_once 'back/session_check.php';;
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -108,6 +113,7 @@
         window.location.href = 'back/reporteexcel.php';
         hideReportModal();
       }
+
       function redirectToDetails(id) {
       window.location.href = 'click-prop.php?id=' + id;
       }
