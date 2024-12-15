@@ -1,7 +1,7 @@
 <?php
 include 'back/conection.php';
 include_once 'back/session_check.php';
-$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";
+$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble, motivo, fecha_actualizacion FROM inmueble WHERE estado = 'deshabilitada'";
 $result = $con->query($sql);
 ?>
 
@@ -16,39 +16,41 @@ $result = $con->query($sql);
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Propiedades Inhabilitadas</title>
+    <title>Inmuebles Emmanuel</title>
 </head>
+
 <body>
 
     <div class="contenedor-todo">
-        <?php include('header2.php');
-         ?>
+        <?php include('header2.php');?>
             <main>
-                <a href=""><span></span></a>
                 <div class="InmueblesInabi">
-                    <a href="dashboard-admin.php"> 
-                        <i class='bx bx-arrow-back'></i>
-                        Volver
-                    </a>
-                    <h1 class="text-h1">Inmuebles Inhabilitados</h1>
+                    <h1 class="text-h1">Inmuebles <span class="name">Inhabilitadas</span></h1>
                     <div class="grid-contenedores">
                         <?php if ($result->num_rows > 0): ?>
+
                             <?php while ($row = $result->fetch_assoc()): ?>
                                 <div class="propiedad-card" onclick="showPopup(<?= $row['id_inmueble'] ?>)">
                                     <div class="propiedad-image">
                                         <img src="<?= $row['fotos_inmueble'] ?>" alt="Imagen de la propiedad">
                                     </div>
                                     <div class="property-detalles">
-                                        <p class="propiedad-nombre"><?= $row['nombre_inmueble'] ?></p>
-                                        <span class="propiedad-precio">R$ <?= $row['precio_inmueble'] ?></span>
+                                        <p class="propiedad-nombre"><?= htmlspecialchars($row['nombre_inmueble']) ?></p>
+                                        <span class="propiedad-precio">R$ <?= htmlspecialchars($row['precio_inmueble']) ?></span>
+                                        <!-- Agregar motivo -->
+                                        <p class="propiedad-motivo"><strong>Motivo:</strong> <?= htmlspecialchars($row['motivo']) ?></p>
+                                        <!-- Agregar fecha y hora de actualización -->
+                                        <p class="propiedad-fecha"><strong>Fecha:</strong> <?= htmlspecialchars($row['fecha_actualizacion']) ?></p>
                                     </div>
                                 </div>
                             <?php endwhile; ?>
+
                         <?php else: ?>
                             <p>No hay propiedades inhabilitadas.</p>
                         <?php endif; ?>
                     </div>
                 </div>
+
             </main>
         <?php include('footer.php'); ?>
 

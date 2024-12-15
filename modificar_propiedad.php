@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global.css"> 
     <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
@@ -49,6 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
         
             <div class="container">
                 <div class="welcome">
+                <a href="index.php" class="back-button"> 
+                    <i class='bx bx-arrow-back'></i>
+                    Volver
+                </a>
                     <h1>Bienvenido <span>Emmanuel</span></h1>
                 </div>
         

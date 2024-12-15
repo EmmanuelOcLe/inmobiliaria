@@ -4,7 +4,9 @@
   --primary-green: #28a745;
   --gray-bg: #f0f0f0;
 }
-
+main{
+  position: relative;
+}
 .container {
   max-width: 1200px;
   margin: 3em auto;
@@ -51,8 +53,8 @@
 
 .properties-grid {
   display: grid;
-  grid-template-columns: 250px 250px 250px;
-  gap: 2rem;
+  grid-template-columns: 20em 20em 20em;
+  gap: 50px;
 }
 
 .property-card {

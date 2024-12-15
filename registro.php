@@ -45,7 +45,7 @@ VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m,
     if (!$con) {
         echo "No se ha podido conectar a la base de datos: " . mysqli_connect_error();
     } else {
-        $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, descripcion_inmueble, tipo_oferta, precio_inmueble, estado_inmueble)
+        $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, descripcion_inmueble, tipo_oferta, precio_inmueble, estado)
         VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', '$valor', '$habilitado')";
 >>>>>>> c6300350931a5b955424e73a78ec7f6bde576e1f
 
