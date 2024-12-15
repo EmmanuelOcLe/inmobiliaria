@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conection.php'; // Archivo de conexión a la base de datos
+include 'conection.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = $_POST['correo'];
@@ -14,13 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
-        // Credenciales válidas
+
         $_SESSION['usuario'] = $correo;
-        $_SESSION['ultimo_acceso'] = time(); // Registrar el tiempo de inicio de sesión
+        $_SESSION['ultimo_acceso'] = time(); 
         header("Location: ../dashboard-admin.php");
         exit;
     } else {
-        // Credenciales incorrectas
+
         header("Location: ../login.php?error=1");
         exit;
     }

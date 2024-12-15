@@ -1,4 +1,14 @@
-
+.error-link{
+  box-sizing: border-box;
+  background-color: #3f51b5;
+  padding: 5px;
+  border-radius: 5px;
+  color: #000;
+  margin: 0 auto;
+}
+.error-link:hover{
+  text-decoration: underline;
+}
 .container {
   max-width: 1200px;
   margin: 2rem;
@@ -23,24 +33,32 @@
   display: flex;
   position: relative;
 }
+.span-oferta {
+  color: rgb(63, 48, 199); /* Color predeterminado */
+  font-weight: 800;
+}
 
 .property-title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  margin-top: 20px;
 }
 
-.property-location {
+.property-description{
+  width: 50%;
   color: #666;
   margin-bottom: 1rem;
 }
-
+.price-container{
+  position: absolute;
+  right: 0;
+  bottom: 0.5em;
+  display: flex;
+}
 .property-price {
   color: #4caf50;
   font-size: 1.5rem;
   font-weight: bold;
-  position: absolute;
-  right: 0;
-  bottom: 0.5em;
 }
 
 .slider-container {
@@ -64,7 +82,10 @@
   border: none;
   padding: 1rem;
   cursor: pointer;
+  width: 50px;
+  height: 50px;
   font-size: 1.5rem;
+  border-radius: 50%;
 }
 
 .prev {
@@ -145,3 +166,9 @@
   background: #4caf50;
   color: white;
 }
+
+.icon-location::before { content: "📍"; }
+.icon-bed::before { content: " 🛏 "; }
+.icon-bath::before { content: " 🚿 "; }
+.icon-area::before { content: " 📐 "; }
+.icon-parking::before { content: " 🅿 "; }

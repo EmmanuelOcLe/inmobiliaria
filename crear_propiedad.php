@@ -10,11 +10,17 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="assets/favicon.ico">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
     <?php include('header2.php');?>
-
+ 
     <div class="container">
+        <a href="dashboard-admin.php"> 
+            <i class='bx bx-arrow-back'></i>
+            Volver
+        </a>
         <div class="welcome">
             <h1>Bienvenido <span>administrador</span></h1>
         </div>
@@ -71,10 +77,9 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="imagenes">Imágenes de la propiedad</label>
-                    <input type="file" id="imagenes" accept="image/*" multiple name="imagen">
+                    <input type="file" name="fotos[]" id="fotos" multiple required>
                 </div>
 
                 <div class="description-area">
