@@ -33,10 +33,15 @@
   display: flex;
   position: relative;
 }
+.span-oferta {
+  color: rgb(63, 48, 199); /* Color predeterminado */
+  font-weight: 800;
+}
 
 .property-title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  margin-top: 20px;
 }
 
 .property-description{
