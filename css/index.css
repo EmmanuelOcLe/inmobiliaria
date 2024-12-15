@@ -1,81 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Parkinsans:wght@300..800&family=Quicksand:wght@300..700&display=swap');
-img{
+@import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Parkinsans:wght@300..800&family=Quicksand:wght@300..700&display=swap");
+img {
   user-select: none;
   pointer-events: none;
 }
 
-.header-tag{
+.header-tag {
   position: relative;
   color: #fff;
 }
-.header-bg-img-container{
+.header-bg-img-container {
   position: absolute;
   z-index: -1;
   height: 100%;
   display: flex;
   width: 100%;
 }
-.header-bg-img{
-  width: calc(100%/4);
+.header-bg-img {
+  width: calc(100% / 4);
 }
-.header-background{
+.header-background {
   height: 40vh;
   padding: 1em 2em;
   background: linear-gradient(to right, #111, #00000055);
 }
 
-.header-logo{
+.header-logo {
   user-select: none;
   font-size: 2.3rem;
-  font-family: 'kelly slab';
+  font-family: "kelly slab";
   margin: 0;
   color: #fff;
 }
-.navbar{
+.navbar {
   /* padding: 1em; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header-options-container{
+.span-oferta {
+  color: rgb(36, 68, 247); /* Color predeterminado */
+  font-weight: normal;
+}
+
+.header-options-container {
   display: flex;
   /* gap: 10px; */
 }
-.header-option{
+.header-option {
   color: #fff;
   padding: 10px;
   border-radius: 5px;
   user-select: none;
 }
-.header-option:hover{
+.header-option:hover {
   background-color: #fff;
   color: #000;
 }
-.header-option:last-child{
+.header-option:last-child {
   color: #000;
   background-color: #fff;
   margin-left: 2em;
 }
-.header-option:last-child:hover{
+.header-option:last-child:hover {
   background-color: #000;
   color: #fff;
 }
-.header-text{
+.header-text {
   margin-top: 2em;
 }
 /* .header-text-p{
   margin: 0;
 } */
 
-
-.main-tag{
-  background-color: #F1F4F7;
+.main-tag {
+  background-color: #f1f4f7;
   padding: 2em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
-.card{
+.card {
   box-sizing: border-box;
   background-color: #fff;
   cursor: pointer;
@@ -84,27 +88,91 @@ img{
   margin-bottom: 1em;
   border-radius: 20px;
 }
-.card:hover{
+.card:hover {
   box-shadow: 0 3px 5px #aaa;
 }
-.card-image{
+.card-image {
   border-radius: 20px 20px 0 0;
 }
-.card-title{
+.card-title {
   margin: auto;
 }
-.card-info-container{
-  padding: 1em;  
+.card-info-container {
+  padding: 1em;
+  position: relative;
 }
-.card-info{
+.card-info-container #oferta {
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  margin-left: 1.5em;
+  background-color: rgb(36, 68, 247);
+  color: #fff;
+  top: 1em;
+  right: 1em;
+}
+
+.card-info {
   color: #aaa;
   font-size: 10px;
   user-select: none;
   pointer-events: none;
 }
-.card-price{
-  color: #7CA896;
+.card-price {
+  color: #7ca896;
   margin: 5px auto;
 }
+/* Estilos para el filtro */
+form {
+  justify-content: center;
+  margin: 20px 2em;
+}
 
+select#filter {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
+select#filter:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 16px;
+}
+
+option:hover {
+  background-color: #f1f1f1;
+}
+
+select#filter:hover {
+  border-color: #0056b3;
+}
+
+select#filter {
+  width: 200px;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Estilos de transición para una experiencia más fluida */
+select#filter {
+  transition: all 0.3s ease;
+}
+
+select#filter:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

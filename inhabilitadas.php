@@ -72,7 +72,6 @@ $result = $con->query($sql);
                 <div class="popup-buttons">
                     <button type="button" onclick="closePopup()">Cancelar</button>
                     <button type="submit">Aceptar</button>
-                    
                 </div>
             </form>
         </div>
