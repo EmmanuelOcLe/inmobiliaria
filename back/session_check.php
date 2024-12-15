@@ -45,7 +45,7 @@ if (isset($_SESSION['usuario'])) {
     $_SESSION['ultimo_acceso'] = time();
 } else {
     // Si no hay usuario autenticado, redirigir al login
-    header("Location: http://localhost/Inmobiliaria/inmobiliaria/login.php");
+    header("Location: http://localhost/inmobiliaria/login.php");
     exit;
 }
 ?>
