@@ -2,17 +2,81 @@
 session_start();
 include("back/conection.php");
 
-$nombre = $_POST["propiedad_nombre"];
-$ubicacion = $_POST["ubicacion_propiedad"];
-$valor = $_POST["valor_propiedad"];
-$habitaciones = $_POST["habitaciones_cantidad"];
-$baños = $_POST["baños_cantidad"];
-$zona_parqueo = $_POST["zonas_parqueo"];
-$area_m = $_POST["areas_metros"];
-$descripcion = $_POST["descripcion"];
-$oferta = $_POST["oferta"];
-$habilitado = "habilitada";
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // Obtener y sanitizar los valores enviados desde el formulario
+    $nombre = mysqli_real_escape_string($con, $_POST["propiedad_nombre"]);
+    $ubicacion = mysqli_real_escape_string($con, $_POST["ubicacion_propiedad"]);
+    $valor = $_POST["valor_propiedad"];
+    $habitaciones = (int)$_POST["habitaciones_cantidad"];
+    $baños = (int)$_POST["baños_cantidad"];
+    $zona_parqueo = (int)$_POST["zonas_parqueo"];
+    $area_m = (int)$_POST["areas_metros"];
+    $descripcion = mysqli_real_escape_string($con, $_POST["descripcion"]);
+    $oferta = mysqli_real_escape_string($con, $_POST["oferta"]);
+    $habilitado = "habilitada";
 
+    // Consulta SQL para insertar los datos
+    $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_habitaciones, cantidad_baños, zona_parqueo, area, descripcion_inmueble, tipo_oferta, fotos_inmueble, precio_inmueble, estado)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $con->prepare($sql);
+
+    if (!$stmt) {
+        die("Error al preparar la consulta: " . $con->error);
+    }
+
+    $fotos_inmueble = ""; 
+    $stmt->bind_param("ssiiissssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
+ 
+    if ($stmt->execute()) {
+        $idPropiedad = $con->insert_id;
+        $carpetaDestino = 'images/properties/' . $idPropiedad . '/';
+
+        // Crear la carpeta si no existe
+        if (!is_dir($carpetaDestino)) {
+            mkdir($carpetaDestino, 0777, true);
+        }
+
+        $rutasImagenes = [];
+
+        foreach ($_FILES['fotos']['tmp_name'] as $key => $tmpName) {
+            $nombreArchivo = basename($_FILES['fotos']['name'][$key]);
+            $rutaCompleta = $carpetaDestino . time() . '-' . $nombreArchivo;
+        
+            // Mover el archivo a la carpeta de destino
+            if (move_uploaded_file($tmpName, $rutaCompleta)) {
+                $rutasImagenes[] = $rutaCompleta;
+            } else {
+                echo "Error al mover el archivo: $nombreArchivo";
+            }
+        }
+
+        $fotosInmueble = json_encode($rutasImagenes);
+
+        $updateSql = "UPDATE inmueble SET fotos_inmueble = ? WHERE id_inmueble = ?";
+        $updateStmt = $con->prepare($updateSql);
+        
+        if (!$updateStmt) {
+            die("Error al preparar la consulta de actualización: " . $con->error);
+        }
+            
+        // Actualizar las fotos de la propiedad
+        $updateStmt->bind_param("si", $fotosInmueble, $idPropiedad);
+        
+        if ($updateStmt->execute()) {
+            echo '<script>document.getElementById("successModal").style.display = "block";</script>';
+        } else {
+            echo "Error al actualizar las fotos: " . $updateStmt->error;
+        }
+        
+        $updateStmt->close();
+    } else {
+        echo "Error." . $stmt->error;
+    }
+
+    // Cerrar las sentencias y la conexión
+    $stmt->close();
+    mysqli_close($con);
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +89,7 @@ $habilitado = "habilitada";
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
-    <div class="modal" id="successModal">
+    <div class="modal" id="successModal" style="display: none;">
         <div class="modal-content">
             <h2>¡Datos enviados correctamente!</h2>
             <p>La propiedad se ha registrado con éxito. ¿Qué deseas hacer ahora?</p>
@@ -36,27 +100,7 @@ $habilitado = "habilitada";
         </div>
     </div>
 
-    <?php
-    if (!$con) {
-        echo "No se ha podido conectar a la base de datos: " . mysqli_connect_error();
-    } else {
-        $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, descripcion_inmueble, tipo_oferta, precio_inmueble, estado)
-        VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', '$valor', '$habilitado')";
-
-        $resultado = mysqli_query($con, $sql);
-
-        if ($resultado) {
-            echo '<script>document.getElementById("successModal").style.display = "block";</script>';
-        } else {
-            echo "Error al insertar los datos: " . mysqli_error($con);
-        }
-
-        mysqli_close($con);
-    }
-    ?>
-
     <script>
-        const modal = document.getElementById("successModal");
         const btnSeguirCreando = document.getElementById("seguirCreando");
         const btnVolverDashboard = document.getElementById("volverDashboard");
 

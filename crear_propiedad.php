@@ -32,7 +32,7 @@ include_once 'back/session_check.php';
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form method="post" action="registro.php" method="post">
+            <form method="post" action="registro.php" method="post" enctype="multipart/form-data">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
@@ -68,7 +68,7 @@ include_once 'back/session_check.php';
 
                     <div class="form-group">
                         <label for="area">Área en metros Cuadrados</label>
-                        <input type="text" id="area" placeholder="Área en m2" name="areas_metros">
+                        <input type="text" id="area" placeholder="" name="areas_metros">
                     </div>
 
                     <div class="form-group">
@@ -81,15 +81,14 @@ include_once 'back/session_check.php';
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label for="imagenes">Imágenes de la propiedad</label>
-                    <input type="file" id="imagenes" accept="image/*" multiple name="imagen">
+                    <label for="fotos">Imágenes de la propiedad</label>
+                    <input type="file" name="fotos[]" id="fotos" multiple required>
                 </div>
 
                 <div class="description-area">
                     <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" name="descripcion"></textarea>
+                    <textarea id="descripcion" placeholder="Descripcion del Inmueble" name="descripcion"></textarea>
                 </div>
 
                 <div class="buttons">

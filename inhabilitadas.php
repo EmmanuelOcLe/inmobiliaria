@@ -33,7 +33,20 @@ $result = $con->query($sql);
                             <?php while ($row = $result->fetch_assoc()): ?>
                                 <div class="propiedad-card" onclick="showPopup(<?= $row['id_inmueble'] ?>)">
                                     <div class="propiedad-image">
-                                        <img src="<?= $row['fotos_inmueble'] ?>" alt="Imagen de la propiedad">
+                                        <?php 
+                                        $carpetaImagenes = 'images/properties/' . $row['id_inmueble'];
+                                        $imagenSrc = 'assets/image.png';
+                                        if (is_dir($carpetaImagenes)) {
+                                            $archivos = scandir($carpetaImagenes);
+                                            foreach ($archivos as $archivo) {
+                                                if ($archivo !== '.' && $archivo !== '..') {
+                                                    $imagenSrc = $carpetaImagenes . '/' . $archivo;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        echo '<img src="' . $imagenSrc . '" alt="Imagen">';
+                                        ?>
                                     </div>
                                     <div class="property-detalles">
                                         <p class="propiedad-nombre"><?= htmlspecialchars($row['nombre_inmueble']) ?></p>
@@ -74,7 +87,6 @@ $result = $con->query($sql);
                 <div class="popup-buttons">
                     <button type="button" onclick="closePopup()">Cancelar</button>
                     <button type="submit">Aceptar</button>
-                    
                 </div>
             </form>
         </div>
