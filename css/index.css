@@ -26,7 +26,7 @@ img{
 
 .header-logo{
   user-select: none;
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-family: 'kelly slab';
   margin: 0;
   color: #fff;
@@ -71,24 +71,17 @@ img{
 .main-tag{
   background-color: #F1F4F7;
   padding: 2em;
-  display: flex;
-  flex-direction: column;
-}
-.card-container{
-  display: flex;
-  gap: 1em;
-  margin-bottom: 2em;
-}
-.card-container:last-child{
-  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 .card{
-  width: calc(100%/4);
+  box-sizing: border-box;
   background-color: #fff;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  /* box-shadow: 0 3px 5px #aaa; */
+  margin-bottom: 1em;
   border-radius: 20px;
 }
 .card:hover{

@@ -21,6 +21,7 @@
         <img src="assets/header-image-3.jpg" alt="" class="header-bg-img">
         <img src="assets/header-image-4.jpg" alt="" class="header-bg-img">
       </div>
+
       <div class="header-background">
         <nav class="navbar">
           <a href="index.php" class="header-logo-link">
@@ -33,6 +34,7 @@
             <a href="login.php" class="header-option">Administración</a>
           </div>
         </nav>
+        
         <div class="header-text">
           <h2 class="header-text-title">Mais de 7 anos atuando <br/> no mercado imobiliário</h2>
           <p class="header-text-p">
@@ -49,27 +51,16 @@
 
       $sql = 'select id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
-      concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble;';
+      concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") as "x"
+      from inmueble where estado = "habilitada";';
 
       $res = mysqli_query($con, $sql);
-      $cantFilas = mysqli_num_rows($res);
 
       if ($res && mysqli_num_rows($res) > 0){ // Verifica si la variable $res contiene un valor válido. Luego verifica si tiene almenos una fila
 
-
-        $whileIteration = 0;  
-
         while($fila = mysqli_fetch_assoc($res)){
-          
-          $whileIteration ++;
-          
 
-          if ($whileIteration == 1){
-            echo "<div class='card-container'>";
-          }
-
-          echo '<div class="card">';
+          echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
               echo '<div class="card-info-container">';
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
@@ -77,16 +68,8 @@
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
                 echo '<span class="card-info"> '.$fila['x'].' </span>';
               echo '</div>';
-            echo '</div>';
+          echo '</div>';
 
-          if ($whileIteration % 4 == 0){
-            echo '</div>';
-            echo '<div class="card-container">';
-          }
-
-          if ($whileIteration == $cantFilas){
-            echo '</div>';
-          }
         }
       }
       ?>
@@ -95,6 +78,11 @@
     <?php include('footer.php'); ?>
 
   </div>
+  <script>
+    function redirectToCardInfo(id){
+      window.location.href = 'view-property.php?xyz=' + id;
+    }
+  </script>
   <script src="scripts/index.js"></script>
 </body>
 </html>

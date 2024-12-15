@@ -15,3 +15,6 @@ body{
     background-color: white;
     background-color: var(--body-color);
 }
+img{
+    user-select: none;
+}

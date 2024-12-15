@@ -1,16 +1,15 @@
 <header>
-    <div class="logo">
-        <a href="index.php" class="logo-link">IE</a>
-    </div>
-    <div class="nav-button">
-
-        <nav class="navbar">
-            <a href="index.php">Inicio</a>
-            <a href="about.php">Sobre Nosotros</a>
-            <a href="arrendamiento.php">Servicios</a>
-        </nav>
-
-        <button class="header-button" onclick="window.location.href='login.php'">Administración</button>
-    </div>   
+    <nav class="navbar">
+        <a href="index.php" class="header-logo-link">
+        <h1 class="header-logo">IE</h1>
+        </a>
+        
+        <div class="header-options-container">
+            <a href="index.php" class="header-option">Inicio</a>
+            <a href="about.php" class="header-option">Sobre nosotros</a>
+            <a href="arrendamiento.php" class="header-option">Servicios</a>
+            <a href="login.php" class="header-option">Administración</a>
+        </div>
+    </nav>  
 </header>
     

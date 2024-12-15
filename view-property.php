@@ -1,3 +1,8 @@
+<?php
+  include ('back/conection.php');
+
+  $id = intval($_GET['xyz']);
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -11,27 +16,108 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Se agrega acá la etiqueta php para que se carguen estilos al texto de error -->
+    <?php
+    if ($id <= 0){
+      echo '<h1>No se encontró una propiedad. Por favor vuelva atrás</h1>';
+      echo '<a class="error-link" href="index.php">Volver</a>';
+      exit;
+    }
+    if (!$con) {
+      die("<p>Error de conexión: " . mysqli_connect_error() . "</p>");
+    }
+    ?>
   </head>
   <body>
 
     <div class="contenedor-todo">
       <?php include('header.php'); ?>
 
+      <?php
+      $sql = 'SELECT * FROM inmueble where id_inmueble = '.$id. ' and estado = "Habilitada"';
+      $res = mysqli_query($con, $sql);
+
+      // Para verificar que si haya un resultado
+      if ($res && mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+      } 
+      else {
+          $row = null;
+      }
+      ?>
+
+      <?php
+      if ($row):
+      ?>      
+
       <main>
         <div class="container">
           <div class="container-property">
           <div class="back-button-container">
-            <a href="index.php"> 
+            <a href="index.php" class="back-button"> 
             <i class='bx bx-arrow-back'></i>
                Volver
               </a>
           </div>
             <div class="header-info">
               <div class="header-title">
-                <h1 class="property-title">Casa en Condominió</h1>
-                <p class="property-location">Parque Residente Dahma III</p>
+                <h1 class="property-title">
+                  <?php
+                    echo htmlspecialchars($row['nombre_inmueble']);
+                  ?>
+                </h1>
+                <div class="property-details">
+                  <div class="detail-item">
+                    <span class="icon-location">Ubicación: </span>
+                    <span>
+                    <?php
+                    echo htmlspecialchars($row['ubicacion_inmueble']);
+                    ?>
+                    </span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="icon-bed">Habitaciones: </span>
+                    <span>
+                    <?php
+                    echo htmlspecialchars($row['cantidad_habitaciones']);
+                    ?>
+                    </span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="icon-bath">Baños: </span>
+                    <span>
+                    <?php
+                    echo htmlspecialchars($row['cantidad_baños']);
+                    ?>
+                    </span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="icon-area">Area: </span>
+                    <span>
+                    <?php
+                    echo htmlspecialchars($row['area']);
+                    ?>
+                    m<sup>2</sup>
+                    </span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="icon-parking">Zonas parqueo: </span>
+                    <span>
+                    <?php
+                    echo htmlspecialchars($row['zona_parqueo']);
+                    ?>
+                    </span>
+                  </div>
+                </div>
               </div>
-              <p class="property-price">$ 150.000.000.00</p>
+              <div class="price-container">
+                <p class="property-price">$</p>
+                <p class="property-price" id="precio-text">
+                  <?php
+                  echo htmlspecialchars($row['precio_inmueble']);
+                  ?>
+                </p>
+              </div>
             </div>
             <div class="slider-container">
               <img
@@ -46,28 +132,11 @@
               <button class="slider-button next" onclick="changeImage(1)">→</button>
             </div>
 
-            <div class="property-details">
-              <div class="detail-item">
-                <span>📍</span>
-                <span>cra 10 nro 20 50</span>
-              </div>
-              <div class="detail-item">
-                <span>🛏️</span>
-                <span>4 Habitaciones</span>
-              </div>
-              <div class="detail-item">
-                <span>🚿</span>
-                <span>5 Baños</span>
-              </div>
-              <div class="detail-item">
-                <span>📏</span>
-                <span>15 m2</span>
-              </div>
-              <div class="detail-item">
-                <span>🅿️</span>
-                <span>2 Zonas de Parking</span>
-              </div>
-            </div>
+            <p class="property-description">
+              <?php
+              echo htmlspecialchars($row['descripcion_inmueble']);
+              ?>
+            </p>
           </div>
           <div class="contact-form">
             <h2 class="form-title">Estoy Interezado!</h2>
@@ -98,6 +167,10 @@
 
       </main>
 
+      <?php else: ?>
+        <h1>No se encontró una propiedad válidad para el ID especificado.</h1>
+      <?php endif; ?>
+
       <?php include('footer.php'); ?>
     </div>
 
@@ -126,6 +199,30 @@
         imageElement.alt = `Imagen ${currentImageIndex + 1} de la propiedad`;
       }
 
+      let price = document.getElementById('precio-text').innerText;
+      
+      let precioFormateado = '';
+
+      let precioFinal;
+
+      let cont = 0;
+
+      function formatoTexto(){
+        for (let i = price.length; i > 0; i--){
+          cont ++;
+          precioFormateado += price[i - 1];
+          console.log(precioFormateado);
+          if (cont % 3 === 0 && cont !== price.length){
+            precioFormateado += '.';
+          }
+        }
+
+        precioFinal = precioFormateado.split('').reverse().join('');
+
+      }
+      formatoTexto();
+
+      document.getElementById('precio-text').textContent = precioFinal;
       
     </script>
 

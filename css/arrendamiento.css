@@ -3,7 +3,6 @@
     --text-color: #333;
     --background-color: #fff;
 }
-
 .service-section {
     padding: 4rem 3%;
     display: flex;
@@ -19,11 +18,9 @@ main{
     margin: 0 auto;
     align-items: center;
 }
-
 .reverse .content-wrapper {
     flex-direction: row;
 }
-
 .text-content, .image-content {
     flex: 1;
 }
