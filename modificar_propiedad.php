@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
         
             <div class="container">
                 <div class="welcome">
-                <a href="index.php" class="back-button"> 
+                <a href="dashboard-admin.php" class="back-button"> 
                     <i class='bx bx-arrow-back'></i>
                     Volver
                 </a>
