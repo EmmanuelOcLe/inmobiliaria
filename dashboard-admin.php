@@ -34,7 +34,7 @@
           <div class="properties-grid" id="propertiesGrid">
             <?php
               require_once('back/conection.php');
-              $sql = 'SELECT * FROM inmueble where estado_inmueble = "habilitado";';
+              $sql = 'SELECT * FROM inmueble where estado = "habilitada";';
               $res = mysqli_query($con, $sql);
               $cantFilas = mysqli_num_rows($res);
 
@@ -96,6 +96,10 @@
         window.open('back/fpdf/reporte.php');
         window.location.href = 'back/reporteexcel.php';
         hideReportModal();
+      }
+
+      function redirectToDetails(id) {
+      window.location.href = 'click-prop.php?id=' + id;
       }
     </script>
   </body>

@@ -34,7 +34,7 @@
       <?php include('header.php'); ?>
 
       <?php
-      $sql = 'SELECT * FROM inmueble where id_inmueble = '.$id. ' and estado = "Habilitado"';
+      $sql = 'SELECT * FROM inmueble where id_inmueble = '.$id. ' and estado = "Habilitada"';
       $res = mysqli_query($con, $sql);
 
       // Para verificar que si haya un resultado
@@ -65,6 +65,10 @@
                   <?php
                     echo htmlspecialchars($row['nombre_inmueble']);
                   ?>
+                  -
+                   <span class="span-oferta">
+                    <?= htmlspecialchars($row['tipo_oferta'] ?? 'oferta no valida') ?>
+                  </span>
                 </h1>
                 <div class="property-details">
                   <div class="detail-item">
@@ -134,7 +138,7 @@
 
             <p class="property-description">
               <?php
-              echo htmlspecialchars($row['Descripcion_inmueble']);
+              echo htmlspecialchars($row['descripcion_inmueble']);
               ?>
             </p>
           </div>
