@@ -1,4 +1,4 @@
-.error-link{
+.error-link {
   box-sizing: border-box;
   background-color: #3f51b5;
   padding: 5px;
@@ -6,7 +6,7 @@
   color: #000;
   margin: 0 auto;
 }
-.error-link:hover{
+.error-link:hover {
   text-decoration: underline;
 }
 .container {
@@ -44,12 +44,12 @@
   margin-top: 20px;
 }
 
-.property-description{
+.property-description {
   width: 50%;
   color: #666;
   margin-bottom: 1rem;
 }
-.price-container{
+.price-container {
   position: absolute;
   right: 0;
   bottom: 0.5em;
@@ -174,3 +174,54 @@
 .icon-bath::before { content: " 🚿 "; }
 .icon-area::before { content: " 📐 "; }
 .icon-parking::before { content: " 🅿 "; } */
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .container > * {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    gap: 1rem;
+    margin-top: 8em;
+  }
+  .container-property {
+    width: 100%;
+  }
+  .property-title {
+    font-size: 1.5rem; /* Reduce el tamaño de la fuente */
+  }
+
+  .slider-container {
+    height: 200px; /* Ajusta el tamaño del slider */
+  }
+
+  .price-container {
+    justify-content: center; /* Centra el precio */
+    margin-top: 0.5rem;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge {
+    font-size: 0.8rem; /* Reduce el tamaño del badge */
+  }
+
+  .property-details {
+    gap: 1rem; /* Reduce el espacio entre los elementos */
+  }
+
+  .slider-button {
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

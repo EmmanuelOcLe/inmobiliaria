@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         const btnVolverDashboard = document.getElementById("volverDashboard");
 
         btnVolverDashboard.onclick = function() {
-            window.location.href = "/localhost/inmobiliaria/crear_propiedad.php"; 
+            window.location.href = "/inmobiliaria/crear_propiedad.php"; 
         };
     </script>
 </body>

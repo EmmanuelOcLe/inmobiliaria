@@ -15,7 +15,7 @@
 
   <div class="contenedor-todo">
 
-    <header class="header-tag">
+  <header class="header-tag">
       <div class="header-bg-img-container">
         <img src="assets/header-image-1.jpg" alt="" class="header-bg-img">
         <img src="assets/header-image-2.jpg" alt="" class="header-bg-img">
@@ -27,6 +27,11 @@
           <a href="index.php" class="header-logo-link">
             <h1 class="header-logo">IE</h1>
           </a>
+          <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
@@ -34,6 +39,7 @@
             <a href="login.php" class="header-option">Administración</a>
           </div>
         </nav>
+        
         <div class="header-text">
           <h2 class="header-text-title">Más de 7 años trabajando <br/> en el mercado inmobiliario.</h2>
           <br>
@@ -43,7 +49,9 @@
         </div>
       </div>
     </header>
-
+    <div class="links">
+      <a href="index.php" >Todas las propiedades</a><a href="index_arriendo.php" >Propiedades para arrendar</a><a href="index_ventas.php" class="active">Propiedades en venta</a>
+    </div>
     <main class="main-tag">
         
       <?php 
@@ -98,6 +106,25 @@ WHERE estado = "habilitada" AND tipo_oferta IN ("Venta", "venta-arriendo") order
         }
       }
       ?>
+            <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+        <div class="contact-section" id="contactSection">
+        <div class="contact-overlay" onclick="toggleContactSection()"></div>
+        <div class="contact-content">
+          <h2>Contacto</h2>
+          <p>Puede ponerse en contacto con nosotros y enviar un correo electrónico por medio de los siguientes enlaces:</p>
+          <ul>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Agregar%20propiedad">Quiero agregar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Eliminar%20propiedad">Quiero que mi propiedad ya no aparezca disponible</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Re-publicar%20propiedad">Quiero volver a publicar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Consulta">Tengo una duda</a></li>
+          </ul>
+        </div>
+      </div>
     </main>
 
     <?php include('footer.php'); ?>
@@ -116,6 +143,21 @@ WHERE estado = "habilitada" AND tipo_oferta IN ("Venta", "venta-arriendo") order
         contactSection.style.display = 'block';
       }
     }
+    function toggleContactSection() {
+      const contactSection = document.getElementById('contactSection');
+      if (contactSection.style.display === 'block') {
+        contactSection.style.display = 'none';
+      } else {
+        contactSection.style.display = 'block';
+      }
+    }
+    let menuToggle = document.querySelector('.menu-toggle');
+    let navbarResponsive = document.querySelector('.header-options-container');
+
+    // Alternar la clase "active" para mostrar u ocultar el navbar
+    menuToggle.addEventListener('click', () => {
+      navbarResponsive.classList.toggle('active');
+    });
   </script>
 </body>
 </html>

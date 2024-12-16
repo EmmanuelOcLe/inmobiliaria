@@ -33,6 +33,7 @@ main{
 .report-buttons {
   display: flex;
   gap: 1rem;
+  width: 100%;
 }
 
 .report-btn {
@@ -53,7 +54,7 @@ main{
 
 .properties-grid {
   display: grid;
-  grid-template-columns: 20em 20em 20em;
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 }
 
@@ -94,8 +95,25 @@ main{
     flex-direction: column;
     align-items: flex-start;
   }
+  .properties-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .report-buttons {
     margin-top: 1rem;
+  }
+}
+@media screen and (max-width:550px) {
+  .properties-grid{
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width:400px) {
+  .report-buttons{
+    flex-direction: column;
+  }
+  .report-btn{
+    width: 100%;
+    padding: 1rem 2rem;
   }
 }
