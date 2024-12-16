@@ -147,7 +147,7 @@
                 class="slider-image"
                 id="propertyImage"
               />
-              <button class="slider-button prev" onclick="changeImage(-1)">
+              <button class="slider-button prev" type="reset" onclick="changeImage(-1)">
                 ←
               </button>
               <button class="slider-button next" onclick="changeImage(1)">→</button>

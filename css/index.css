@@ -122,6 +122,12 @@ img {
   user-select: none;
   pointer-events: none;
 }
+.card-info i {
+  margin-right: 5px;
+  color: #aaa;
+  font-size: 1rem;
+}
+
 .card-price {
   color: #7ca896;
   margin: 5px auto;
@@ -179,4 +185,98 @@ select#filter {
 select#filter:focus {
   border-color: #0056b3;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/* Botón flotante */
+.floating-contact-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+  animation: float 2s ease-in-out 3;
+}
+
+.floating-contact-button:hover {
+  background-color: #0056b3;
+}
+
+/* Sección de contacto */
+.contact-section {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contact-content {
+  position: absolute;
+  right: 2em;
+  bottom: 5em;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.contact-content h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.contact-content p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.contact-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-content ul li {
+  margin-bottom: 10px;
+}
+
+.contact-content ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-content ul li a:hover {
+  text-decoration: underline;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

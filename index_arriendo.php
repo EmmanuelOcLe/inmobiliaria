@@ -48,10 +48,10 @@
       <?php 
       require_once('back/conection.php');
 
-      $sql = 'select id_inmueble, 
-      nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
-      concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble WHERE tipo_oferta = "arriendo" and estado = "habilitada"';
+      $sql = 'SELECT id_inmueble, 
+      nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta,
+      CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") AS "x"
+      FROM inmueble WHERE tipo_oferta = "arriendo" AND estado = "habilitada"';
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
@@ -60,10 +60,7 @@
 
 
         while($fila = mysqli_fetch_assoc($res)){
-          
-          
 
-         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
@@ -71,7 +68,7 @@
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                 echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span>';
+                echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
               echo '</div>';
             echo '</div>';
 
