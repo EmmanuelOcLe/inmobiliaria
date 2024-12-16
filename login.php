@@ -48,7 +48,6 @@
                     <input type="password" id="contrasena" name="contrasena" required>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn-cancel" id="btnCancel">Cancelar</button>
                     <button type="submit" class="btn-submit">Ingresar</button>
                 </div>
             </form>

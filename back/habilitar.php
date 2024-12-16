@@ -10,19 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $motivo = $motivo_otro;
     }
 
-    $sql = "UPDATE inmueble SET estado = 'habilitada', motivo = ? WHERE id_inmueble = ?";
+    $sql = "UPDATE inmueble 
+            SET estado = 'habilitada', 
+                motivo = ?, 
+                fecha_actualizacion = NOW() 
+            WHERE id_inmueble = ?";
+    
     $stmt = $con->prepare($sql);
     $stmt->bind_param('si', $motivo, $id_inmueble);
 
     if ($stmt->execute()) {
         echo "Propiedad habilitada correctamente.";
     } else {
-        echo "Error al habilitar la propiedad: " . $conn->error;
+        echo "Error al habilitar la propiedad: " . $con->error;
     }
     $stmt->close();
     $con->close();
 
-    
     header("Location: ../inhabilitadas.php");
     exit;
 }

@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->execute()) {
         // Redirigir a la página de inhabilitadas
-        header("Location: ../inhabilitadas.php?status=success");
+        header("Location: ../dashboard-admin.php?status=success");
         exit();
     } else {
         // Manejar error
