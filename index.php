@@ -96,7 +96,7 @@
                     echo '<span class="card-info"><i class="fa-solid fa-location-dot"></i> '.$fila['ubicacion_inmueble'].' </span>';
                     echo "<br>";
                     echo '<span class="card-info"> '.$fila['x'].' </span>';
-                        echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
+                        echo '<h2 class="card-price">COP$ '.$fila['precio_inmueble'].' </h2>';
                     echo '</div>';
                 echo '</div>';
             }
