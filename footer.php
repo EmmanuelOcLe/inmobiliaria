@@ -34,7 +34,7 @@
         </li>
         
         <li>
-            <a href="#">Terminos de Uso</a>
+            <a href="terminos.php">Terminos de Uso</a>
         </li>
         </ul>
     </li>

@@ -30,7 +30,6 @@
                 Puedes estar totalmente tranquilo por que esta informacion no se comparte con nadie y
                 solo esta alojada en la base de datos.
             </p>
-            <a href="index.php" class="volver-button">Volver al inicio</a>
         </div>
     </main>
 

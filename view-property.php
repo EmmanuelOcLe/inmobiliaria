@@ -161,7 +161,7 @@
           </div>
           <div class="contact-form">
             <h2 class="form-title">Estoy Interezado!</h2>
-            <form id="contactForm" action="https://formsubmit.co/emanuellemus119@gmail.com" method="POST">
+            <form id="contactForm" action="https://formsubmit.co/jean79809@gmail.com" method="POST"> <!--solo Se cambia el correo de la persona que va arecibir el mensaje-->
               <div class="form-group">
                 <label for="name">Nombre *</label>
                 <input type="text"  name ="text" id="name" required />
@@ -181,9 +181,14 @@
               <div class="form-buttons">
                 <button type="submit" class="btn btn-submit">Enviar</button>
               </div>
+                <!-- Desactiva el CAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- URL de redirección después del envío -->
+                <input type="hidden" name="_next" value="http://localhost/Inmobiliaria/inmobiliaria/index.php">
             </form>
           </div>
         </div>
+
 
       </main>
 
@@ -269,6 +274,23 @@
       formatoTexto();
 
       document.getElementById('precio-text').textContent = precioFinal;
+
+
+      //Funcion de el contacto:
+        // Selecciona el formulario
+          const contactForm = document.getElementById('contactForm');
+
+        // Agrega el evento submit
+        contactForm.addEventListener('submit', function(event) {
+          // Previene el envío inmediato para mostrar la alerta
+          event.preventDefault();
+
+          // Muestra una alerta
+          alert('¡Formulario enviado correctamente! El Proveedor del servicio se pondra en contacto con tigo');
+
+          // Envía el formulario después de mostrar la alerta
+          contactForm.submit();
+        });
       
     </script>
 
