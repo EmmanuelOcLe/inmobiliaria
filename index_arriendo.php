@@ -59,10 +59,7 @@
 
 
         while($fila = mysqli_fetch_assoc($res)){
-          
-          
 
-         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
