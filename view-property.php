@@ -162,7 +162,6 @@
                 <textarea id="message" name="message" rows="4" required></textarea>
               </div>
               <div class="form-buttons">
-                <button type="button" class="btn btn-cancel" id="cancelar">Cancelar</button>
                 <button type="submit" class="btn btn-submit">Enviar</button>
               </div>
             </form>
