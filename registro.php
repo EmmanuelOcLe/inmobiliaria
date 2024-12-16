@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // Cerrar las sentencias y la conexión
     $stmt->close();
-    mysqli_close($con);
+    
 }
 ?>
 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <h2>¡Datos enviados correctamente!</h2>
             <p>La propiedad se ha registrado con éxito. ¿Qué deseas hacer ahora?</p>
             <div class="modal-buttons">
-                <button class="btn btn-primary" id="seguirCreando">Seguir creando</button>
+                
                 <button class="btn btn-secondary" id="volverDashboard">Volver al dashboard</button>
             </div>
         </div>
@@ -123,9 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         const btnSeguirCreando = document.getElementById("seguirCreando");
         const btnVolverDashboard = document.getElementById("volverDashboard");
 
-        btnSeguirCreando.onclick = function() {
-            window.location.href = "http://localhost/inmobiliaria/crear_propiedad.php"; 
-        };
+
 
         btnVolverDashboard.onclick = function() {
             window.location.href = "http://localhost/inmobiliaria/dashboard-admin.php"; 
