@@ -96,9 +96,6 @@ img {
   max-height: 13em;
   object-fit: cover;
 }
-.card-title {
-  margin: auto;
-}
 .card-info-container {
   padding: 1em;
   position: relative;
@@ -106,7 +103,7 @@ img {
 .card-info-container #oferta {
   padding: 5px;
   border-radius: 5px;
-  margin-left: 1.5em;
+  margin-left: 10px;
   background-color: rgb(36, 68, 247);
   color: #fff;
   top: 1em;
