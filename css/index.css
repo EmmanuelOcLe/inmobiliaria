@@ -140,9 +140,8 @@ img {
   margin-left: 10px;
   background-color: rgb(36, 68, 247);
   color: #fff;
-  top: 1em;
-  right: 1em;
-  height: 30px;
+  height: fit-content;
+  width: fit-content;
 }
 .card-title-container {
   display: flex;

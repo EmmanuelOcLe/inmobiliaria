@@ -42,9 +42,10 @@
         </nav>
         
         <div class="header-text">
-          <h2 class="header-text-title">Mais de 7 anos atuando <br/> no mercado imobiliário</h2>
+          <h2 class="header-text-title">Más de 7 años trabajando <br/> en el mercado inmobiliario.</h2>
+          <br>
           <p class="header-text-p">
-            Especialistas em aluguel e venda de imóveis de alto <br/> padrão na região de Presidente Prudent e cidades vizinhas.
+          Especialistas en alquiler y venta de propiedades de alta gama. <br/> estándar en la región de Presidente Prudent y ciudades vecinas.
           </p>
         </div>
       </div>
@@ -65,7 +66,7 @@
           "<i class=\'fas fa-car\'></i> ", zona_parqueo, " garages"
         ) AS "x"
       FROM inmueble 
-      WHERE estado = "habilitada" AND tipo_oferta = "Arriendo"';
+      WHERE estado = "habilitada" AND tipo_oferta IN ("Arriendo", "venta-arriendo") order by tipo_oferta';
 
 
       $res = mysqli_query($con, $sql);

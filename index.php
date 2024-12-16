@@ -44,9 +44,10 @@
         </nav>
         
         <div class="header-text">
-          <h2 class="header-text-title">Mais de 7 anos atuando <br/> no mercado imobiliário</h2>
+          <h2 class="header-text-title">Más de 7 años trabajando <br/> en el mercado inmobiliario.</h2>
+          <br>
           <p class="header-text-p">
-            Especialistas em aluguel e venda de imóveis de alto <br/> padrão na região de Presidente Prudent e cidades vizinhas.
+          Especialistas en alquiler y venta de propiedades de alta gama. <br/> estándar en la región de Presidente Prudent y ciudades vecinas.
           </p>
         </div>
       </div>
@@ -124,10 +125,10 @@
           <h2>Contacto</h2>
           <p>Puede ponerse en contacto con nosotros y enviar un correo electrónico por medio de los siguientes enlaces:</p>
           <ul>
-            <li><a href="mailto:emanuelocampo@gmail.com?subject=Agregar%20propiedad">Quiero agregar mi propiedad</a></li>
-            <li><a href="mailto:emanuelocampo@gmail.com?subject=Eliminar%20propiedad">Quiero que mi propiedad ya no aparezca disponible</a></li>
-            <li><a href="mailto:emanuelocampo@gmail.com?subject=Re-publicar%20propiedad">Quiero volver a publicar mi propiedad</a></li>
-            <li><a href="mailto:emanuelocampo@gmail.com?subject=Consulta">Tengo una duda</a></li>
+            <li><a href="mailto:emanuelocampo181@gmail.com?subject=Agregar%20propiedad">Quiero agregar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo181@gmail.com?subject=Eliminar%20propiedad">Quiero que mi propiedad ya no aparezca disponible</a></li>
+            <li><a href="mailto:emanuelocampo181@gmail.com?subject=Re-publicar%20propiedad">Quiero volver a publicar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo181@gmail.com?subject=Consulta">Tengo una duda</a></li>
           </ul>
         </div>
       </div>
