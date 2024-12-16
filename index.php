@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,8 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="icon" href="assets/favicon.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
@@ -43,12 +47,6 @@
       </div>
     </header>
 
-    <form method="POST" action="index.php">
-      <select name="filter" id="filter" onchange="applyFilter()">
-        <option value="1">Todos</option>
-        <option value="2">Venta</option>
-        <option value="3">Arriendo</option>
-      </select>
     </form>
 
     <main class="main-tag">
@@ -58,22 +56,45 @@
 
         // Por defecto, mostramos todas las propiedades
         $filter = '1';  // Todos
-        $sql = 'SELECT id_inmueble, 
-                nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
-                CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
-                FROM inmueble WHERE estado = "habilitada"';
+        $sql = 'SELECT DISTINCT id_inmueble, 
+        nombre_inmueble, 
+        ubicacion_inmueble, 
+        precio_inmueble, 
+        tipo_oferta, 
+        CONCAT(
+          "<i class=\'fas fa-bath\'></i> ", cantidad_baños, " baños, ",
+          "<i class=\'fas fa-bed\'></i> ", cantidad_habitaciones, " habitaciones, ",
+          "<i class=\'fas fa-car\'></i> ", zona_parqueo, " garages"
+        ) AS "x"
+        FROM inmueble 
+        WHERE estado = "habilitada"';
+
 
         $res = mysqli_query($con, $sql);
 
         if ($res && mysqli_num_rows($res) > 0) {
             while($fila = mysqli_fetch_assoc($res)) {
+              $carpetaImagenes = 'images/properties/' . $fila['id_inmueble'];
+              $imagenSrc = 'assets/image.png';
+              if (is_dir($carpetaImagenes)) {
+                $archivos = scandir($carpetaImagenes);
+                foreach ($archivos as $archivo) {
+                  if ($archivo !== '.' && $archivo !== '..') {
+                    $imagenSrc = $carpetaImagenes . '/' . $archivo;
+                    break;
+                  }
+                }
+              }
                 echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
-                    echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
+                    echo '<img src="' . $imagenSrc . '" alt="Imagen" class="card-image">';
                     echo '<div class="card-info-container">';
-                        echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
+                    echo '<div class="card-title-container">';
+                      echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
+                      echo '<span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
+                    echo '</div>';
+                    echo '<span class="card-info"> '.$fila['x'].' </span>';
                         echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                         echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                        echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
                     echo '</div>';
                 echo '</div>';
             }
@@ -81,6 +102,28 @@
             echo 'No se encontraron resultados para este filtro.';
         }
       ?>
+      <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+
+      <div class="contact-section" id="contactSection">
+        <div class="contact-overlay" onclick="toggleContactSection()"></div>
+        <div class="contact-content">
+          <h2>Contacto</h2>
+          <p>Puede ponerse en contacto con nosotros y enviar un correo electrónico por medio de los siguientes enlaces:</p>
+          <ul>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Agregar%20propiedad">Quiero agregar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Eliminar%20propiedad">Quiero que mi propiedad ya no aparezca disponible</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Re-publicar%20propiedad">Quiero volver a publicar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Consulta">Tengo una duda</a></li>
+          </ul>
+        </div>
+      </div>
+
+
     </main>
 
     <?php include('footer.php'); ?>
@@ -91,19 +134,17 @@
     function redirectToCardInfo(id){
       window.location.href = 'view-property.php?xyz=' + id;
     }
-
-    function applyFilter() {
-      const filterValue = document.getElementById('filter').value;
-
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'back/filter-properties.php?filter=' + filterValue, true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          document.querySelector('main').innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
+    function toggleContactSection() {
+      const contactSection = document.getElementById('contactSection');
+      if (contactSection.style.display === 'block') {
+        contactSection.style.display = 'none';
+      } else {
+        contactSection.style.display = 'block';
+      }
     }
+
+
+
   </script>
 
   <script src="scripts/index.js"></script>

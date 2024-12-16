@@ -8,15 +8,19 @@ $filter = isset($_GET['filter']) ? $_GET['filter'] : '1';
 $sql = 'SELECT DISTINCT id_inmueble, 
                 nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
                 CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
-        FROM inmueble 
-        WHERE estado = "habilitada"';
+                FROM inmueble 
+                WHERE estado = "habilitada"';
 
 if ($filter == '2') {
-    $sql .= ' AND tipo_oferta = "venta"';
+    // Mostrar solo propiedades en venta
+    $sql .= ' AND tipo_oferta LIKE "%venta%"';
 } elseif ($filter == '3') {
-    $sql .= ' AND tipo_oferta = "arriendo"';
+    // Mostrar solo propiedades en arriendo
+    $sql .= ' AND tipo_oferta LIKE "%arriendo%"';
+} else {
+    // Mostrar tanto en venta como en arriendo si no se filtra
+    $sql .= ' AND (tipo_oferta LIKE "%venta%" OR tipo_oferta LIKE "%arriendo%")';
 }
-
 $res = mysqli_query($con, $sql);
 
 if ($res && mysqli_num_rows($res) > 0) {

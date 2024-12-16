@@ -65,12 +65,14 @@
   position: relative;
   margin-bottom: 2rem;
   width: 100%;
+  height: 300px;
 }
 
 .slider-image {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: 100%;
+  /* object-fit: cover; */
+  object-fit: contain;
   border-radius: 8px;
 }
 
@@ -113,6 +115,8 @@
 }
 
 .contact-form {
+  box-sizing: border-box;
+  width: 30%;
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
@@ -147,8 +151,7 @@
 
 .form-buttons {
   display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .btn {
@@ -167,8 +170,8 @@
   color: white;
 }
 
-.icon-location::before { content: "📍"; }
+/* .icon-location::before { content: "📍"; }
 .icon-bed::before { content: " 🛏 "; }
 .icon-bath::before { content: " 🚿 "; }
 .icon-area::before { content: " 📐 "; }
-.icon-parking::before { content: " 🅿 "; }
+.icon-parking::before { content: " 🅿 "; } */

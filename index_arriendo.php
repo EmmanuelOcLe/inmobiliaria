@@ -23,11 +23,12 @@
       </div>
       <div class="header-background">
         <nav class="navbar">
-          <a href="index.html" class="header-logo-link">
+          <a href="index.php" class="header-logo-link">
             <h1 class="header-logo">IE</h1>
           </a>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
+            <a href="about.php#contactSection" class="header-option">Contacto</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
             <a href="arrendamiento.php" class="header-option">Servicios</a>
             <a href="login.php" class="header-option">Administración</a>
@@ -47,23 +48,21 @@
       <?php 
       require_once('back/conection.php');
 
-      $sql = 'select id_inmueble, 
-      nombre_inmueble, ubicacion_inmueble, precio_inmueble, 
-      concat(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") as "x"
-      from inmueble WHERE tipo_oferta = "arriendo" and estado = "habilitada"';
+      $sql = 'SELECT DISTINCT id_inmueble, 
+      nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
+      CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
+      FROM inmueble 
+      WHERE estado = "habilitada"';
+
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
 
-      if ($res && mysqli_num_rows($res) > 0){ // Verifica si la variable $res contiene un valor válido. Luego verifica si tiene almenos una fila
-
+      if ($res && mysqli_num_rows($res) > 0){
 
 
         while($fila = mysqli_fetch_assoc($res)){
-          
-          
 
-         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
@@ -71,7 +70,7 @@
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                 echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span>';
+                echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
               echo '</div>';
             echo '</div>';
 

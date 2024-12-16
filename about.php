@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -42,6 +43,8 @@
                     </div>
                     <img src="assets/13625.jpg" alt="Modern apartment buildings with landscaping">
                 </section>
+
+
             </div>
 
         </main>

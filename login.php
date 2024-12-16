@@ -11,14 +11,13 @@
 </head>
 <body>
     <?php
-    session_start(); // Inicia la sesión
+    session_start();
     if (isset($_SESSION['usuario'])) {
-        // Redirigir al dashboard si ya está logueado
         header("Location: dashboard-admin.php");
         exit;
     }
 
-    // Variables de mensajes
+    
     $mensaje = '';
     $titulo = '';
 
@@ -32,7 +31,7 @@
         $titulo = "Error de Autenticación";
     }
 
-    include('header.php'); // Incluir el encabezado
+    include('header.php'); 
     ?>
 
     <!-- Sección principal -->
@@ -49,7 +48,6 @@
                     <input type="password" id="contrasena" name="contrasena" required>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn-cancel" id="btnCancel">Cancelar</button>
                     <button type="submit" class="btn-submit">Ingresar</button>
                 </div>
             </form>
@@ -79,8 +77,13 @@
     <!-- Script para cerrar el popup -->
     <script>
         function cerrarPopup() {
-            document.getElementById('popup').style.display = 'none';
+            const popup = document.getElementById('popup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
         }
+
+
     </script>
 </body>
 </html>
