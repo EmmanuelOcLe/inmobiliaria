@@ -96,9 +96,6 @@ img {
   max-height: 13em;
   object-fit: cover;
 }
-.card-title {
-  /* margin: auto; */
-}
 .card-info-container {
   padding: 1em;
   position: relative;
