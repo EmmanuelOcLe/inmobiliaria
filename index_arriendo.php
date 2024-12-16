@@ -48,10 +48,12 @@
       <?php 
       require_once('back/conection.php');
 
-      $sql = 'SELECT id_inmueble, 
-      nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta,
-      CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " suites ", ", ", zona_parqueo, " garages") AS "x"
-      FROM inmueble WHERE tipo_oferta = "arriendo" AND estado = "habilitada"';
+      $sql = 'SELECT DISTINCT id_inmueble, 
+      nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
+      CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
+      FROM inmueble 
+      WHERE estado = "habilitada"';
+
 
       $res = mysqli_query($con, $sql);
       $cantFilas = mysqli_num_rows($res);
