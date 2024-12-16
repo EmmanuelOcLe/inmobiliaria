@@ -48,12 +48,6 @@
       </div>
     </header>
 
-    <form method="POST" action="index.php">
-      <select name="filter" id="filter" onchange="applyFilter()">
-        <option value="1">Todos</option>
-        <option value="2">Venta</option>
-        <option value="3">Arriendo</option>
-      </select>
     </form>
 
     <main class="main-tag">
@@ -117,18 +111,6 @@
       window.location.href = 'view-property.php?xyz=' + id;
     }
 
-    function applyFilter() {
-      const filterValue = document.getElementById('filter').value;
-
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'back/filter-properties.php?filter=' + filterValue, true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          document.querySelector('main').innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    }
   </script>
 
   <script src="scripts/index.js"></script>
