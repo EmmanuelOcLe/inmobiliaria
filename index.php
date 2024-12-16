@@ -53,6 +53,9 @@
     </header>
 
     </form>
+    <div class="links">
+    <a href="index.php" class="active">Todas las propiedades</a><a href="index_arriendo.php">Propiedades para arrendar</a><a href="index_ventas.php">Propiedades en venta</a>
+    </div>
 
     <main class="main-tag">
       <?php
