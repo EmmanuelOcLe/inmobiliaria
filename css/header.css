@@ -117,4 +117,7 @@ header {
   .header-option:last-child {
     margin-left: 0;
   }
+  .header-option-logout {
+    margin-left: 0;
+  }
 }
