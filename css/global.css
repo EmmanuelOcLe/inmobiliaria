@@ -18,3 +18,15 @@ body{
 img{
     user-select: none;
 }
+
+.back-button{
+    padding: 0.5rem;
+    background-color: #007bff;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 100ms;
+}
+
+.back-button:hover{
+    background-color: #0056b3;
+}
