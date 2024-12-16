@@ -91,7 +91,7 @@
                     $imagenSrc = $carpetaImagenes . '/' . $archivo;
                     break;
                   }
-                }
+                } 
               }
                 echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
                     echo '<img src="' . $imagenSrc . '" alt="Imagen" class="card-image">';

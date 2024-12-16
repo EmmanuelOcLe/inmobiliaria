@@ -105,6 +105,25 @@ WHERE estado = "habilitada" AND tipo_oferta = "Venta"';
         }
       }
       ?>
+            <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="floating-contact-button" onclick="toggleContactSection()">
+        <i class="fas fa-envelope"></i>
+      </div>
+        <div class="contact-section" id="contactSection">
+        <div class="contact-overlay" onclick="toggleContactSection()"></div>
+        <div class="contact-content">
+          <h2>Contacto</h2>
+          <p>Puede ponerse en contacto con nosotros y enviar un correo electrónico por medio de los siguientes enlaces:</p>
+          <ul>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Agregar%20propiedad">Quiero agregar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Eliminar%20propiedad">Quiero que mi propiedad ya no aparezca disponible</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Re-publicar%20propiedad">Quiero volver a publicar mi propiedad</a></li>
+            <li><a href="mailto:emanuelocampo@gmail.com?subject=Consulta">Tengo una duda</a></li>
+          </ul>
+        </div>
+      </div>
     </main>
 
     <?php include('footer.php'); ?>
