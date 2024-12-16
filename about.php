@@ -43,6 +43,28 @@
                     </div>
                     <img src="assets/13625.jpg" alt="Modern apartment buildings with landscaping">
                 </section>
+
+                <section class="section" id="contactSection">
+                    <div class="contact section-content">
+                        <h2>Contacto</h2>
+                        <p>Puede ponerse en contacto con nosotros y enviar un correo electrónico por medio de los siguientes enlaces:
+                            <ul class="contact-list">
+                                <li>
+                                    <a href="mailto:emanuelocampo181@gmail.com?subject=Agregar%20propiedad&body=Hola,%20quisiera%20que%20mi%20propiedad%20apareciera%20en%20el%20menú%20principal">Quiero agregar mi propiedad</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:emanuelocampo181@gmail.com?subject=Deshabilitar%20propiedad&body=Hola,%20quisiera%20que%20mi%20propiedad%20ya%20no%20aparezca%20como%20disponible.">Quiero que mi propiedad ya no aparezca disponible</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:emanuelocampo181@gmail.com?subject=Habilitar%20propiedad&body=Hola,%20quisiera%20volver%20a%20publicar%20mi%20propiedad.">Quiero volver a publicar mi propiedad</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:emanuelocampo181@gmail.com?subject=Duda&body=Hola,%20tengo%20una%20duda%20y%20quisiera%20saber%20cómo%20pueden%20resolver%20mi%20duda.">Tengo una duda</a>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </section>
             </div>
 
         </main>

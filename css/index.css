@@ -93,6 +93,8 @@ img {
 }
 .card-image {
   border-radius: 20px 20px 0 0;
+  max-height: 13em;
+  object-fit: cover;
 }
 .card-title {
   margin: auto;
@@ -118,6 +120,12 @@ img {
   user-select: none;
   pointer-events: none;
 }
+.card-info i {
+  margin-right: 5px;
+  color: #aaa;
+  font-size: 1rem;
+}
+
 .card-price {
   color: #7ca896;
   margin: 5px auto;
