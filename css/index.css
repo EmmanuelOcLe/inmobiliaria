@@ -93,6 +93,8 @@ img {
 }
 .card-image {
   border-radius: 20px 20px 0 0;
+  max-height: 13em;
+  object-fit: cover;
 }
 .card-title {
   margin: auto;

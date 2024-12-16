@@ -54,7 +54,7 @@ $result = $con->query($sql);
                                         <!-- Agregar motivo -->
                                         <p class="propiedad-motivo"><strong>Motivo:</strong> <?= htmlspecialchars($row['motivo']) ?></p>
                                         <!-- Agregar fecha y hora de actualización -->
-                                        <p class="propiedad-fecha"><strong>Fecha:</strong> <?= htmlspecialchars($row['fecha_actualizacion']) ?></p>
+                                        <p class="propiedad-fecha"><strong>Fecha:</strong> <?= ($row['fecha_actualizacion']) ?></p>
                                     </div>
                                 </div>
                             <?php endwhile; ?>

@@ -70,8 +70,19 @@
 
         if ($res && mysqli_num_rows($res) > 0) {
             while($fila = mysqli_fetch_assoc($res)) {
+              $carpetaImagenes = 'images/properties/' . $fila['id_inmueble'];
+              $imagenSrc = 'assets/image.png';
+              if (is_dir($carpetaImagenes)) {
+                $archivos = scandir($carpetaImagenes);
+                foreach ($archivos as $archivo) {
+                  if ($archivo !== '.' && $archivo !== '..') {
+                    $imagenSrc = $carpetaImagenes . '/' . $archivo;
+                    break;
+                  }
+                }
+              }
                 echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
-                    echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
+                    echo '<img src="' . $imagenSrc . '" alt="Imagen" class="card-image">';
                     echo '<div class="card-info-container">';
                         echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                         echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
