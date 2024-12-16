@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <div class="contenedor-todo">
+  <div class="contenedor-todo"> 
 
     <header class="header-tag">
       <div class="header-bg-img-container">
@@ -28,7 +28,6 @@
           </a>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
-            <a href="about.php#contactSection" class="header-option">Contacto</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
             <a href="arrendamiento.php" class="header-option">Servicios</a>
             <a href="login.php" class="header-option">Administración</a>
@@ -62,17 +61,30 @@
 
 
         while($fila = mysqli_fetch_assoc($res)){
-
-
-          echo '<div class="card">';
-              echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
-              echo '<div class="card-info-container">';
-                echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
-                echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
-                echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
-              echo '</div>';
-            echo '</div>';
+          $carpetaImagenes = 'images/properties/' . $fila['id_inmueble'];
+          $imagenSrc = 'assets/image.png';
+          if (is_dir($carpetaImagenes)) {
+            $archivos = scandir($carpetaImagenes);
+            foreach ($archivos as $archivo) {
+              if ($archivo !== '.' && $archivo !== '..') {
+                $imagenSrc = $carpetaImagenes . '/' . $archivo;
+                break;
+              }
+            }
+          }
+          echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
+                    echo '<img src="' . $imagenSrc . '" alt="Imagen" class="card-image">';
+                    echo '<div class="card-info-container">';
+                    echo '<div class="card-title-container">';
+                      echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
+                      echo '<span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
+                    echo '</div>';
+                    echo '<span class="card-info"><i class="fa-solid fa-location-dot"></i> '.$fila['ubicacion_inmueble'].' </span>';
+                    echo "<br>";
+                    echo '<span class="card-info"> '.$fila['x'].' </span>';
+                        echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
+                    echo '</div>';
+                echo '</div>';
 
           
         }
@@ -84,5 +96,21 @@
 
   </div>
   <script src="scripts/index.js"></script>
+  <script>
+    function redirectToCardInfo(id){
+      window.location.href = 'view-property.php?xyz=' + id;
+    }
+    function toggleContactSection() {
+      const contactSection = document.getElementById('contactSection');
+      if (contactSection.style.display === 'block') {
+        contactSection.style.display = 'none';
+      } else {
+        contactSection.style.display = 'block';
+      }
+    }
+
+
+
+  </script>
 </body>
 </html>
