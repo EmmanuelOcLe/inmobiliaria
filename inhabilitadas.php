@@ -26,6 +26,10 @@ $result = $con->query($sql);
         <?php include('header2.php');?>
             <main>
                 <div class="InmueblesInabi">
+                <a href="dashboard-admin.php" class="back-button"> 
+            <i class='bx bx-arrow-back'></i>
+            Volver
+        </a>
                     <h1 class="text-h1">Inmuebles <span class="name">Inhabilitadas</span></h1>
                     <div class="grid-contenedores">
                         <?php if ($result->num_rows > 0): ?>

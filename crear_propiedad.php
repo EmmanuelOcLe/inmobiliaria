@@ -21,7 +21,7 @@ include_once 'back/session_check.php';
     <?php include('header2.php');?>
  
     <div class="container">
-        <a href="dashboard-admin.php"> 
+        <a href="dashboard-admin.php" class="back-button"> 
             <i class='bx bx-arrow-back'></i>
             Volver
         </a>

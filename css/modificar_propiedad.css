@@ -10,6 +10,9 @@
 
 .welcome {
     margin-bottom: 2rem;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 20px;
 }
 
 .welcome span {
