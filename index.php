@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="icon" href="assets/favicon.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
@@ -46,12 +48,6 @@
       </div>
     </header>
 
-    <form method="POST" action="index.php">
-      <select name="filter" id="filter" onchange="applyFilter()">
-        <option value="1">Todos</option>
-        <option value="2">Venta</option>
-        <option value="3">Arriendo</option>
-      </select>
     </form>
 
     <main class="main-tag">
@@ -62,9 +58,18 @@
         // Por defecto, mostramos todas las propiedades
         $filter = '1';  // Todos
         $sql = 'SELECT id_inmueble, 
-                nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
-                CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
-                FROM inmueble WHERE estado = "habilitada"';
+        nombre_inmueble, 
+        ubicacion_inmueble, 
+        precio_inmueble, 
+        tipo_oferta, 
+        CONCAT(
+          "<i class=\'fas fa-bath\'></i> ", cantidad_baños, " baños, ",
+          "<i class=\'fas fa-bed\'></i> ", cantidad_habitaciones, " habitaciones, ",
+          "<i class=\'fas fa-car\'></i> ", zona_parqueo, " garages"
+        ) AS "x"
+        FROM inmueble 
+        WHERE estado = "habilitada"';
+
 
         $res = mysqli_query($con, $sql);
 
@@ -87,7 +92,7 @@
                         echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                         echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                         echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                        echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
+                        echo '<span class="card-info"> ' . htmlspecialchars_decode($fila['x']) . ' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
                     echo '</div>';
                 echo '</div>';
             }
@@ -106,18 +111,6 @@
       window.location.href = 'view-property.php?xyz=' + id;
     }
 
-    function applyFilter() {
-      const filterValue = document.getElementById('filter').value;
-
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'back/filter-properties.php?filter=' + filterValue, true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          document.querySelector('main').innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    }
   </script>
 
   <script src="scripts/index.js"></script>
