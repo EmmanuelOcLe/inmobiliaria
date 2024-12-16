@@ -56,7 +56,7 @@
 
         // Por defecto, mostramos todas las propiedades
         $filter = '1';  // Todos
-        $sql = 'SELECT id_inmueble, 
+        $sql = 'SELECT DISTINCT id_inmueble, 
         nombre_inmueble, 
         ubicacion_inmueble, 
         precio_inmueble, 
