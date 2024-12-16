@@ -16,7 +16,7 @@
  
   <div class="contenedor-todo"> 
 
-    <header class="header-tag">
+  <header class="header-tag">
       <div class="header-bg-img-container">
         <img src="assets/header-image-1.jpg" alt="" class="header-bg-img">
         <img src="assets/header-image-2.jpg" alt="" class="header-bg-img">
@@ -28,6 +28,11 @@
           <a href="index.php" class="header-logo-link">
             <h1 class="header-logo">IE</h1>
           </a>
+          <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <div class="header-options-container">
             <a href="index.php" class="header-option">Inicio</a>
             <a href="about.php" class="header-option">Sobre nosotros</a>
@@ -35,6 +40,7 @@
             <a href="login.php" class="header-option">Administración</a>
           </div>
         </nav>
+        
         <div class="header-text">
           <h2 class="header-text-title">Mais de 7 anos atuando <br/> no mercado imobiliário</h2>
           <p class="header-text-p">
@@ -114,7 +120,21 @@
         contactSection.style.display = 'block';
       }
     }
+    function toggleContactSection() {
+      const contactSection = document.getElementById('contactSection');
+      if (contactSection.style.display === 'block') {
+        contactSection.style.display = 'none';
+      } else {
+        contactSection.style.display = 'block';
+      }
+    }
+    let menuToggle = document.querySelector('.menu-toggle');
+    let navbarResponsive = document.querySelector('.header-options-container');
 
+    // Alternar la clase "active" para mostrar u ocultar el navbar
+    menuToggle.addEventListener('click', () => {
+      navbarResponsive.classList.toggle('active');
+    });
 
 
   </script>
