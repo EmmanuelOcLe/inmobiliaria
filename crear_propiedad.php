@@ -77,7 +77,7 @@ include_once 'back/session_check.php';
                             <option value="" disabled selected>Selecciona el tipo</option>
                             <option value="venta">Venta</option>
                             <option value="arriendo">Arriendo</option>
-                            <option value="venta-arriendo">Venta - Arriendo</option>
+                            <!-- <option value="venta-arriendo">Venta - Arriendo</option> -->
                         </select>
 
                     </div>
