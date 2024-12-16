@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="icon" href="assets/favicon.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <title>Inmobiliaria Emmanuel</title>
 </head>
 <body>
-
+ 
   <div class="contenedor-todo"> 
 
     <header class="header-tag">
@@ -49,9 +51,13 @@
 
       $sql = 'SELECT DISTINCT id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
-      CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
+              CONCAT(
+          "<i class=\'fas fa-bath\'></i> ", cantidad_baños, " baños, ",
+          "<i class=\'fas fa-bed\'></i> ", cantidad_habitaciones, " habitaciones, ",
+          "<i class=\'fas fa-car\'></i> ", zona_parqueo, " garages"
+        ) AS "x"
       FROM inmueble 
-      WHERE estado = "habilitada"';
+      WHERE estado = "habilitada" AND tipo_oferta = "Arriendo"';
 
 
       $res = mysqli_query($con, $sql);
