@@ -1,5 +1,6 @@
 <header>
     <nav class="navbar">
+
         <a href="index.php" class="header-logo-link">
             <h1 class="header-logo">IE</h1>
         </a>

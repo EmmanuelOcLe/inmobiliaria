@@ -1,94 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&display=swap");
 
-
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.grid-contenedores{
-    display: grid;
-    grid-template-columns: 20em 20em 20em;
-    /*grid-template-rows:1fr 1fr 0.4fr;*/
-    gap: 50px;
-    row-gap: 30px;
+.grid-contenedores {
+  display: grid;
+  grid-template-columns: 20em 20em 20em;
+  gap: 50px;
+  row-gap: 30px;
 }
 
-.propiedad-card{
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
-
+.propiedad-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
 }
-.propiedad-card:hover{
-    transform: translateY(-5px);
+.propiedad-card:hover {
+  transform: translateY(-5px);
 }
 
-.text-h1{
-    font-family: "Inter", sans-serif;
-    margin-bottom: 50px;
-    margin-top: 20px;
+.text-h1 {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 50px;
+  margin-top: 20px;
 }
 
 .propiedad-image img {
-    width: 100%;     
-    height: 150px;        
-    object-fit: cover;  
-    border-radius: 8px;   
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.property-detalles{
-    padding: 10px 20px 20px 20px;
+.property-detalles {
+  padding: 10px 20px 20px 20px;
 }
-.name{
-    color: #003366;
+.name {
+  color: #003366;
 }
-.propiedad-nombre{
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-family: "Inter", sans-serif;
-    font-size: 1.2em;
+.propiedad-nombre {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
 }
 
-.propiedad-precio{
-    color: #256F50;
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
+.propiedad-precio {
+  color: #256f50;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
-.boton-habilitar{
-    grid-column: 2;
-    grid-row: 3;
-    padding: 10px;
-    place-items: center; 
-    justify-self: center;
-    align-self: center;
+.boton-habilitar {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 10px;
+  place-items: center;
+  justify-self: center;
+  align-self: center;
 }
-.boton-habilitar .btn{
-    padding: 10px;
-    width: 300px;
-    background-color: #2059E9;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    font-family:  "Inter", sans-serif;
-    font-size: 16px;
-    transition: 0.3s ease;
-    cursor: pointer;
+.boton-habilitar .btn {
+  padding: 10px;
+  width: 300px;
+  background-color: #2059e9;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
-.btn:hover{
-    transform: translateY(-5px);
+.btn:hover {
+  transform: translateY(-5px);
 }
-.InmueblesInabi{
-    background-color: #fff;
-    padding: 30px 50px;
-    margin: 40px 0;
-    border-radius: 10px;
+.InmueblesInabi {
+  background-color: #fff;
+  padding: 30px 50px;
+  margin: 40px 0;
+  border-radius: 10px;
 }
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .grid-contenedores {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: 6em;
+  }
+
+  .grid-contenedores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .grid-contenedores {
+    grid-template-columns: 1fr;
+  }
 }
