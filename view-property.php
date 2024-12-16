@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <!-- Se agrega acá la etiqueta php para que se carguen estilos al texto de error -->
     <?php
     if ($id <= 0){
@@ -72,7 +74,10 @@
                 </h1>
                 <div class="property-details">
                   <div class="detail-item">
-                    <span class="icon-location">Ubicación: </span>
+                    <span class="icon-location">
+                      <i class="fa-solid fa-location-dot"></i>
+                      Ubicación: 
+                    </span>
                     <span>
                     <?php
                     echo htmlspecialchars($row['ubicacion_inmueble']);
@@ -80,7 +85,10 @@
                     </span>
                   </div>
                   <div class="detail-item">
-                    <span class="icon-bed">Habitaciones: </span>
+                    <span class="icon-bed">
+                      <i class="fas fa-bed"></i>
+                      Habitaciones: 
+                    </span>
                     <span>
                     <?php
                     echo htmlspecialchars($row['cantidad_habitaciones']);
@@ -88,7 +96,10 @@
                     </span>
                   </div>
                   <div class="detail-item">
-                    <span class="icon-bath">Baños: </span>
+                    <span class="icon-bath">
+                      <i class="fas fa-bath"></i>
+                      Baños: 
+                    </span>
                     <span>
                     <?php
                     echo htmlspecialchars($row['cantidad_baños']);
@@ -96,7 +107,10 @@
                     </span>
                   </div>
                   <div class="detail-item">
-                    <span class="icon-area">Area: </span>
+                    <span class="icon-area">
+                      <i class="fa-solid fa-ruler"></i>
+                      Area: 
+                    </span>
                     <span>
                     <?php
                     echo htmlspecialchars($row['area']);
@@ -105,7 +119,10 @@
                     </span>
                   </div>
                   <div class="detail-item">
-                    <span class="icon-parking">Zonas parqueo: </span>
+                    <span class="icon-parking">
+                      <i class="fas fa-car"></i>
+                      Zonas parqueo: 
+                    </span>
                     <span>
                     <?php
                     echo htmlspecialchars($row['zona_parqueo']);
@@ -177,20 +194,39 @@
       <?php include('footer.php'); ?>
     </div>
 
+    <?php 
+    $sqlImgRoute = 'SELECT fotos_inmueble FROM inmueble WHERE id_inmueble = '. $id;
+    $resImgRoute = mysqli_query($con, $sqlImgRoute);
+    if ($resImgRoute && mysqli_num_rows($resImgRoute) > 0) {
+      $row2 = mysqli_fetch_assoc($resImgRoute);
+    } 
+    else {
+        $row2 = null;
+    }
+    ?>
+
+    <?php if ($row2): ?>
+  
     <script>
 
       // Arreglo con las rutas de las imágenes
-      const images = [
-        './assets/image-house.jpg',
-        './assets/image-house-2.jpg',
-        './assets/image-house-3.jpg'
-      ];
+      const images = <?php echo $row2['fotos_inmueble'] ?>;
+
+    </script>
+    <?php else: ?>
+        <script>
+          console.log("No se encontraron imágenes");
+        </script>
+    <?php endif; ?>
+
+    <script>
 
       // Índice para llevar el control de la imagen actual
       let currentImageIndex = 0;
 
       // Elemento de la imagen en el HTML
       const imageElement = document.getElementById('propertyImage');
+      imageElement.setAttribute('src', images[0]);
 
       // Función para cambiar la imagen
       function changeImage(direction) {
@@ -214,7 +250,6 @@
         for (let i = price.length; i > 0; i--){
           cont ++;
           precioFormateado += price[i - 1];
-          console.log(precioFormateado);
           if (cont % 3 === 0 && cont !== price.length){
             precioFormateado += '.';
           }

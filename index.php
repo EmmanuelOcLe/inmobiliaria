@@ -84,10 +84,13 @@
                 echo '<div class="card" onclick="redirectToCardInfo('.$fila['id_inmueble'].')">';
                     echo '<img src="' . $imagenSrc . '" alt="Imagen" class="card-image">';
                     echo '<div class="card-info-container">';
-                        echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
+                    echo '<div class="card-title-container">';
+                      echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
+                      echo '<span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
+                    echo '</div>';
+                    echo '<span class="card-info"> '.$fila['x'].' </span>';
                         echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                         echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                        echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
                     echo '</div>';
                 echo '</div>';
             }
