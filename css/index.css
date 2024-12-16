@@ -82,10 +82,34 @@ img {
 .header-text {
   margin-top: 2em;
 }
-/* .header-text-p{
-  margin: 0;
-} */
-
+/*
+.h-title {
+  margin: 2em 0 0 2em;
+  color: #555;
+}*/
+.links {
+  display: flex;
+  margin: 2em 0 0 2em;
+  gap: 1em;
+  a {
+    padding: 0.5em;
+    border-radius: 5px;
+    color: #6c40d3;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .active {
+    background: #007bff;
+    color: #ffffff;
+    cursor: auto;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
 .main-tag {
   background-color: #f1f4f7;
   padding: 2em;
