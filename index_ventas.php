@@ -38,7 +38,7 @@
           <h2 class="header-text-title">Más de 7 años trabajando <br/> en el mercado inmobiliario.</h2>
           <br>
           <p class="header-text-p">
-          Especialistas en alquiler y venta de propiedades de alta gama. <br/> estándar en la región de Presidente Prudent y ciudades vecinas.
+          Especialistas en alquiler y venta de propiedades de alta gama. <br/> Siendo asi una de las mejores inmobiliarias en todo Colombia.
           </p>
         </div>
       </div>
@@ -90,7 +90,7 @@ WHERE estado = "habilitada" AND tipo_oferta IN ("Venta", "venta-arriendo") order
                     echo '<span class="card-info"><i class="fa-solid fa-location-dot"></i> '.$fila['ubicacion_inmueble'].' </span>';
                     echo "<br>";
                     echo '<span class="card-info"> '.$fila['x'].' </span>';
-                        echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
+                        echo '<h2 class="card-price">COP$ '.$fila['precio_inmueble'].' </h2>';
                     echo '</div>';
                 echo '</div>';
 

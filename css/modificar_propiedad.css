@@ -121,3 +121,10 @@
     background-color: #22c55e;
     color: white;
 }
+
+.back-button {
+    position: absolute; 
+    top: 80px;
+    left: 10px;
+    margin: 2rem;
+}

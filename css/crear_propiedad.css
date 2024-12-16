@@ -10,10 +10,16 @@ body {
   min-height: 100vh;
 }
 
+body .back-button{
+  position: absolute;
+  padding: 10px;
+  margin: 2rem;
+}
+
 .container {
   max-width: 1200px;
   margin: 6rem auto 2rem;
-  padding: 2rem;
+  padding: 10px;
   background-color: #e5e5e5;
   border-radius: 0.5rem;
 }

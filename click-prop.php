@@ -51,17 +51,19 @@ if ($res && mysqli_num_rows($res) > 0) {
 </head>
 <body> 
     <div class="contenedor-todo">
+    
         <?php include('header2.php'); ?>
-
+        
+        
+        <a href="dashboard-admin.php" class="back-button"> 
+                <i class='bx bx-arrow-back'></i>
+                Volver
+        </a>
         <main class="main">
-            
+        
             <?php if ($row): ?>
                 
                 <div class="property-card">
-                    <a href="dashboard-admin.php" class="back-button"> 
-                        <i class='bx bx-arrow-back'></i>
-                        Volver
-                    </a>
                     <div class="card-header">
                         <div class="prop-info-container">
                             <h2 class="property-title"><?= htmlspecialchars($row['nombre_inmueble'] ?? 'Nombre no disponible') ?></h2>

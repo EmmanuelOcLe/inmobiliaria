@@ -26,10 +26,6 @@ $result = $con->query($sql);
         <?php include('header2.php');?>
             <main>
                 <div class="InmueblesInabi">
-                <a href="dashboard-admin.php" class="back-button"> 
-            <i class='bx bx-arrow-back'></i>
-            Volver
-        </a>
                     <h1 class="text-h1">Inmuebles <span class="name">Inhabilitadas</span></h1>
                     <div class="grid-contenedores">
                         <?php if ($result->num_rows > 0): ?>
@@ -54,7 +50,7 @@ $result = $con->query($sql);
                                     </div>
                                     <div class="property-detalles">
                                         <p class="propiedad-nombre"><?= htmlspecialchars($row['nombre_inmueble']) ?></p>
-                                        <span class="propiedad-precio">R$ <?= htmlspecialchars($row['precio_inmueble']) ?></span>
+                                        <span class="propiedad-precio">COP$ <?= htmlspecialchars($row['precio_inmueble']) ?></span>
                                         <!-- Agregar motivo -->
                                         <p class="propiedad-motivo"><strong>Motivo:</strong> <?= htmlspecialchars($row['motivo']) ?></p>
                                         <!-- Agregar fecha y hora de actualización -->

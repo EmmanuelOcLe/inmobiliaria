@@ -45,14 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 
     <div class="contenedor-todo">
         <?php include('header2.php'); ?>
-
+        <a href="dashboard-admin.php" class="back-button"> 
+                    <i class='bx bx-arrow-back'></i>
+                    Volver
+        </a>
         <main>
         
             <div class="container">
-                <a href="dashboard-admin.php" class="back-button"> 
-                    <i class='bx bx-arrow-back'></i>
-                    Volver
-                </a>
+                
                 <div class="welcome">
 
                     <h1>Bienvenido <span>Emmanuel</span></h1>
