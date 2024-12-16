@@ -15,11 +15,13 @@ include_once 'back/session_check.php';
     <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="assets/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropzone@5.7.0/dist/min/dropzone.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.7.0/dist/min/dropzone.min.js"></script>
 </head>
 <body>
     <?php include('header2.php');?>
- 
+
     <div class="container">
         <a href="dashboard-admin.php" class="back-button"> 
             <i class='bx bx-arrow-back'></i>
@@ -32,7 +34,7 @@ include_once 'back/session_check.php';
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form method="post" action="registro.php" method="post" enctype="multipart/form-data">
+            <form method="post" action="registro.php" enctype="multipart/form-data">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
@@ -77,45 +79,51 @@ include_once 'back/session_check.php';
                             <option value="" disabled selected>Selecciona el tipo</option>
                             <option value="venta">Venta</option>
                             <option value="arriendo">Arriendo</option>
-                            <option value="venta-arriendo">Venta - Arriendo</option>
                         </select>
-
                     </div>
                 </div>
+
+                <!-- Subir imágenes -->
                 <div class="form-group">
-                    <label for="fotos">Imágenes de la propiedad</label>
-                    <input type="file" name="fotos[]" id="fotos" multiple required accept="image/jpeg, image/png, image/gif, image/jfif, image/pjpeg, image/pjp, image/png">
+                    <label for="imagenes">Arrastra o haz clic para subir imágenes</label>
+                    <div id="dropzone" class="dropzone needsclick dz-clickable"></div>
                 </div>
 
                 <div class="description-area">
                     <label for="descripcion">Descripción</label>
-                    <textarea id="descripcion" placeholder="Descripcion del Inmueble" name="descripcion"></textarea>
+                    <textarea name="descripcion" id="descripcion" placeholder="Descripción de la propiedad"></textarea>
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="btn btn-cancel">Cancelar</button>
-                    <button type="submit" class="btn btn-create" name="crear">Crear Propiedad</button>
+                    <input type="reset" class="btn btn-cancel">
+                    <button type="submit" class="btn btn-create">Crear Propiedad</button>
                 </div>
             </form>
         </div>
     </div>
-    <?php include('footer.php');?>
-    <script>
-    // fileIn es el elemento HTML del input. Acá cambia 'fileIn' por el id de su input de imagen
-    document.getElementById('fotos').addEventListener('change', (event) =>{
-      const imgPermitidas = ['image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 'image/png'];
-      const permitidasUsuario = ['jpg', 'jpeg', 'jfif', 'pjpeg', 'pjp', 'png'];
-      let file = event.target.files;
 
-      for (let i = 0; i < file.length; i++){
-        if (file && !(imgPermitidas.includes(file[i].type))){
-          alert('No se permite el tipo de imagen seleccionado.');
-          alert('Lista de tipos de imagenes permitidas \n '+permitidasUsuario);
-          event.target.value = '';
-          break;
-        }
-      }
-  });
+    <script>
+        Dropzone.autoDiscover = false;
+
+        $(document).ready(function() {
+            new Dropzone("#dropzone", {
+                url: "back/productos.ajaxSubida.php",
+                paramName: "file",
+                maxFilesize: 2,
+                maxFiles: 5,
+                acceptedFiles: ".jpg,.jpeg,.png",
+                addRemoveLinks: true,
+                dictDefaultMessage: "Arrastra o haz clic para subir imágenes",
+                success: function(file, response) {
+                    if (!response.success) {
+                        console.error("Error al subir:", response.message);
+                    }
+                },
+                error: function(file, errorMessage) {
+                    console.error("Error al subir:", errorMessage);
+                }
+            });
+        });
     </script>
 </body>
 </html>
