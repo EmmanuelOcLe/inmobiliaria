@@ -54,14 +54,14 @@ if ($res && mysqli_num_rows($res) > 0) {
         <?php include('header2.php'); ?>
 
         <main class="main">
-            <a href="dashboard-admin.php"> 
-                <i class='bx bx-arrow-back'></i>
-                Volver
-            </a>
- 
+            
             <?php if ($row): ?>
                 
                 <div class="property-card">
+                    <a href="dashboard-admin.php" class="back-button"> 
+                        <i class='bx bx-arrow-back'></i>
+                        Volver
+                    </a>
                     <div class="card-header">
                         <div class="prop-info-container">
                             <h2 class="property-title"><?= htmlspecialchars($row['nombre_inmueble'] ?? 'Nombre no disponible') ?></h2>
@@ -76,7 +76,15 @@ if ($res && mysqli_num_rows($res) > 0) {
                     </div>
                     
                     <div class="gallery">
-                        <img src="images/properties/<?php echo $row['id_inmueble'] . '/' . '.jpg'; ?>" alt="Propiedad">
+                        <img
+                            alt="Propiedad"
+                            class="slider-image"
+                            id="propertyImage"
+                        />
+                        <button class="slider-button prev" type="reset" onclick="changeImage(-1)">
+                            ←
+                        </button>
+                        <button class="slider-button next" onclick="changeImage(1)">→</button>
                     </div>
 
                     <div class="property-details">
@@ -131,6 +139,57 @@ if ($res && mysqli_num_rows($res) > 0) {
             </div>
         </form>
     </div>
+    <?php 
+    $sqlImgRoute = 'SELECT fotos_inmueble FROM inmueble WHERE id_inmueble = '. $id;
+    $resImgRoute = mysqli_query($con, $sqlImgRoute);
+    if ($resImgRoute && mysqli_num_rows($resImgRoute) > 0) {
+      $row2 = mysqli_fetch_assoc($resImgRoute);
+    } 
+    else {
+        $row2 = null;
+    }
+    ?>
+
+    <?php if ($row2): ?>
+  
+    <script>
+
+      // Arreglo con las rutas de las imágenes
+      const images = <?php echo $row2['fotos_inmueble'] ?>;
+
+    </script>
+    <?php else: ?>
+        <script>
+          console.log("No se encontraron imágenes");
+        </script>
+    <?php endif; ?>
+
+    <script>
+
+      // Índice para llevar el control de la imagen actual
+      let currentImageIndex = 0;
+
+      // Elemento de la imagen en el HTML
+      const imageElement = document.getElementById('propertyImage');
+      imageElement.setAttribute('src', images[0]);
+
+      // Función para cambiar la imagen
+      function changeImage(direction) {
+        // Cambiar el índice según la dirección
+        currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+        
+        // Cambiar la fuente y el texto alternativo de la imagen
+        imageElement.src = images[currentImageIndex];
+        imageElement.alt = `Imagen ${currentImageIndex + 1} de la propiedad`;
+      }
+
+      if (images.length == 1){
+        let arrowButtons = document.querySelectorAll('.slider-button');
+        arrowButtons.forEach((item) =>{
+          item.style.display = 'none';
+        });
+      }
+      </script>
 
     <script>
         //Funcion del Poppup
