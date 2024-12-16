@@ -19,12 +19,12 @@ include_once 'back/session_check.php';
 </head>
 <body>
     <?php include('header2.php');?>
+    <a href="dashboard-admin.php" class="back-button"> 
+        <i class='bx bx-arrow-back'></i>
+        Volver
+    </a>
  
     <div class="container">
-        <a href="dashboard-admin.php" class="back-button"> 
-            <i class='bx bx-arrow-back'></i>
-            Volver
-        </a>
         <div class="welcome">
             <h1>Bienvenido <span>administrador</span></h1>
         </div>
