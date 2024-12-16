@@ -3,7 +3,6 @@ session_start();
 include("back/conection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // Obtener y sanitizar los valores enviados desde el formulario
     $nombre = mysqli_real_escape_string($con, $_POST["propiedad_nombre"]);
     $ubicacion = mysqli_real_escape_string($con, $_POST["ubicacion_propiedad"]);
     $valor = $_POST["valor_propiedad"];
@@ -30,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $idPropiedad = $con->insert_id;
         $carpetaDestino = 'images/properties/' . $idPropiedad . '/';
 
-        // Crear la carpeta si no existe
         if (!is_dir($carpetaDestino)) {
             mkdir($carpetaDestino, 0777, true);
         }
@@ -41,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $nombreArchivo = basename($_FILES['fotos']['name'][$key]);
             $rutaCompleta = $carpetaDestino . time() . '-' . $nombreArchivo;
         
-            // Mover el archivo a la carpeta de destino
             if (move_uploaded_file($tmpName, $rutaCompleta)) {
                 $rutasImagenes[] = $rutaCompleta;
             } else {
@@ -58,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             die("Error al preparar la consulta de actualización: " . $con->error);
         }
             
-        // Aquí se debe usar la variable correcta $fotosInmueble y $idPropiedad
         $updateStmt->bind_param("si", $fotosInmueble, $idPropiedad);
         
         if ($updateStmt->execute()) {
@@ -76,9 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         echo "Error." . $stmt->error;
     }
 
-    // Cerrar las sentencias y la conexión
     $stmt->close();
-    
 }
 ?>
 
@@ -97,37 +91,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <h2>¡Datos enviados correctamente!</h2>
             <p>La propiedad se ha registrado con éxito.</p>
             <div class="modal-buttons">
-                
-                <button class="btn btn-secondary" id="volverDashboard">Volver al dashboard</button>
+                <a href="dashboard-admin.php"><button class="btn btn-secondary" id="volverDashboard">Volver al dashboard</button></a>
             </div>
         </div>
     </div>
-
-    <?php
-    if (!$con) {
-        echo "No se ha podido conectar a la base de datos: " . mysqli_connect_error();
-    } else {
-        $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_baños, cantidad_habitaciones, zona_parqueo, area, descripcion_inmueble, tipo_oferta, precio_inmueble, estado)
-        VALUES ('$nombre', '$ubicacion', $baños, $habitaciones, $zona_parqueo, $area_m, '$descripcion', '$oferta', '$valor', '$habilitado')";
-
-        $resultado = mysqli_query($con, $sql);
-
-        if ($resultado) {
-            echo '<script>document.getElementById("successModal").style.display = "block";</script>';
-        } else {
-            echo "Error al insertar los datos: " . mysqli_error($con);
-        }
-
-        
-    }
-    ?>
 
     <script>
         // Funcionalidad de botones
         const btnVolverDashboard = document.getElementById("volverDashboard");
 
-
-
+        btnVolverDashboard.onclick = function() {
+            window.location.href = "/localhost/inmobiliaria/crear_propiedad.php"; 
+        };
     </script>
 </body>
 </html>
