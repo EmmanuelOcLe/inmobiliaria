@@ -134,7 +134,7 @@
 .gallery img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .gallery-nav {
@@ -180,6 +180,11 @@
     height: 50px;
     font-size: 1.5rem;
     border-radius: 50%;
+  }
+
+  .slider-button:hover{
+    background-color: #dddddddd;
+
   }
   
   .prev {

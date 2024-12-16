@@ -37,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/global.css"> 
+    <link rel="stylesheet" href="css/global.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
@@ -48,11 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
         <main>
         
             <div class="container">
-                <div class="welcome">
                 <a href="dashboard-admin.php" class="back-button"> 
                     <i class='bx bx-arrow-back'></i>
                     Volver
                 </a>
+                <div class="welcome">
+
                     <h1>Bienvenido <span>Emmanuel</span></h1>
                 </div>
         

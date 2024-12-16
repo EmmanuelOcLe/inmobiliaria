@@ -184,7 +184,7 @@
                 <!-- Desactiva el CAPTCHA -->
                 <input type="hidden" name="_captcha" value="false">
                 <!-- URL de redirección después del envío -->
-                <input type="hidden" name="_next" value="http://localhost/Inmobiliaria/inmobiliaria/index.php">
+                <input type="hidden" name="_next" value="http://localhost/inmobiliaria/index.php">
             </form>
           </div>
         </div>
