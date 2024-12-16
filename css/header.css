@@ -118,3 +118,18 @@ header {
     margin-left: 0;
   }
 }
+@media screen and (max-width:650px) {
+  .login-form{
+    width: 350px;
+  }
+}
+@media screen and (max-width:500px) {
+  .login-form{
+    width: 300px;
+  }
+}
+@media screen and (max-width:380px) {
+  .login-form{
+    width: 250px;
+  }
+}

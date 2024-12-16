@@ -1,7 +1,12 @@
 <header>
     <nav class="navbar">
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <a href="index.php" class="header-logo-link">
-        <h1 class="header-logo">IE</h1>
+            <h1 class="header-logo">IE</h1>
         </a>
         
         <div class="header-options-container">
@@ -12,4 +17,3 @@
         </div>
     </nav>  
 </header>
-    
