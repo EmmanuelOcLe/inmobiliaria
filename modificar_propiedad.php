@@ -122,13 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="imagenes">Imágenes de la propiedad</label>
-                        <input name="imagenes" type="file" id="imagenes" accept="image/*" multiple>
-                        <?php if (!empty($row['fotos_inmueble'])): ?>
-                            <small>Imagen actual: <?php echo htmlspecialchars($row['fotos_inmueble']); ?></small>
-                        <?php endif; ?>
-                    </div>
 
                     <div class="description-area">
                         <label for="descripcion">Descripción</label>

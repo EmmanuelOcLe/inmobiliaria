@@ -322,6 +322,7 @@ select#filter:focus {
 
 @media (max-width: 768px) {
   .header-background {
+    height: 50vh;
     .header-options-container {
       max-height: 0;
       overflow: hidden;

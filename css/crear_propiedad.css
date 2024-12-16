@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
 }
 
-body .back-button{
+body .back-button {
   position: absolute;
   padding: 10px;
   margin: 2rem;
@@ -120,14 +120,17 @@ body .back-button{
   header {
     top: 0;
   }
-}
-@media (max-width: 640px) {
   .container {
     margin: 4rem auto 1rem;
-    margin-top: 6em;
+    margin-top: 8em;
     padding: 1rem;
   }
-
+  body .back-button {
+    top: 3em;
+    margin-left: 1em;
+  }
+}
+@media (max-width: 640px) {
   .form-container {
     padding: 1rem;
   }
