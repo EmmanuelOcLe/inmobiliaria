@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
             <div class="form-container"> 
                 <h2 class="form-title">Modificar una propiedad</h2>
 
-                <form action="registro.php" method="POST" enctype="multipart/form-data">
+                <form action="back/properties/recibir.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $row['id_inmueble']; ?>">
 
                     <!-- Campos de texto -->

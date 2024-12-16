@@ -34,7 +34,7 @@ include_once 'back/session_check.php';
         <div class="form-container">
             <h2 class="form-title">Crear una nueva propiedad</h2>
             
-            <form method="post" action="registro.php" enctype="multipart/form-data">
+            <form method="post" action="registro.php" enctype="multipart/form-data" id="propertyForm">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="nombre">Nombre Propiedad</label>
@@ -48,7 +48,7 @@ include_once 'back/session_check.php';
 
                     <div class="form-group">
                         <label for="valor">Valor de la propiedad</label>
-                        <input type="text" id="valor" placeholder="Valor de la propiedad" name="valor_propiedad" required>
+                        <input type="number" id="valor" placeholder="Valor de la propiedad" name="valor_propiedad" required min="0" step="0.01">
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ include_once 'back/session_check.php';
 
                     <div class="form-group">
                         <label for="area">Área en metros Cuadrados</label>
-                        <input type="text" id="area" placeholder="" name="areas_metros">
+                        <input type="number" id="area" placeholder="" name="areas_metros" step="0.01" min="0" required>
                     </div>
 
                     <div class="form-group">
@@ -86,16 +86,17 @@ include_once 'back/session_check.php';
                 <!-- Subir imágenes -->
                 <div class="form-group">
                     <label for="imagenes">Arrastra o haz clic para subir imágenes</label>
+                    <input type="file" name="fotos[]" id="imageUpload" multiple accept=".jpg,.jpeg,.png" style="display:none;">
                     <div id="dropzone" class="dropzone needsclick dz-clickable"></div>
                 </div>
 
                 <div class="description-area">
                     <label for="descripcion">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" placeholder="Descripción de la propiedad"></textarea>
+                    <textarea name="descripcion" id="descripcion" placeholder="Descripción de la propiedad" required></textarea>
                 </div>
 
                 <div class="buttons">
-                    <input type="reset" class="btn btn-cancel">
+                    <input type="reset" class="btn btn-cancel" value="Cancelar">
                     <button type="submit" class="btn btn-create">Crear Propiedad</button>
                 </div>
             </form>
@@ -106,7 +107,7 @@ include_once 'back/session_check.php';
         Dropzone.autoDiscover = false;
 
         $(document).ready(function() {
-            new Dropzone("#dropzone", {
+            let myDropzone = new Dropzone("#dropzone", {
                 url: "back/productos.ajaxSubida.php",
                 paramName: "file",
                 maxFilesize: 2,
@@ -114,13 +115,63 @@ include_once 'back/session_check.php';
                 acceptedFiles: ".jpg,.jpeg,.png",
                 addRemoveLinks: true,
                 dictDefaultMessage: "Arrastra o haz clic para subir imágenes",
-                success: function(file, response) {
-                    if (!response.success) {
-                        console.error("Error al subir:", response.message);
+                
+                // Configuración para manejar archivos
+                init: function() {
+                    // Asegurar que el formulario incluya los archivos de Dropzone
+                    let form = document.getElementById('propertyForm');
+                    
+                    this.on("addedfile", function(file) {
+                        file.previewElement.addEventListener("click", function() {
+                            myDropzone.hiddenFileInput.click();
+                        });
+                    });
+
+                    this.on("success", function(file, response) {
+                        // Añade un input oculto con la ruta del archivo
+                        if (response.success) {
+                            let hiddenInput = document.createElement('input');
+                            hiddenInput.setAttribute('type', 'hidden');
+                            hiddenInput.setAttribute('name', 'uploadedFiles[]');
+                            hiddenInput.setAttribute('value', response.filename);
+                            form.appendChild(hiddenInput);
+                        }
+                    });
+
+                    this.on("removedfile", function(file) {
+                        // Opcional: Eliminar el input oculto correspondiente
+                        let inputs = form.querySelectorAll('input[name="uploadedFiles[]"]');
+                        inputs.forEach(input => {
+                            if (input.value === file.name) {
+                                input.remove();
+                            }
+                        });
+                    });
+                }
+            });
+
+            // Validación básica del formulario antes de enviar
+            $('#propertyForm').on('submit', function(e) {
+                // Verificar que todos los campos requeridos estén llenos
+                let valid = true;
+                $(this).find('[required]').each(function() {
+                    if (!$(this).val()) {
+                        valid = false;
+                        $(this).addClass('error');
+                    } else {
+                        $(this).removeClass('error');
                     }
-                },
-                error: function(file, errorMessage) {
-                    console.error("Error al subir:", errorMessage);
+                });
+
+                // Verificar que se hayan subido imágenes
+                if (myDropzone.files.length === 0) {
+                    alert('Por favor, sube al menos una imagen de la propiedad');
+                    valid = false;
+                }
+
+                if (!valid) {
+                    e.preventDefault();
+                    alert('Por favor, completa todos los campos requeridos');
                 }
             });
         });
