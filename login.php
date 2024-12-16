@@ -54,15 +54,6 @@
         </div>
     </main>
 
-    <!-- Script para volver al index en caso de cancelar el form-->
-    <script>
-        let button = document.getElementById('btnCancel');
-        
-        button.addEventListener('click', ()=>{
-            window.location.href = 'index.php';
-        });
-    </script>
-
     <!-- Popup Modal -->
     <?php if ($mensaje): ?>
         <div class="popup-overlay" id="popup">
