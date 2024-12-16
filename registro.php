@@ -94,10 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="modal" id="successModal">
         <div class="modal-content">
             <h2>¡Datos enviados correctamente!</h2>
-            <p>La propiedad se ha registrado con éxito. ¿Qué deseas hacer ahora?</p>
+            <p>La propiedad se ha registrado con éxito.</p>
             <div class="modal-buttons">
-                <button class="btn btn-primary" id="seguirCreando">Seguir creando</button>
-                <button class="btn btn-secondary" id="volverDashboard">Volver al dashboard</button>
+                <!-- <button class="btn btn-primary" id="seguirCreando">Seguir creando</button> -->
+                <a href="dashboard-admin.php"><button class="btn btn-secondary" id="volverDashboard">Volver al dashboard</button></a>
             </div>
         </div>
     </div>
@@ -123,16 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <script>
         // Funcionalidad de botones
-        const btnSeguirCreando = document.getElementById("seguirCreando");
         const btnVolverDashboard = document.getElementById("volverDashboard");
 
         btnSeguirCreando.onclick = function() {
-            window.location.href = "http://localhost/inmobiliaria/crear_propiedad.php"; 
+            window.location.href = "/localhost/inmobiliaria/crear_propiedad.php"; 
         };
 
-        btnVolverDashboard.onclick = function() {
-            window.location.href = "http://localhost/inmobiliaria/dashboard-admin.php"; 
-        };
     </script>
 </body>
 </html>
