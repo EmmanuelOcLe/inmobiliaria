@@ -91,19 +91,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
                     <div class="numbers-grid">
                         <div class="form-group">
                             <label for="habitaciones">Cantidad de Habitaciones</label>
-                            <input class="number-input" name="habitaciones" type="number" id="habitaciones" 
+                            <input class="number-input" name="habitaciones" type="text" id="habitaciones" 
                                 value="<?php echo intval($row['cantidad_habitaciones']); ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="banos">Cantidad de Baños</label>
-                            <input class="number-input" name="banos" type="number" id="banos" 
+                            <input class="number-input" name="banos" type="text" id="banos" 
                                 value="<?php echo intval($row['cantidad_baños']); ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="parqueo">Zonas de Parqueo</label>
-                            <input class="number-input" name="parqueo" type="number" id="parqueo" 
+                            <input class="number-input" name="parqueo" type="text" id="parqueo" 
                                 value="<?php echo intval($row['zona_parqueo']); ?>">
                         </div>
 

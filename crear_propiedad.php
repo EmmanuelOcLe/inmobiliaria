@@ -53,17 +53,17 @@ include_once 'back/session_check.php';
                 <div class="numbers-grid">
                     <div class="form-group">
                         <label for="habitaciones">Cantidad de Habitaciones</label>
-                        <input type="number" id="habitaciones" min="0" name="habitaciones_cantidad" class="number-input" required>
+                        <input type="text" id="habitaciones" min="0" name="habitaciones_cantidad" class="number-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="banos">Cantidad de Baños</label>
-                        <input type="number" id="banos" min="0" name="baños_cantidad" class="number-input" required>
+                        <input type="text" id="banos" min="0" name="baños_cantidad" class="number-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="parqueo">Zonas de Parqueo</label>
-                        <input type="number" id="parqueo" min="0" name="zonas_parqueo" class="number-input" required>
+                        <input type="text" id="parqueo" min="0" name="zonas_parqueo" class="number-input" required>
                     </div>
 
                     <div class="form-group">
@@ -117,7 +117,7 @@ include_once 'back/session_check.php';
         });
     });
 
-    
+
     // fileIn es el elemento HTML del input. Acá cambia 'fileIn' por el id de su input de imagen
     document.getElementById('fotos').addEventListener('change', (event) =>{
       const imgPermitidas = ['image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 'image/png'];
