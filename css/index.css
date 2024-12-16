@@ -145,9 +145,8 @@ img {
 }
 .card-title-container {
   display: flex;
-  .card-title-container {
-    margin-bottom: 1em;
-  }
+  justify-content: space-between;
+  margin-bottom: 1em;
 }
 .card-info {
   color: #aaa;

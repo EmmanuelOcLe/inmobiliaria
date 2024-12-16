@@ -4,7 +4,7 @@ include 'conection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
+    $contrasena = md5($_POST['contrasena']);
 
     // Consulta para verificar credenciales
     $sql = "SELECT * FROM administrador WHERE email = ? AND password = ?";
