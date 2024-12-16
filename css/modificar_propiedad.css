@@ -90,6 +90,7 @@
 
 .description-area {
     margin-bottom: 1.5rem;
+    margin-top: 10px;
 }
 
 .description-area textarea {
@@ -120,4 +121,41 @@
 .btn-update {
     background-color: #22c55e;
     color: white;
+}
+@media screen and (max-width:1200px) {
+    .numbers-grid{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width:768px) {
+    .numbers-grid{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width:460px) {
+    .container{
+        border-radius: 0px;
+    }
+    .form-container{
+        width: 80%;
+        margin: auto;
+    }
+    .form-grid{
+        grid-template-columns: 1fr;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .description-area textarea{
+        min-height: 200px;
+    }
+    input{
+        width: 200px;
+    }
+}
+@media screen and (max-width:400px) {
+    .form-container{
+        width: 95%;
+    }
 }
