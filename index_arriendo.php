@@ -39,7 +39,7 @@
           <h2 class="header-text-title">Más de 7 años trabajando <br/> en el mercado inmobiliario.</h2>
           <br>
           <p class="header-text-p">
-          Especialistas en alquiler y venta de propiedades de alta gama. <br/> estándar en la región de Presidente Prudent y ciudades vecinas.
+          Especialistas en alquiler y venta de propiedades de alta gama. <br/> Siendo asi una de las mejores inmobiliarias en todo Colombia.
           </p>
         </div>
       </div>
