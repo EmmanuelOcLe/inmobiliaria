@@ -51,8 +51,8 @@
       $sql = 'SELECT DISTINCT id_inmueble, 
       nombre_inmueble, ubicacion_inmueble, precio_inmueble, tipo_oferta, 
       CONCAT(cantidad_baños, " baños ", ", ", cantidad_habitaciones, " habitaciones ", ", ", zona_parqueo, " garages") AS "x"
-FROM inmueble 
-WHERE estado = "habilitada"';
+      FROM inmueble 
+      WHERE estado = "habilitada"';
 
 
       $res = mysqli_query($con, $sql);
@@ -62,10 +62,7 @@ WHERE estado = "habilitada"';
 
 
         while($fila = mysqli_fetch_assoc($res)){
-          
-          
 
-         
 
           echo '<div class="card">';
               echo '<img src="assets/card-image.jpg" alt="Imagen" class="card-image">';
@@ -73,7 +70,7 @@ WHERE estado = "habilitada"';
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                 echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span>';
+                echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
               echo '</div>';
             echo '</div>';
 

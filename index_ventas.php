@@ -74,7 +74,7 @@ WHERE estado = "habilitada"';
                 echo '<h3 class="card-title"> '.$fila['nombre_inmueble'].' </h3>';
                 echo '<span class="card-info"> '.$fila['ubicacion_inmueble'].' </span>';
                 echo '<h2 class="card-price">R$ '.$fila['precio_inmueble'].' </h2>';
-                echo '<span class="card-info"> '.$fila['x'].' </span>';
+                echo '<span class="card-info"> '.$fila['x'].' </span><span class="card-offer" id="oferta">'.$fila['tipo_oferta'].'</span>';
               echo '</div>';
             echo '</div>';
 

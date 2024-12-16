@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <!-- Se agrega acá la etiqueta php para que se carguen estilos al texto de error -->
     <?php
     if ($id <= 0){
@@ -130,7 +132,7 @@
                 class="slider-image"
                 id="propertyImage"
               />
-              <button class="slider-button prev" onclick="changeImage(-1)">
+              <button class="slider-button prev" type="reset" onclick="changeImage(-1)">
                 ←
               </button>
               <button class="slider-button next" onclick="changeImage(1)">→</button>

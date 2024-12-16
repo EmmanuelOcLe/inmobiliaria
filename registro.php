@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $oferta = mysqli_real_escape_string($con, $_POST["oferta"]);
     $habilitado = "habilitada";
 
-    // Consulta SQL para insertar los datos
     $sql = "INSERT INTO inmueble (nombre_inmueble, ubicacion_inmueble, cantidad_habitaciones, cantidad_baños, zona_parqueo, area, descripcion_inmueble, tipo_oferta, fotos_inmueble, precio_inmueble, estado)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $con->prepare($sql);
@@ -25,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $fotos_inmueble = ""; 
-    $stmt->bind_param("ssiiissssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
+    $stmt->bind_param("ssiiiisssis", $nombre, $ubicacion, $habitaciones, $baños, $zona_parqueo, $area_m, $descripcion, $oferta, $fotos_inmueble, $valor, $habilitado);
  
     if ($stmt->execute()) {
         $idPropiedad = $con->insert_id;
@@ -59,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             die("Error al preparar la consulta de actualización: " . $con->error);
         }
             
-        // Actualizar las fotos de la propiedad
+        // Aquí se debe usar la variable correcta $fotosInmueble y $idPropiedad
         $updateStmt->bind_param("si", $fotosInmueble, $idPropiedad);
         
         if ($updateStmt->execute()) {
@@ -79,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // Cerrar las sentencias y la conexión
     $stmt->close();
-    // mysqli_close($con);
 }
 ?>
 
@@ -93,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
-    <div class="modal" id="successModal" style="display: none;">
+    <div class="modal" id="successModal">
         <div class="modal-content">
             <h2>¡Datos enviados correctamente!</h2>
             <p>La propiedad se ha registrado con éxito.</p>
