@@ -79,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // Cerrar las sentencias y la conexión
     $stmt->close();
-    mysqli_close($con);
 }
 ?>
 

@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
                     </div>
 
                     <div class="buttons">
-                        <button type="button" class="btn btn-cancel" onclick="window.location.href='dashboard-admin.php'">Cancelar</button>
+                    <input type="reset" class="btn btn-cancel"></input>
                         <button type="submit" class="btn btn-update">Actualizar Propiedad</button>
                     </div>
                 </form>
