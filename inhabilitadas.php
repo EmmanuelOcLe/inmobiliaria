@@ -50,7 +50,7 @@ $result = $con->query($sql);
                                     </div>
                                     <div class="property-detalles">
                                         <p class="propiedad-nombre"><?= htmlspecialchars($row['nombre_inmueble']) ?></p>
-                                        <span class="propiedad-precio">R$ <?= htmlspecialchars($row['precio_inmueble']) ?></span>
+                                        <span class="propiedad-precio">COP$ <?= htmlspecialchars($row['precio_inmueble']) ?></span>
                                         <!-- Agregar motivo -->
                                         <p class="propiedad-motivo"><strong>Motivo:</strong> <?= htmlspecialchars($row['motivo']) ?></p>
                                         <!-- Agregar fecha y hora de actualización -->

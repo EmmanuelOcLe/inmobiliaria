@@ -60,7 +60,7 @@ include_once 'back/session_check.php';;
                       echo '<img src="' . $imagenSrc . '" alt="Imagen" class="property-image">';
                       echo '<div class="property-info">';
                       echo '<h3>' . $fila['nombre_inmueble'] . '</h3>';
-                      echo '<div class="property-price">R$ ' . $fila['precio_inmueble'] . '</div>';
+                      echo '<div class="property-price">COP$ ' . $fila['precio_inmueble'] . '</div>';
                       echo '</div>';
                       echo '</div>';
                   }

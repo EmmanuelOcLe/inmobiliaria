@@ -1,161 +1,165 @@
-
-
 .container {
-    max-width: 1200px;
-    margin: 6rem auto 2rem;
-    padding: 2rem;
-    background-color: #e5e5e5;
-    border-radius: 0.5rem;
+  max-width: 1200px;
+  margin: 6rem auto 2rem;
+  padding: 2rem;
+  background-color: #e5e5e5;
+  border-radius: 0.5rem;
 }
 
 .welcome {
-    margin-bottom: 2rem;
-    width: fit-content;
-    height: fit-content;
-    margin-top: 20px;
+  margin-bottom: 2rem;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 20px;
 }
 
 .welcome span {
-    color: #1a56db;
+  color: #1a56db;
 }
 
 .form-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
 .form-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .form-group label {
-    font-weight: 500;
-    /* letter-spacing: 0.1px; */
+  font-weight: 500;
+  /* letter-spacing: 0.1px; */
 }
 
-
-.form-group input, 
-.form-group textarea{
-    padding: 0.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.25rem;
-    font-size: 1rem;
+.form-group input,
+.form-group textarea {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 1rem;
 }
 
 .form-group select {
-    padding: 0.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.25rem;
-    font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 1rem;
 }
 
 .form-group-estado {
-    margin-bottom: 15px; /* Espacio entre los campos */
+  margin-bottom: 15px; /* Espacio entre los campos */
 }
 
 .form-group-estado label {
-    display: block; /* Hace que el label ocupe toda una línea */
-    margin-bottom: 5px; /* Espacio entre el label y el select */
-    font-weight: 500; /* Opcional: para hacer que el label se vea más destacado */
+  display: block; /* Hace que el label ocupe toda una línea */
+  margin-bottom: 5px; /* Espacio entre el label y el select */
+  font-weight: 500; /* Opcional: para hacer que el label se vea más destacado */
 }
 
 .form-group-estado select {
-    padding: 0.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.25rem;
-    font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 1rem;
 }
 
 .numbers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .description-area {
-    margin-bottom: 1.5rem;
-    margin-top: 10px;
+  margin-bottom: 1.5rem;
+  margin-top: 10px;
 }
 
 .description-area textarea {
-    width: 100%;
-    min-height: 100px;
-    resize: vertical;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
 }
 
 .buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 .btn-cancel {
-    background-color: transparent;
-    color: #374151;
+  background-color: transparent;
+  color: #374151;
 }
 
 .btn-update {
-    background-color: #22c55e;
-    color: white;
+  background-color: #22c55e;
+  color: white;
 }
-@media screen and (max-width:1200px) {
-    .numbers-grid{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    }
+@media screen and (max-width: 1200px) {
+  .numbers-grid {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
 }
-@media screen and (max-width:768px) {
-    .numbers-grid{
-        grid-template-columns: 1fr;
-    }
+@media screen and (max-width: 768px) {
+  .numbers-grid {
+    grid-template-columns: 1fr;
+  }
 }
-@media screen and (max-width:460px) {
-    .container{
-        border-radius: 0px;
-    }
-    .form-container{
-        width: 80%;
-        margin: auto;
-    }
-    .form-grid{
-        grid-template-columns: 1fr;
-    }
-    .buttons{
-        flex-direction: column;
-    }
-    .description-area textarea{
-        min-height: 200px;
-    }
-    input{
-        width: 200px;
-    }
+@media screen and (max-width: 460px) {
+  .container {
+    border-radius: 0px;
+  }
+  .form-container {
+    width: 80%;
+    margin: auto;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .description-area textarea {
+    min-height: 200px;
+  }
+  input {
+    width: 200px;
+  }
 }
-@media screen and (max-width:400px) {
-    .form-container{
-        width: 95%;
-    }
+@media screen and (max-width: 400px) {
+  .form-container {
+    width: 95%;
+  }
+}
+
+.back-button {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  margin: 2rem;
 }
