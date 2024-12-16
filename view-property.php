@@ -238,6 +238,14 @@
         imageElement.alt = `Imagen ${currentImageIndex + 1} de la propiedad`;
       }
 
+      if (images.length == 1){
+        let arrowButtons = document.querySelectorAll('.slider-button');
+        arrowButtons.forEach((item) =>{
+          item.style.display = 'none';
+        });
+      }
+
+      // Parte de formato de texto (para que tenga puntos de mil)
       let price = document.getElementById('precio-text').innerText;
       
       let precioFormateado = '';
