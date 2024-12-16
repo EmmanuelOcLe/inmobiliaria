@@ -46,29 +46,29 @@ include_once 'back/session_check.php';
 
                     <div class="form-group">
                         <label for="valor">Valor de la propiedad</label>
-                        <input type="text" id="valor" placeholder="Valor de la propiedad" name="valor_propiedad" required>
+                        <input type="text" id="valor" placeholder="Valor de la propiedad" name="valor_propiedad" class="number-input" required>
                     </div>
                 </div>
 
                 <div class="numbers-grid">
                     <div class="form-group">
                         <label for="habitaciones">Cantidad de Habitaciones</label>
-                        <input type="number" id="habitaciones" min="0" name="habitaciones_cantidad" required>
+                        <input type="number" id="habitaciones" min="0" name="habitaciones_cantidad" class="number-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="banos">Cantidad de Baños</label>
-                        <input type="number" id="banos" min="0" name="baños_cantidad" required>
+                        <input type="number" id="banos" min="0" name="baños_cantidad" class="number-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="parqueo">Zonas de Parqueo</label>
-                        <input type="number" id="parqueo" min="0" name="zonas_parqueo" required>
+                        <input type="number" id="parqueo" min="0" name="zonas_parqueo" class="number-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="area">Área en metros Cuadrados</label>
-                        <input type="text" id="area" placeholder="" name="areas_metros">
+                        <input type="text" id="area" placeholder="" class="number-input" name="areas_metros">
                     </div>
 
                     <div class="form-group">
@@ -101,6 +101,23 @@ include_once 'back/session_check.php';
     </div>
     <?php include('footer.php');?>
     <script>
+
+    let validNumbers = ['1','2','3','4','5','6','7','8','9','0'];
+
+    let numberInputs = document.querySelectorAll('.number-input');
+    
+    numberInputs.forEach((item)=>{
+        item.addEventListener('input',(event)=>{
+            let text = item.value;
+            let textLength = text.length;
+            if (!validNumbers.includes(text[textLength - 1]) && text != ''){
+                alert('Debe ingresar solo números enteros.');
+                item.value = item.value.slice(0, -1);
+            }
+        });
+    });
+
+    
     // fileIn es el elemento HTML del input. Acá cambia 'fileIn' por el id de su input de imagen
     document.getElementById('fotos').addEventListener('change', (event) =>{
       const imgPermitidas = ['image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 'image/png'];

@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 
                         <div class="form-group">
                             <label for="valor">Valor de la propiedad</label>
-                            <input name="valor" type="text" id="valor" 
+                            <input class="number-input" name="valor" type="text" id="valor" 
                                 placeholder="modificar valor de la propiedad" 
                                 value="<?php echo htmlspecialchars($row['precio_inmueble']); ?>">
                         </div>
@@ -91,25 +91,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
                     <div class="numbers-grid">
                         <div class="form-group">
                             <label for="habitaciones">Cantidad de Habitaciones</label>
-                            <input name="habitaciones" type="number" id="habitaciones" 
+                            <input class="number-input" name="habitaciones" type="number" id="habitaciones" 
                                 value="<?php echo intval($row['cantidad_habitaciones']); ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="banos">Cantidad de Baños</label>
-                            <input name="banos" type="number" id="banos" 
+                            <input class="number-input" name="banos" type="number" id="banos" 
                                 value="<?php echo intval($row['cantidad_baños']); ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="parqueo">Zonas de Parqueo</label>
-                            <input name="parqueo" type="number" id="parqueo" 
+                            <input class="number-input" name="parqueo" type="number" id="parqueo" 
                                 value="<?php echo intval($row['zona_parqueo']); ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="area">Área en metros Cuadrados</label>
-                            <input name="area" type="text" id="area" 
+                            <input class="number-input" name="area" type="text" id="area" 
                                 placeholder="modificar Área en m2" 
                                 value="<?php echo htmlspecialchars($row['area']); ?>">
                         </div>
@@ -150,5 +150,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 
         <?php include('footer.php'); ?>
     </div>
+    <script>
+        let validNumbers = ['1','2','3','4','5','6','7','8','9','0'];
+
+        let numberInputs = document.querySelectorAll('.number-input');
+
+        numberInputs.forEach((item)=>{
+            item.addEventListener('input',(event)=>{
+                let text = item.value;
+                let textLength = text.length;
+                if (!validNumbers.includes(text[textLength - 1]) && text != ''){
+                    alert('Debe ingresar solo números enteros.');
+                    item.value = item.value.slice(0, -1);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
