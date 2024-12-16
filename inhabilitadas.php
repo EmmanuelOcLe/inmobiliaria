@@ -1,8 +1,7 @@
 <?php
 include 'back/conection.php';
 include_once 'back/session_check.php';
-$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble, motivo, fecha_actualizacion FROM inmueble WHERE estado = 'deshabilitada'";
-$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble FROM inmueble WHERE estado = 'deshabilitada'";
+$sql = "SELECT id_inmueble, nombre_inmueble, precio_inmueble, fotos_inmueble, motivo, fecha_actualizacion FROM inmueble WHERE estado = 'deshabilitada'";    
 $result = $con->query($sql);
 ?>
 
